@@ -1,0 +1,336 @@
+{
+  "titre": "TV and pop culture",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the name of the fictional detective who lives at 221B Baker Street?",
+      "choices": [
+        "James Bond",
+        "Doctor Who",
+        "Sherlock Holmes",
+        "Hercule Poirot"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What British science-fiction TV series features a time-travelling alien in a blue police box?",
+      "choices": [
+        "Doctor Who",
+        "The X Files",
+        "Sherlock",
+        "Star Trek"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What American sitcom is famous for six friends living in New York, with the theme song 'I'll Be There for You'?",
+      "choices": [
+        "Seinfeld",
+        "The Big Bang Theory",
+        "Friends",
+        "How I Met Your Mother"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What fantasy TV series is based on George R.R. Martin's novels and features dragons?",
+      "choices": [
+        "The Witcher",
+        "Vikings",
+        "Merlin",
+        "Game of Thrones"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What talent show format, created in the UK, looks for the best singer, with judges and public votes?",
+      "choices": [
+        "MasterChef",
+        "Big Brother",
+        "Survivor",
+        "The X Factor / Got Talent format"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What cooking competition show, with a similar format around the world, tests amateur chefs?",
+      "choices": [
+        "The X Factor",
+        "MasterChef",
+        "Big Brother",
+        "Survivor"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the fictional yellow sponge who lives in a pineapple under the sea?",
+      "choices": [
+        "SpongeBob SquarePants",
+        "Squidward",
+        "Patrick Star",
+        "Mr Krabs"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What long-running British soap opera is set in the fictional Albert Square in London?",
+      "choices": [
+        "Coronation Street",
+        "Hollyoaks",
+        "Emmerdale",
+        "EastEnders"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What American animated sitcom features the Simpson family living in Springfield?",
+      "choices": [
+        "The Simpsons",
+        "South Park",
+        "Bob's Burgers",
+        "Family Guy"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the wizard boy at the centre of J.K. Rowling's story, also a film series?",
+      "choices": [
+        "Percy Jackson",
+        "Peter Pan",
+        "Harry Potter",
+        "Frodo Baggins"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is a TV programme called that follows real, unscripted people in everyday or created situations?",
+      "choices": [
+        "a documentary only",
+        "a reality show",
+        "a soap opera",
+        "a sitcom"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a TV series with a continuing story, often shown daily, like EastEnders?",
+      "choices": [
+        "a reality show",
+        "a soap opera",
+        "a documentary",
+        "a game show"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a funny TV series with regular characters, like Friends or The Simpsons?",
+      "choices": [
+        "a documentary",
+        "a soap opera",
+        "a sitcom (situation comedy)",
+        "a drama"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which social media platform is famous for short videos and became very popular with teenagers?",
+      "choices": [
+        "LinkedIn",
+        "TikTok",
+        "Pinterest",
+        "Reddit"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which streaming service produced 'Stranger Things'?",
+      "choices": [
+        "Amazon Prime Video",
+        "Netflix",
+        "Disney+",
+        "Apple TV+"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who has millions of followers online and shares content regularly?",
+      "choices": [
+        "a moderator",
+        "an influencer",
+        "a subscriber",
+        "a broadcaster"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What video game character is a famous Italian plumber created by Nintendo?",
+      "choices": [
+        "Mario",
+        "Link",
+        "Sonic",
+        "Pikachu"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What video game franchise features a blue hedgehog that runs very fast?",
+      "choices": [
+        "Sonic the Hedgehog",
+        "Mario",
+        "Kirby",
+        "Pac-Man"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the popular building and survival video game where players mine blocks?",
+      "choices": [
+        "Minecraft",
+        "Terraria",
+        "Fortnite",
+        "Roblox"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What popular online game features a battle royale where the last player standing wins?",
+      "choices": [
+        "Fortnite",
+        "Minecraft",
+        "Roblox",
+        "Among Us"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who plays and records video games to share online?",
+      "choices": [
+        "a designer only",
+        "a coder only",
+        "a developer only",
+        "a streamer / gamer"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the fictional wizarding sport played on broomsticks in Harry Potter?",
+      "choices": [
+        "Quidditch",
+        "Sky ball",
+        "Foot-broom",
+        "Wand Cup"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a famous person who is very well known to the public, like a singer or actor?",
+      "choices": [
+        "a celebrity",
+        "a stranger",
+        "a resident",
+        "a citizen"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does the abbreviation 'TV' stand for?",
+      "choices": [
+        "television",
+        "total vision",
+        "transmitted video",
+        "technical video"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the term for news, gossip and stories about famous people?",
+      "choices": [
+        "sports news",
+        "weather news",
+        "celebrity gossip / showbiz news",
+        "breaking news only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the short video clips used to advertise a film before its release?",
+      "choices": [
+        "a sequel",
+        "a trailer",
+        "a rerun",
+        "a spin-off"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a new film or show that continues the story of an earlier one?",
+      "choices": [
+        "a prequel only",
+        "a trailer",
+        "a sequel",
+        "a rerun"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a story that happens before the events of the original film, explaining the background?",
+      "choices": [
+        "a sequel",
+        "a trailer",
+        "a spin-off only",
+        "a prequel"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the popular British TV cooking show hosted in a tent, called 'The Great British...'?",
+      "choices": [
+        "Bake Off",
+        "Cook Off",
+        "MasterChef",
+        "Chef's Table"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the term for a very popular song, film or trend that everyone is talking about?",
+      "choices": [
+        "a hit / a viral trend",
+        "a flop",
+        "an original",
+        "a classic only"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

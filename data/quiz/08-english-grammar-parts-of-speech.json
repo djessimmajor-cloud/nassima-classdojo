@@ -1,0 +1,336 @@
+{
+  "titre": "English grammar: parts of speech",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "In the sentence 'The dog runs fast', what type of word is 'dog'?",
+      "choices": [
+        "an adjective",
+        "a noun",
+        "a verb",
+        "an adverb"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the sentence 'The dog runs fast', what type of word is 'runs'?",
+      "choices": [
+        "a preposition",
+        "an adjective",
+        "a verb",
+        "a noun"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In the sentence 'The dog runs fast', what type of word is 'fast'?",
+      "choices": [
+        "a verb",
+        "an adverb",
+        "a conjunction",
+        "a noun"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word is an adjective in 'a beautiful garden'?",
+      "choices": [
+        "in",
+        "a",
+        "beautiful",
+        "garden"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which word class describes an action or a state?",
+      "choices": [
+        "a noun",
+        "a verb",
+        "an adjective",
+        "a pronoun"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word class replaces a noun, like 'he', 'she', 'it'?",
+      "choices": [
+        "an article",
+        "a noun",
+        "an adjective",
+        "a pronoun"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which word class links two clauses, like 'and', 'but', 'because'?",
+      "choices": [
+        "an interjection",
+        "a conjunction",
+        "a preposition",
+        "a pronoun"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word class shows a relationship of place or time, like 'in', 'on', 'under'?",
+      "choices": [
+        "a preposition",
+        "an adverb",
+        "a conjunction",
+        "an article"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which words are articles in English?",
+      "choices": [
+        "and, but, or",
+        "in, on, at",
+        "he, she, it",
+        "a, an, the"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a word that describes a noun, like 'happy' or 'blue'?",
+      "choices": [
+        "an adverb",
+        "a pronoun",
+        "an adjective",
+        "a verb"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a word that describes a verb, an adjective or another adverb?",
+      "choices": [
+        "a noun",
+        "a pronoun",
+        "an adjective",
+        "an adverb"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In 'She quickly closed the door', which word is the adverb?",
+      "choices": [
+        "quickly",
+        "door",
+        "closed",
+        "the"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In 'They live in a small house', which word is the noun 'house' describing?",
+      "choices": [
+        "a feeling",
+        "the place they live",
+        "an action",
+        "a person"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which of these is a proper noun?",
+      "choices": [
+        "country",
+        "house",
+        "London",
+        "city"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which of these is a common noun?",
+      "choices": [
+        "book",
+        "London",
+        "Monday",
+        "Paris"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the subject in 'The teacher explains the lesson'?",
+      "choices": [
+        "the lesson",
+        "explains",
+        "the",
+        "the teacher"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the object in 'The teacher explains the lesson'?",
+      "choices": [
+        "explains",
+        "the lesson",
+        "the teacher",
+        "the"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word shows a strong feeling, like 'Wow!' or 'Ouch!'?",
+      "choices": [
+        "a conjunction",
+        "a preposition",
+        "an article",
+        "an interjection"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What type of word is 'this' in 'this book is mine'?",
+      "choices": [
+        "an interjection",
+        "a determiner (demonstrative)",
+        "a preposition",
+        "a verb"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What type of noun cannot be counted, like 'water' or 'information'?",
+      "choices": [
+        "a countable noun",
+        "a proper noun",
+        "an uncountable noun",
+        "a collective noun"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a noun for a group, like 'team' or 'family'?",
+      "choices": [
+        "a proper noun",
+        "an abstract noun",
+        "a common noun",
+        "a collective noun"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a noun for an idea or feeling, like 'happiness' or 'freedom'?",
+      "choices": [
+        "a collective noun",
+        "a concrete noun",
+        "a proper noun",
+        "an abstract noun"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In 'I gave her a present', which word is a pronoun?",
+      "choices": [
+        "her",
+        "a",
+        "present",
+        "gave"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the plural of the noun 'child'?",
+      "choices": [
+        "childs",
+        "children",
+        "childes",
+        "childrens"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the comparative form of the adjective 'good'?",
+      "choices": [
+        "best",
+        "gooder",
+        "more good",
+        "better"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which sentence uses a preposition correctly?",
+      "choices": [
+        "The cat is under the table.",
+        "Under the cat table.",
+        "The under cat is table.",
+        "The cat is under."
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the past participle of the verb 'to see'?",
+      "choices": [
+        "seeing",
+        "seen",
+        "seed",
+        "saw"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word is a conjunction in 'I like tea but not coffee'?",
+      "choices": [
+        "coffee",
+        "like",
+        "tea",
+        "but"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What type of sentence is 'Close the door, please'?",
+      "choices": [
+        "an imperative sentence",
+        "an exclamation",
+        "a question",
+        "a statement"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What type of sentence is 'What a lovely day!'?",
+      "choices": [
+        "an imperative sentence",
+        "an exclamative sentence",
+        "a statement",
+        "a question"
+      ],
+      "correct": 1,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "Art and music",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Who painted the Mona Lisa?",
+      "choices": [
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Vincent van Gogh",
+        "Michelangelo"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who painted 'The Starry Night'?",
+      "choices": [
+        "Vincent van Gogh",
+        "Salvador Dali",
+        "Leonardo da Vinci",
+        "Claude Monet"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which Spanish artist is famous for the painting style called Cubism?",
+      "choices": [
+        "Diego Rivera",
+        "Salvador Dali",
+        "Pablo Picasso",
+        "Francisco Goya"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many strings does a standard violin have?",
+      "choices": [
+        "four",
+        "eight",
+        "five",
+        "six"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How many keys are there on a standard piano?",
+      "choices": [
+        "100",
+        "64",
+        "76",
+        "88"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a group of musicians who play classical music together?",
+      "choices": [
+        "a choir",
+        "a band",
+        "an orchestra",
+        "a duo"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a group of singers who sing together?",
+      "choices": [
+        "an orchestra",
+        "a soloist",
+        "a choir",
+        "a band"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which famous composer became deaf but continued writing music?",
+      "choices": [
+        "Ludwig van Beethoven",
+        "Frederic Chopin",
+        "Wolfgang Amadeus Mozart",
+        "Johann Sebastian Bach"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which musical instrument has black and white keys?",
+      "choices": [
+        "the violin",
+        "the piano",
+        "the drum",
+        "the flute"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which instrument is played by blowing air and using keys, often silver-coloured?",
+      "choices": [
+        "the flute",
+        "the piano",
+        "the cello",
+        "the drum"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name for a painting of oneself?",
+      "choices": [
+        "a mural",
+        "a self-portrait",
+        "a landscape",
+        "a still life"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a painting of fruit, flowers or objects arranged on a table?",
+      "choices": [
+        "a landscape",
+        "a portrait",
+        "a mural",
+        "a still life"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a large painting made directly on a wall?",
+      "choices": [
+        "a sculpture",
+        "a sketch",
+        "a portrait",
+        "a mural"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which art movement is Vincent van Gogh most associated with?",
+      "choices": [
+        "Post-Impressionism",
+        "Surrealism",
+        "Cubism",
+        "Renaissance art"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which British band became famous in the 1960s with songs like 'Let It Be'?",
+      "choices": [
+        "Queen",
+        "The Rolling Stones",
+        "The Beatles",
+        "Pink Floyd"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who composed 'The Four Seasons'?",
+      "choices": [
+        "Wolfgang Amadeus Mozart",
+        "Franz Schubert",
+        "Antonio Vivaldi",
+        "Johann Sebastian Bach"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the highest female singing voice called?",
+      "choices": [
+        "bass",
+        "soprano",
+        "tenor",
+        "alto"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the lowest male singing voice called?",
+      "choices": [
+        "bass",
+        "alto",
+        "tenor",
+        "soprano"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call music written to be danced to in a ballet?",
+      "choices": [
+        "an opera",
+        "a ballet score",
+        "a concerto only",
+        "a symphony only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What kind of instrument is a drum?",
+      "choices": [
+        "a wind instrument",
+        "a percussion instrument",
+        "a brass instrument",
+        "a string instrument"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What kind of instrument is a trumpet?",
+      "choices": [
+        "a percussion instrument",
+        "a brass instrument",
+        "a woodwind instrument",
+        "a string instrument"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What kind of instrument is a guitar?",
+      "choices": [
+        "a woodwind instrument",
+        "a percussion instrument",
+        "a brass instrument",
+        "a string instrument"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which famous sculptor created the statue of David?",
+      "choices": [
+        "Rodin",
+        "Michelangelo",
+        "Donatello",
+        "Leonardo da Vinci"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which city is home to the famous art museum called the Louvre?",
+      "choices": [
+        "Rome",
+        "Madrid",
+        "London",
+        "Paris"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What art technique uses small coloured stones or glass to make pictures?",
+      "choices": [
+        "engraving",
+        "collage",
+        "mosaic",
+        "fresco"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the art of beautiful handwriting called?",
+      "choices": [
+        "calligraphy",
+        "typography",
+        "sketching",
+        "engraving"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which art period (14th-17th century) saw a 'rebirth' of classical art in Europe?",
+      "choices": [
+        "Romanticism",
+        "Modernism",
+        "the Renaissance",
+        "the Baroque period"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which composer wrote 'Symphony No. 5' with a famous four-note opening?",
+      "choices": [
+        "Franz Joseph Haydn",
+        "Ludwig van Beethoven",
+        "Wolfgang Amadeus Mozart",
+        "Johannes Brahms"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is a person who plays music alone on stage called?",
+      "choices": [
+        "a choir",
+        "a composer",
+        "a conductor",
+        "a soloist"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the person who directs an orchestra?",
+      "choices": [
+        "a conductor",
+        "a soloist",
+        "a producer",
+        "a composer"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "British culture",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the capital city of the United Kingdom?",
+      "choices": [
+        "London",
+        "Edinburgh",
+        "Cardiff",
+        "Manchester"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the famous clock tower at the Houses of Parliament in London?",
+      "choices": [
+        "Buckingham Palace",
+        "Tower Bridge",
+        "The London Eye",
+        "Big Ben"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What river flows through London?",
+      "choices": [
+        "the Thames",
+        "the Avon",
+        "the Clyde",
+        "the Severn"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the currency of the United Kingdom?",
+      "choices": [
+        "the dollar",
+        "the pound sterling",
+        "the franc",
+        "the euro"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many nations make up the United Kingdom?",
+      "choices": [
+        "two",
+        "three",
+        "five",
+        "four"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the traditional flag of the United Kingdom called?",
+      "choices": [
+        "the Union Jack",
+        "the Tricolour",
+        "the Maple Leaf",
+        "the Stars and Stripes"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the official residence of the British monarch in London?",
+      "choices": [
+        "Buckingham Palace",
+        "Kensington Palace",
+        "10 Downing Street",
+        "Windsor Castle"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the title of the head of the British government?",
+      "choices": [
+        "the Chancellor",
+        "the Prime Minister",
+        "the President",
+        "the Governor"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What sport, played with a bat and ball, is very traditional in England?",
+      "choices": [
+        "cricket",
+        "rugby",
+        "hockey",
+        "baseball"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What drink is traditionally served with milk at around 5pm in Britain?",
+      "choices": [
+        "coffee",
+        "hot chocolate",
+        "juice",
+        "tea"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the London Underground railway system?",
+      "choices": [
+        "the Rail",
+        "the Metro",
+        "the Tube",
+        "the Subway"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the big wheel next to the River Thames in London?",
+      "choices": [
+        "Big Ben",
+        "Tower Bridge",
+        "the London Eye",
+        "the Shard"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which famous playwright was born in Stratford-upon-Avon?",
+      "choices": [
+        "William Shakespeare",
+        "George Orwell",
+        "Oscar Wilde",
+        "Charles Dickens"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the day after Christmas Day in the UK?",
+      "choices": [
+        "Easter Monday",
+        "Boxing Day",
+        "Halloween",
+        "New Year's Day"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital of Scotland?",
+      "choices": [
+        "Edinburgh",
+        "Cardiff",
+        "Glasgow",
+        "London"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital of Wales?",
+      "choices": [
+        "Cardiff",
+        "Edinburgh",
+        "Belfast",
+        "London"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the highest mountain in the United Kingdom?",
+      "choices": [
+        "Ben Nevis",
+        "Ben Lomond",
+        "Snowdon",
+        "Scafell Pike"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What famous bridge crosses the River Thames near the Tower of London?",
+      "choices": [
+        "Waterloo Bridge",
+        "Millennium Bridge",
+        "London Bridge",
+        "Tower Bridge"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What author wrote the Harry Potter series, set partly in Britain?",
+      "choices": [
+        "J.K. Rowling",
+        "Arthur Conan Doyle",
+        "Roald Dahl",
+        "C.S. Lewis"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the traditional British Sunday meal called, with roast meat and vegetables?",
+      "choices": [
+        "a Sunday roast",
+        "fish and chips",
+        "afternoon tea",
+        "a full English breakfast"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the guards who wear red uniforms and tall black hats at Buckingham Palace?",
+      "choices": [
+        "the Household only",
+        "the Beefeaters only",
+        "the King's/Queen's Guard",
+        "the Royal Police"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What British festival takes place near Halloween with fireworks, remembering a plot to blow up Parliament?",
+      "choices": [
+        "May Day",
+        "Remembrance Day",
+        "Boxing Day",
+        "Bonfire Night (Guy Fawkes Night)"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the national emblem (flower) of England?",
+      "choices": [
+        "the rose",
+        "the thistle",
+        "the shamrock",
+        "the daffodil"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the national emblem (flower) of Scotland?",
+      "choices": [
+        "the shamrock",
+        "the thistle",
+        "the daffodil",
+        "the rose"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the national emblem (flower) of Wales?",
+      "choices": [
+        "the shamrock",
+        "the thistle",
+        "the rose",
+        "the daffodil"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the famous British music and arts festival held near Glastonbury?",
+      "choices": [
+        "Lollapalooza",
+        "Tomorrowland",
+        "Coachella",
+        "Glastonbury Festival"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which side of the road do people drive on in the UK?",
+      "choices": [
+        "the right",
+        "either side",
+        "the middle",
+        "the left"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is a traditional British sweet treat eaten with jam and cream, similar to a small bread roll?",
+      "choices": [
+        "a crumpet",
+        "a scone",
+        "a biscuit",
+        "a muffin"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What famous London museum houses the Rosetta Stone?",
+      "choices": [
+        "the National Gallery",
+        "the British Museum",
+        "the Tate Modern",
+        "the Science Museum"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who is the reigning monarch of the United Kingdom since 2022?",
+      "choices": [
+        "Queen Elizabeth II",
+        "King George VI",
+        "King William V",
+        "King Charles III"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "Space and the solar system",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "How many planets are there in our solar system?",
+      "choices": [
+        "seven",
+        "ten",
+        "nine",
+        "eight"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "choices": [
+        "Venus",
+        "Jupiter",
+        "Mercury",
+        "Mars"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which is the largest planet in our solar system?",
+      "choices": [
+        "Earth",
+        "Saturn",
+        "Jupiter",
+        "Neptune"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "choices": [
+        "Mars",
+        "Venus",
+        "Earth",
+        "Mercury"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which planet is known for its beautiful rings?",
+      "choices": [
+        "Saturn",
+        "Jupiter",
+        "Uranus",
+        "Neptune"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the natural satellite of the Earth?",
+      "choices": [
+        "the Sun",
+        "the Moon",
+        "Titan",
+        "Mars"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is at the centre of our solar system?",
+      "choices": [
+        "the Moon",
+        "the Sun",
+        "a black hole",
+        "the Earth"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a large rock that orbits the Sun between Mars and Jupiter?",
+      "choices": [
+        "an asteroid",
+        "a meteor",
+        "a satellite",
+        "a comet"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a star that suddenly explodes at the end of its life?",
+      "choices": [
+        "a comet",
+        "a nebula",
+        "a galaxy",
+        "a supernova"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of our galaxy?",
+      "choices": [
+        "the Solar System",
+        "Andromeda",
+        "Orion",
+        "the Milky Way"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who was the first man to walk on the Moon?",
+      "choices": [
+        "Buzz Aldrin",
+        "Yuri Gagarin",
+        "Neil Armstrong",
+        "John Glenn"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country's space agency sent the first human into space?",
+      "choices": [
+        "Japan",
+        "the United States",
+        "China",
+        "the Soviet Union (Russia)"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who travels into space?",
+      "choices": [
+        "a pilot",
+        "an astronaut",
+        "a cosmonaut only",
+        "a scientist only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How long does it take the Earth to go around the Sun?",
+      "choices": [
+        "ten years",
+        "one month",
+        "one year",
+        "one day"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How long does it take the Earth to spin once on its axis?",
+      "choices": [
+        "one week",
+        "one hour",
+        "one day (24 hours)",
+        "one year"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What causes day and night on Earth?",
+      "choices": [
+        "the Sun's movement",
+        "the Moon's orbit",
+        "the Earth's rotation",
+        "the seasons"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of NASA's space agency's country?",
+      "choices": [
+        "the United States",
+        "Germany",
+        "the United Kingdom",
+        "Russia"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which planet is often called Earth's twin because of its size?",
+      "choices": [
+        "Mercury",
+        "Neptune",
+        "Venus",
+        "Mars"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the path a planet follows around the Sun?",
+      "choices": [
+        "a satellite",
+        "an orbit",
+        "a comet",
+        "an axis"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is a shooting star actually?",
+      "choices": [
+        "a comet's tail",
+        "a distant star",
+        "a planet",
+        "a meteor burning in the atmosphere"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call ice and dust that orbit the Sun with a bright tail?",
+      "choices": [
+        "a planet",
+        "a meteor",
+        "an asteroid",
+        "a comet"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which planet is the coldest in our solar system?",
+      "choices": [
+        "Venus",
+        "Mercury",
+        "Neptune",
+        "Mars"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which is the smallest planet in our solar system?",
+      "choices": [
+        "Venus",
+        "Pluto",
+        "Mars",
+        "Mercury"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the telescope launched into space that takes famous pictures of the universe?",
+      "choices": [
+        "the Voyager Camera",
+        "the Hubble Space Telescope",
+        "the Apollo Lens",
+        "the Kepler Rover"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do astronauts wear outside their spacecraft?",
+      "choices": [
+        "a diving suit",
+        "a wetsuit",
+        "a spacesuit",
+        "a jumpsuit"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the force that keeps us on the ground?",
+      "choices": [
+        "magnetism",
+        "gravity",
+        "pressure",
+        "friction"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many moons does Earth have?",
+      "choices": [
+        "two",
+        "four",
+        "zero",
+        "one"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the space station where astronauts live and work?",
+      "choices": [
+        "the International Space Station (ISS)",
+        "Mir only",
+        "Skylab only",
+        "Apollo 11"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which planet has the most moons in our solar system?",
+      "choices": [
+        "Earth",
+        "Saturn",
+        "Mars",
+        "Jupiter"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a scientist who studies stars and space?",
+      "choices": [
+        "a chemist",
+        "a biologist",
+        "a geologist",
+        "an astronomer"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

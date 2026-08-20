@@ -1,0 +1,336 @@
+{
+  "titre": "Cinema and famous films",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Who directed the 'Star Wars' film saga?",
+      "choices": [
+        "Peter Jackson",
+        "Steven Spielberg",
+        "George Lucas",
+        "James Cameron"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who directed 'Jurassic Park' and 'E.T.'?",
+      "choices": [
+        "George Lucas",
+        "James Cameron",
+        "Christopher Nolan",
+        "Steven Spielberg"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which studio created 'Toy Story' and 'Finding Nemo'?",
+      "choices": [
+        "DreamWorks",
+        "Pixar",
+        "Disney Animation",
+        "Warner Bros"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who played the character of Harry Potter in the film series?",
+      "choices": [
+        "Matthew Lewis",
+        "Tom Felton",
+        "Daniel Radcliffe",
+        "Rupert Grint"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which actor played Iron Man in the Marvel films?",
+      "choices": [
+        "Chris Hemsworth",
+        "Robert Downey Jr.",
+        "Chris Evans",
+        "Mark Ruffalo"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which film studio is famous for the character Mickey Mouse?",
+      "choices": [
+        "Warner Bros",
+        "Universal",
+        "Disney",
+        "Pixar"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the fictional ship that sinks in the film 'Titanic'?",
+      "choices": [
+        "the RMS Britannic",
+        "the Lusitania",
+        "the Queen Mary",
+        "the RMS Titanic"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who directed 'Titanic' and 'Avatar'?",
+      "choices": [
+        "Christopher Nolan",
+        "James Cameron",
+        "George Lucas",
+        "Steven Spielberg"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the wizarding school in the Harry Potter films?",
+      "choices": [
+        "Beauxbatons",
+        "Durmstrang",
+        "Hogwarts",
+        "Ilvermorny"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which animated film features a snowman called Olaf?",
+      "choices": [
+        "Moana",
+        "Encanto",
+        "Tangled",
+        "Frozen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which superhero is also known as 'the Dark Knight'?",
+      "choices": [
+        "the Flash",
+        "Batman",
+        "Superman",
+        "Spider-Man"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which animated film franchise features a green ogre?",
+      "choices": [
+        "Kung Fu Panda",
+        "Madagascar",
+        "Ice Age",
+        "Shrek"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which British actor played James Bond in the most recent films before 2021?",
+      "choices": [
+        "Pierce Brosnan",
+        "Sean Connery",
+        "Daniel Craig",
+        "Roger Moore"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the highest award given for films at the Oscars ceremony?",
+      "choices": [
+        "a Golden Globe",
+        "a Grammy",
+        "Best Picture (an Academy Award)",
+        "a BAFTA"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country hosts the famous Cannes Film Festival?",
+      "choices": [
+        "Italy",
+        "the United Kingdom",
+        "the United States",
+        "France"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which studio produced 'The Lion King' and 'Aladdin'?",
+      "choices": [
+        "Disney",
+        "Pixar",
+        "DreamWorks",
+        "Universal"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who played Katniss Everdeen in 'The Hunger Games'?",
+      "choices": [
+        "Jennifer Lawrence",
+        "Shailene Woodley",
+        "Emma Watson",
+        "Kristen Stewart"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the young lion prince in Disney's 'The Lion King'?",
+      "choices": [
+        "Nala",
+        "Simba",
+        "Mufasa",
+        "Timon"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which film series features the character Frodo Baggins?",
+      "choices": [
+        "Star Wars",
+        "The Lord of the Rings",
+        "The Chronicles of Narnia",
+        "Harry Potter"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which actor is famous for playing Jack Sparrow in 'Pirates of the Caribbean'?",
+      "choices": [
+        "Javier Bardem",
+        "Orlando Bloom",
+        "Geoffrey Rush",
+        "Johnny Depp"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What genre is a film that is meant to make you scared?",
+      "choices": [
+        "a horror film",
+        "a documentary",
+        "a comedy",
+        "a musical"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What genre is a film that tells a true story about real events?",
+      "choices": [
+        "a horror film",
+        "a documentary",
+        "a fantasy film",
+        "a musical"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the person who writes the story and dialogue of a film?",
+      "choices": [
+        "an editor",
+        "a director",
+        "a producer",
+        "a screenwriter"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the person in charge of making all the artistic decisions in a film?",
+      "choices": [
+        "an actor",
+        "a director",
+        "a producer",
+        "a screenwriter"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What animated studio created 'Shrek' and 'Kung Fu Panda'?",
+      "choices": [
+        "Disney",
+        "DreamWorks",
+        "Pixar",
+        "Studio Ghibli"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which Japanese animation studio created 'Spirited Away'?",
+      "choices": [
+        "Disney",
+        "Pixar",
+        "DreamWorks",
+        "Studio Ghibli"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which superhero team includes Iron Man, Captain America and Thor?",
+      "choices": [
+        "the Avengers",
+        "the Justice League",
+        "the Fantastic Four",
+        "the X-Men"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which superhero team includes Batman, Superman and Wonder Woman?",
+      "choices": [
+        "the Justice League",
+        "the Avengers",
+        "the X-Men",
+        "the Guardians of the Galaxy"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the award ceremony often called 'the Oscars'?",
+      "choices": [
+        "the BAFTAs",
+        "the Golden Globes",
+        "the Grammys",
+        "the Academy Awards"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which film features a boy who befriends an alien and helps him go home, directed by Spielberg?",
+      "choices": [
+        "Star Wars",
+        "E.T. the Extra-Terrestrial",
+        "Jurassic Park",
+        "Back to the Future"
+      ],
+      "correct": 1,
+      "explication": ""
+    }
+  ]
+}

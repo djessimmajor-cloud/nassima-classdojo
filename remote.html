@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz à distance — élève</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px;}
+  .remote-card{max-width:420px;width:100%;background:var(--surface);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+  .remote-choice{display:block;width:100%;padding:18px;margin:10px 0;font-size:1.1rem;border-radius:12px;border:none;cursor:pointer;color:#fff;font-weight:700;}
+  .rc0{background:#e21b3c}.rc1{background:#1368ce}.rc2{background:#d89e00}.rc3{background:#26890c}
+</style>
+</head>
+<body data-theme="normal">
+<div class="remote-card">
+  <h2><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/><path d="M8 9h8M8 13h5"/></svg> Rejoindre le quiz</h2>
+  <div id="joinBox">
+    <label>Code de la partie
+      <input id="codeInput" type="text" placeholder="ex: cdp-ab12cd">
+    </label>
+    <label>Ton prénom
+      <input id="pseudoInput" type="text" placeholder="Ton prénom">
+    </label>
+    <button class="btn btn-primary" id="joinBtn" style="width:100%;margin-top:10px;">Rejoindre</button>
+    <p id="joinMsg" class="hint"></p>
+  </div>
+  <div id="playBox" style="display:none;">
+    <p id="statusMsg" class="hint">Connecté ! En attente de la question…</p>
+    <div id="questionZone"></div>
+  </div>
+</div>
+<footer class="app-signature">Créé par Djess — vous avez intérêt à tout donner</footer>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script>
+const params = new URLSearchParams(location.search);
+const codeInput = document.getElementById('codeInput');
+const pseudoInput = document.getElementById('pseudoInput');
+if (params.get('code')) codeInput.value = params.get('code');
+
+let peer, conn;
+document.getElementById('joinBtn').addEventListener('click', () => {
+  const code = codeInput.value.trim();
+  const pseudo = pseudoInput.value.trim() || 'Élève';
+  const msg = document.getElementById('joinMsg');
+  if (!code) { msg.textContent = 'Entre le code donné par ton professeur.'; return; }
+  if (typeof Peer === 'undefined') { msg.textContent = "Impossible de charger la connexion (pas d'internet ?)."; return; }
+  msg.textContent = 'Connexion en cours…';
+  peer = new Peer();
+  peer.on('open', () => {
+    conn = peer.connect(code, { reliable: true });
+    conn.on('open', () => {
+      conn.send({ type: 'join', pseudo });
+      document.getElementById('joinBox').style.display = 'none';
+      document.getElementById('playBox').style.display = 'block';
+    });
+    conn.on('data', (data) => handleData(data));
+    conn.on('close', () => { document.getElementById('statusMsg').textContent = 'Connexion perdue.'; });
+  });
+  peer.on('error', (err) => { msg.textContent = 'Erreur de connexion : ' + err.type + '. Le code est-il correct ?'; });
+});
+
+function handleData(data) {
+  const zone = document.getElementById('questionZone');
+  const status = document.getElementById('statusMsg');
+  if (data.type === 'question') {
+    status.textContent = 'Question ' + (data.num) + ' / ' + data.total;
+    zone.innerHTML = '';
+    const colors = ['rc0','rc1','rc2','rc3'];
+    data.choices.forEach((c, i) => {
+      const b = document.createElement('button');
+      b.className = 'remote-choice ' + colors[i % 4];
+      b.textContent = c;
+      const t0 = Date.now();
+      b.addEventListener('click', () => {
+        conn.send({ type: 'answer', choiceIndex: i, timeMs: Date.now() - t0 });
+        zone.querySelectorAll('button').forEach(btn => btn.disabled = true);
+        status.textContent = 'Réponse envoyée ! En attente de la suite…';
+      });
+      zone.appendChild(b);
+    });
+  } else if (data.type === 'reveal') {
+    status.textContent = data.correctText ? ('Bonne réponse : ' + data.correctText) : 'Résultat affiché au tableau.';
+  } else if (data.type === 'end') {
+    status.textContent = 'Quiz terminé ! Regarde le tableau pour le classement.';
+    zone.innerHTML = '';
+  }
+}
+</script>
+</body>
+</html>

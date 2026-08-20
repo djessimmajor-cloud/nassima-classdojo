@@ -1,0 +1,336 @@
+{
+  "titre": "American culture",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the capital city of the United States?",
+      "choices": [
+        "New York",
+        "Washington, D.C.",
+        "Los Angeles",
+        "Chicago"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many states are there in the United States?",
+      "choices": [
+        "forty-eight",
+        "forty",
+        "fifty-two",
+        "fifty"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the currency of the United States?",
+      "choices": [
+        "the euro",
+        "the peso",
+        "the pound",
+        "the dollar"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the American flag?",
+      "choices": [
+        "Old Glory only",
+        "the Maple Leaf",
+        "the Union Jack",
+        "the Stars and Stripes"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Where is the Statue of Liberty located?",
+      "choices": [
+        "New York",
+        "Washington, D.C.",
+        "Philadelphia",
+        "Boston"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What date do Americans celebrate their independence?",
+      "choices": [
+        "the 11th of November",
+        "the 14th of July",
+        "the 4th of July",
+        "the 1st of January"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the official residence of the President of the United States?",
+      "choices": [
+        "the Pentagon",
+        "Camp David",
+        "the Capitol",
+        "the White House"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the traditional main dish eaten at Thanksgiving?",
+      "choices": [
+        "chicken",
+        "turkey",
+        "fish",
+        "beef"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What city is nicknamed 'the Big Apple'?",
+      "choices": [
+        "Los Angeles",
+        "New York",
+        "Chicago",
+        "Miami"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the American legislative body?",
+      "choices": [
+        "the House only",
+        "the Senate only",
+        "Parliament",
+        "Congress"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which American festival takes place on the last Thursday of October with pumpkins and costumes?",
+      "choices": [
+        "Thanksgiving",
+        "Independence Day",
+        "Halloween",
+        "Labor Day"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which American state is famous for Hollywood and the film industry?",
+      "choices": [
+        "Texas",
+        "California",
+        "Florida",
+        "New York"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the longest river in the United States?",
+      "choices": [
+        "the Hudson",
+        "the Mississippi",
+        "the Colorado",
+        "the Rio Grande"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What sport, played with an oval-shaped ball, is extremely popular in the USA?",
+      "choices": [
+        "cricket",
+        "soccer",
+        "rugby",
+        "American football"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is a secondary school in the United States usually called?",
+      "choices": [
+        "secondary house",
+        "grammar school",
+        "high school",
+        "college"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which president is shown on the one-dollar bill?",
+      "choices": [
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "George Washington",
+        "Benjamin Franklin"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which city is known as America's financial capital, home to Wall Street?",
+      "choices": [
+        "Washington, D.C.",
+        "Boston",
+        "Chicago",
+        "New York"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the famous canyon located in Arizona called?",
+      "choices": [
+        "the Red Canyon",
+        "the Great Canyon",
+        "the Big Canyon",
+        "the Grand Canyon"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the official language of the United States, used in daily life?",
+      "choices": [
+        "French",
+        "German",
+        "Spanish",
+        "English"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which American president is known for ending slavery in the country?",
+      "choices": [
+        "George Washington",
+        "Abraham Lincoln",
+        "John F. Kennedy",
+        "Theodore Roosevelt"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which mountain range is located in the western United States?",
+      "choices": [
+        "the Appalachians only",
+        "the Andes",
+        "the Alps",
+        "the Rocky Mountains"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which city is famous for jazz music and is located in Louisiana?",
+      "choices": [
+        "Austin",
+        "Memphis",
+        "Nashville",
+        "New Orleans"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the federal law enforcement agency of the United States?",
+      "choices": [
+        "the FBI",
+        "the CIA only",
+        "Scotland Yard",
+        "MI6"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is a traditional American dessert made with apples and pastry?",
+      "choices": [
+        "cheesecake",
+        "doughnut",
+        "brownie",
+        "apple pie"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which technology area in California is famous for computer and internet companies?",
+      "choices": [
+        "Motor City",
+        "the Gold Coast",
+        "the Tech Triangle",
+        "Silicon Valley"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do Americans call the process used to elect the president through state representatives?",
+      "choices": [
+        "the Federal College",
+        "the House College",
+        "the Senate College",
+        "the Electoral College"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which US state is the largest by area?",
+      "choices": [
+        "Texas",
+        "Alaska",
+        "Montana",
+        "California"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the famous baseball stadium tradition of eating a foot-long sausage snack?",
+      "choices": [
+        "a burger",
+        "a hot dog",
+        "a pretzel only",
+        "popcorn only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which mountain in South Dakota has the faces of four presidents carved into it?",
+      "choices": [
+        "Mount Rushmore",
+        "Pike's Peak",
+        "the Grand Canyon",
+        "Mount McKinley"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who was the first person to walk on the Moon, an American astronaut?",
+      "choices": [
+        "Buzz Aldrin",
+        "Neil Armstrong",
+        "John Glenn",
+        "Alan Shepard"
+      ],
+      "correct": 1,
+      "explication": ""
+    }
+  ]
+}

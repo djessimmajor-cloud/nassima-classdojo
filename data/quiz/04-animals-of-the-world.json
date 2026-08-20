@@ -1,0 +1,336 @@
+{
+  "titre": "Animals of the world",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the largest land animal in the world?",
+      "choices": [
+        "the rhino",
+        "the giraffe",
+        "the hippopotamus",
+        "the African elephant"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the fastest land animal in the world?",
+      "choices": [
+        "the horse",
+        "the cheetah",
+        "the kangaroo",
+        "the lion"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the tallest animal in the world?",
+      "choices": [
+        "the elephant",
+        "the camel",
+        "the giraffe",
+        "the ostrich"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which bird cannot fly but is a very fast runner?",
+      "choices": [
+        "the penguin",
+        "the ostrich",
+        "the eagle",
+        "the sparrow"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the largest animal that has ever lived on Earth?",
+      "choices": [
+        "the great white shark",
+        "the giant squid",
+        "the blue whale",
+        "the elephant"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which animal is known as the 'king of the jungle'?",
+      "choices": [
+        "the lion",
+        "the elephant",
+        "the tiger",
+        "the leopard"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a baby dog?",
+      "choices": [
+        "a puppy",
+        "a cub",
+        "a calf",
+        "a kitten"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a baby cat?",
+      "choices": [
+        "a foal",
+        "a puppy",
+        "a cub",
+        "a kitten"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a baby cow?",
+      "choices": [
+        "a foal",
+        "a cub",
+        "a kid",
+        "a calf"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a baby horse?",
+      "choices": [
+        "a calf",
+        "a foal",
+        "a cub",
+        "a kid"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which animal changes colour to hide from predators?",
+      "choices": [
+        "the chameleon",
+        "the tortoise",
+        "the crocodile",
+        "the frog"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which sea creature has eight arms?",
+      "choices": [
+        "a jellyfish",
+        "a starfish",
+        "a crab",
+        "an octopus"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which mammal can fly?",
+      "choices": [
+        "the ostrich",
+        "the flying squirrel only",
+        "the penguin",
+        "the bat"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which animal is famous for its black and white stripes?",
+      "choices": [
+        "the panda",
+        "the skunk",
+        "the zebra",
+        "the tiger"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which animal lives in Antarctica and cannot fly?",
+      "choices": [
+        "the puffin",
+        "the polar bear",
+        "the penguin",
+        "the ostrich"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Where do polar bears live?",
+      "choices": [
+        "the Amazon rainforest",
+        "the Arctic",
+        "Antarctica",
+        "the Sahara desert"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which insect produces honey?",
+      "choices": [
+        "the bee",
+        "the wasp",
+        "the ant",
+        "the butterfly"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which reptile has a very hard shell to protect its body?",
+      "choices": [
+        "the snake",
+        "the crocodile",
+        "the lizard",
+        "the turtle / tortoise"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call an animal that eats only plants?",
+      "choices": [
+        "an omnivore",
+        "a herbivore",
+        "a predator",
+        "a carnivore"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call an animal that eats only meat?",
+      "choices": [
+        "a herbivore",
+        "a scavenger",
+        "a carnivore",
+        "an omnivore"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which is the largest species of big cat?",
+      "choices": [
+        "the lion",
+        "the jaguar",
+        "the tiger",
+        "the leopard"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which animal is known for hopping and carrying its baby in a pouch?",
+      "choices": [
+        "the wallaby only",
+        "the wombat",
+        "the koala",
+        "the kangaroo"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How many legs does a spider have?",
+      "choices": [
+        "ten",
+        "six",
+        "eight",
+        "four"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many legs does an insect have?",
+      "choices": [
+        "four",
+        "six",
+        "eight",
+        "ten"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which mammal lives in water and breathes air through a blowhole?",
+      "choices": [
+        "the shark",
+        "the eel",
+        "the tuna",
+        "the dolphin"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which bird is known for its colourful tail feathers and is a symbol of India?",
+      "choices": [
+        "the flamingo",
+        "the parrot",
+        "the toucan",
+        "the peacock"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which animal is the closest living relative of humans?",
+      "choices": [
+        "the gorilla only",
+        "the dog",
+        "the dolphin",
+        "the chimpanzee"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which desert animal can survive for days without water?",
+      "choices": [
+        "the camel",
+        "the horse",
+        "the fox",
+        "the goat"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which animal is known to sleep up to 20 hours a day?",
+      "choices": [
+        "the koala",
+        "the lion",
+        "the giraffe",
+        "the elephant"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is a group of lions called?",
+      "choices": [
+        "a pride",
+        "a herd",
+        "a flock",
+        "a pack"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

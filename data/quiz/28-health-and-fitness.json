@@ -1,0 +1,336 @@
+{
+  "titre": "Health and fitness",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What do we call regular physical activity that keeps the body strong?",
+      "choices": [
+        "sleep",
+        "exercise",
+        "rest",
+        "diet"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the food and drink a person regularly eats?",
+      "choices": [
+        "hygiene",
+        "rest",
+        "exercise",
+        "diet"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How many hours of sleep do teenagers usually need per night?",
+      "choices": [
+        "about 12 to 14 hours",
+        "about 5 to 6 hours",
+        "about 3 to 4 hours",
+        "about 8 to 10 hours"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call washing your hands and body regularly to stay clean and healthy?",
+      "choices": [
+        "hygiene",
+        "diet",
+        "exercise",
+        "nutrition only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What vitamin does the body mainly get from sunlight?",
+      "choices": [
+        "Vitamin C",
+        "Vitamin A",
+        "Vitamin B12",
+        "Vitamin D"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which food group provides most of our energy, like bread, rice and pasta?",
+      "choices": [
+        "proteins",
+        "carbohydrates",
+        "fats",
+        "vitamins"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which food group helps build and repair muscles, found in meat, fish and eggs?",
+      "choices": [
+        "carbohydrates",
+        "fats",
+        "proteins",
+        "fibre"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call drinking enough water to stay healthy?",
+      "choices": [
+        "detoxing",
+        "dieting",
+        "staying hydrated",
+        "fasting"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the amount of body fat compared to muscle, often measured for health?",
+      "choices": [
+        "heart rate only",
+        "body composition",
+        "calorie count only",
+        "metabolism only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What organ pumps blood faster during exercise?",
+      "choices": [
+        "the kidney",
+        "the liver",
+        "the heart",
+        "the stomach"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a doctor who specialises in teeth?",
+      "choices": [
+        "a dentist",
+        "a surgeon only",
+        "a nurse",
+        "a pharmacist"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the medicine or treatment prescribed by a doctor?",
+      "choices": [
+        "a diagnosis only",
+        "a symptom",
+        "a prescription",
+        "a checkup"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the signs that show you might be ill, like a cough or fever?",
+      "choices": [
+        "prescriptions",
+        "symptoms",
+        "diagnoses only",
+        "treatments only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a regular visit to the doctor to check your health?",
+      "choices": [
+        "a checkup",
+        "a prescription",
+        "a symptom",
+        "a diagnosis"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call an injection given to protect people from a disease?",
+      "choices": [
+        "a prescription",
+        "a checkup",
+        "a vaccine / vaccination",
+        "a diagnosis"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the recommended way to protect your skin from the sun?",
+      "choices": [
+        "wearing dark clothes only",
+        "staying indoors always",
+        "drinking more water only",
+        "wearing sunscreen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call stretching and warming up your muscles before exercise?",
+      "choices": [
+        "a rest day",
+        "a warm-up",
+        "a cooldown",
+        "a workout"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call slowly relaxing your body after exercise?",
+      "choices": [
+        "a sprint",
+        "a workout",
+        "a warm-up",
+        "a cooldown"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which type of exercise, like running or swimming, improves the heart and lungs?",
+      "choices": [
+        "balance training only",
+        "strength training only",
+        "cardio (aerobic exercise)",
+        "stretching only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which type of exercise builds muscle, like lifting weights?",
+      "choices": [
+        "strength training",
+        "stretching only",
+        "cardio only",
+        "balance training only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call eating too much unhealthy food regularly?",
+      "choices": [
+        "fasting",
+        "a balanced diet",
+        "hydration",
+        "an unhealthy diet"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a meal plan with the right amount of different food groups?",
+      "choices": [
+        "fasting",
+        "a balanced diet",
+        "overeating",
+        "an unhealthy diet"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the medical word for feeling worried or nervous over a long time?",
+      "choices": [
+        "dehydration",
+        "fatigue",
+        "anxiety",
+        "inflammation"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call being extremely tired?",
+      "choices": [
+        "fitness",
+        "fatigue",
+        "anxiety",
+        "hydration"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What sport or activity is good for flexibility and calm breathing, often done on a mat?",
+      "choices": [
+        "weightlifting",
+        "boxing",
+        "yoga",
+        "sprinting"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a professional who helps people recover movement after an injury?",
+      "choices": [
+        "a pharmacist",
+        "an optician",
+        "a dentist",
+        "a physiotherapist"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a professional who tests and corrects eyesight?",
+      "choices": [
+        "a physiotherapist",
+        "an optician",
+        "a pharmacist",
+        "a dentist"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the shop where you buy medicine?",
+      "choices": [
+        "a hospital only",
+        "a clinic only",
+        "a surgery only",
+        "a pharmacy / chemist's"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the recommended daily amount of fruit and vegetables often advised in the UK?",
+      "choices": [
+        "five portions a day",
+        "two portions a day",
+        "ten portions a day",
+        "one portion a day"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call not eating any food for a period of time, sometimes for health or religious reasons?",
+      "choices": [
+        "dieting only",
+        "binge eating",
+        "fasting",
+        "snacking"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

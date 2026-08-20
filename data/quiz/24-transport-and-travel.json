@@ -1,0 +1,336 @@
+{
+  "titre": "Transport and travel",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What document do you need to travel to another country?",
+      "choices": [
+        "a driving licence",
+        "an ID badge",
+        "a passport",
+        "a library card"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the place where planes take off and land?",
+      "choices": [
+        "a bus stop",
+        "an airport",
+        "a harbour",
+        "a train station"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the place where trains arrive and depart?",
+      "choices": [
+        "an airport",
+        "a bus stop",
+        "a train station",
+        "a harbour"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a document that allows you to travel on a plane, train or bus?",
+      "choices": [
+        "a licence",
+        "a passport",
+        "a visa",
+        "a ticket"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the bags you take with you when you travel?",
+      "choices": [
+        "goods",
+        "cargo",
+        "freight",
+        "luggage"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who travels for pleasure to a foreign place?",
+      "choices": [
+        "a tourist",
+        "a commuter",
+        "a resident",
+        "a citizen"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the money and goods control at a country's border?",
+      "choices": [
+        "security only",
+        "immigration only",
+        "the checkpoint",
+        "customs"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call travelling from home to work every day?",
+      "choices": [
+        "migrating",
+        "touring",
+        "commuting",
+        "cruising"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What form of transport travels on rails?",
+      "choices": [
+        "a boat",
+        "a plane",
+        "a train",
+        "a car"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What form of transport is used to cross oceans, usually slower than a plane?",
+      "choices": [
+        "a car",
+        "a train",
+        "a bicycle",
+        "a ship / boat"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a vehicle with two wheels that you pedal?",
+      "choices": [
+        "a tricycle",
+        "a scooter",
+        "a motorbike",
+        "a bicycle"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a large road built for fast travel between cities?",
+      "choices": [
+        "a path",
+        "a lane",
+        "a track",
+        "a motorway (UK) / highway (US)"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the place in a city where you can catch a bus?",
+      "choices": [
+        "a bus stop",
+        "a platform only",
+        "a terminal only",
+        "a bus station only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the raised area where you wait for a train?",
+      "choices": [
+        "a runway",
+        "a dock",
+        "a terminal",
+        "a platform"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the place where planes take off, a long strip of ground?",
+      "choices": [
+        "a track",
+        "a runway",
+        "a platform",
+        "a lane"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who drives a taxi?",
+      "choices": [
+        "a captain",
+        "a conductor",
+        "a taxi driver",
+        "a pilot"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who flies a plane?",
+      "choices": [
+        "a driver",
+        "a captain only",
+        "a conductor",
+        "a pilot"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the underground train system in London?",
+      "choices": [
+        "the Subway",
+        "the Overground only",
+        "the Underground / the Tube",
+        "the Metro"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the underground train system in Paris?",
+      "choices": [
+        "the Tube",
+        "the Metro",
+        "the Underground",
+        "the Subway"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call travel documents that some countries require before entering?",
+      "choices": [
+        "a passport only",
+        "a licence",
+        "a permit only",
+        "a visa"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call an area where you can safely cross a road on foot?",
+      "choices": [
+        "a roundabout",
+        "a bus lane",
+        "a zebra crossing / crosswalk",
+        "a motorway"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a circular junction where several roads meet?",
+      "choices": [
+        "a roundabout",
+        "a junction only",
+        "a motorway",
+        "a crossroads only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a document proving you can legally drive a car?",
+      "choices": [
+        "a visa",
+        "an ID card",
+        "a passport",
+        "a driving licence"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the fastest way to travel long distances internationally?",
+      "choices": [
+        "by bicycle",
+        "by bus",
+        "by plane",
+        "by boat"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a large vehicle that carries many passengers on roads?",
+      "choices": [
+        "a taxi",
+        "a lorry",
+        "a van",
+        "a bus / coach"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the fee you pay to use certain roads or bridges?",
+      "choices": [
+        "a fine",
+        "a tax",
+        "a toll",
+        "a fare"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the price you pay for a bus, train or taxi journey?",
+      "choices": [
+        "a fine",
+        "a bill",
+        "a toll",
+        "a fare"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call travelling around visiting several places, often for pleasure?",
+      "choices": [
+        "shipping",
+        "migrating",
+        "touring",
+        "commuting"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who travels a lot for their job, like a pilot or sailor?",
+      "choices": [
+        "a traveller / commuter (context-dependent)",
+        "a tourist only",
+        "a resident only",
+        "a settler"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a small map book or a digital app used to find your way?",
+      "choices": [
+        "a ticket",
+        "a licence",
+        "a map / GPS",
+        "a passport"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

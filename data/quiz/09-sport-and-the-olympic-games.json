@@ -1,0 +1,336 @@
+{
+  "titre": "Sport and the Olympic Games",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Where were the first modern Olympic Games held, in 1896?",
+      "choices": [
+        "London, England",
+        "Rome, Italy",
+        "Athens, Greece",
+        "Paris, France"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many rings are there on the Olympic flag?",
+      "choices": [
+        "four",
+        "seven",
+        "five",
+        "six"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How often are the Summer Olympic Games held?",
+      "choices": [
+        "every four years",
+        "every year",
+        "every six years",
+        "every two years"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How many players are there on a basketball team on the court?",
+      "choices": [
+        "seven",
+        "four",
+        "six",
+        "five"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which sport is played at Wimbledon every year?",
+      "choices": [
+        "cricket",
+        "tennis",
+        "golf",
+        "rugby"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many players are there on a volleyball team on the court?",
+      "choices": [
+        "seven",
+        "five",
+        "six",
+        "four"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which sport do athletes throw a javelin?",
+      "choices": [
+        "athletics (track and field)",
+        "gymnastics",
+        "swimming",
+        "cycling"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the Olympic competition that includes running, jumping and throwing events?",
+      "choices": [
+        "swimming",
+        "fencing",
+        "athletics",
+        "gymnastics"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many players are there in a rugby union team on the pitch?",
+      "choices": [
+        "eleven",
+        "thirteen",
+        "twelve",
+        "fifteen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which sport would you perform a somersault on a beam?",
+      "choices": [
+        "swimming",
+        "gymnastics",
+        "judo",
+        "athletics"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the trophy awarded to the winner of football's World Cup?",
+      "choices": [
+        "the Ballon d'Or only",
+        "the FIFA World Cup trophy",
+        "the Ashes",
+        "the Olympic torch"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which country has won the most football World Cups?",
+      "choices": [
+        "Argentina",
+        "Brazil",
+        "Germany",
+        "Italy"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a sport played on ice with sticks and a puck?",
+      "choices": [
+        "curling",
+        "ice hockey",
+        "figure skating",
+        "bobsleigh"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which sport do you use a racket and a shuttlecock?",
+      "choices": [
+        "badminton",
+        "squash",
+        "table tennis",
+        "tennis"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How long is a marathon race?",
+      "choices": [
+        "10 miles",
+        "30 miles",
+        "13 miles",
+        "26.2 miles (about 42km)"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the maximum score with one dart in darts?",
+      "choices": [
+        "50",
+        "100",
+        "60",
+        "30"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which sport do competitors use a bow and arrow?",
+      "choices": [
+        "fencing",
+        "shooting",
+        "javelin",
+        "archery"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the Winter Olympic sport where athletes slide down a track on a sled headfirst?",
+      "choices": [
+        "luge only",
+        "bobsleigh only",
+        "skeleton",
+        "curling"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many periods are there in a standard game of ice hockey?",
+      "choices": [
+        "three",
+        "four",
+        "five",
+        "two"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What sport is associated with the term 'love' meaning zero points?",
+      "choices": [
+        "golf",
+        "tennis",
+        "squash",
+        "cricket"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name for a score of zero in cricket?",
+      "choices": [
+        "a strike",
+        "a love",
+        "an ace",
+        "a duck"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In golf, what do we call one shot under par?",
+      "choices": [
+        "a bogey",
+        "an ace",
+        "a birdie",
+        "an eagle"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the highest possible break in a single visit in snooker?",
+      "choices": [
+        "180",
+        "100",
+        "150",
+        "147"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which country hosted the 2012 Summer Olympic Games?",
+      "choices": [
+        "the United Kingdom",
+        "Brazil",
+        "France",
+        "China"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which country hosted the 2016 Summer Olympic Games?",
+      "choices": [
+        "the United States",
+        "Russia",
+        "Brazil",
+        "Japan"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which sport uses the terms 'strike' and 'spare'?",
+      "choices": [
+        "baseball",
+        "golf",
+        "cricket",
+        "bowling"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the fastest swimming stroke?",
+      "choices": [
+        "butterfly",
+        "front crawl (freestyle)",
+        "backstroke",
+        "breaststroke"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In athletics, how many metres is a standard sprint race often run over?",
+      "choices": [
+        "100 metres",
+        "10 metres",
+        "500 metres",
+        "1000 metres"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which martial art originated in Japan and uses judogi (a uniform) and throws?",
+      "choices": [
+        "fencing",
+        "judo",
+        "karate only",
+        "taekwondo only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What colour jersey does the leader of the Tour de France cycling race wear?",
+      "choices": [
+        "polka dot",
+        "green",
+        "red",
+        "yellow"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "World capitals",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the capital city of France?",
+      "choices": [
+        "Paris",
+        "Rome",
+        "Tokyo",
+        "Beijing"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Germany?",
+      "choices": [
+        "Vienna",
+        "Moscow",
+        "Berlin",
+        "Tokyo"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Italy?",
+      "choices": [
+        "Dublin",
+        "Mexico City",
+        "Warsaw",
+        "Rome"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Spain?",
+      "choices": [
+        "Moscow",
+        "Madrid",
+        "New Delhi",
+        "Brussels"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Portugal?",
+      "choices": [
+        "Pretoria",
+        "Vienna",
+        "Copenhagen",
+        "Lisbon"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of England / the UK?",
+      "choices": [
+        "London",
+        "Washington, D.C.",
+        "Bern",
+        "Vienna"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Ireland?",
+      "choices": [
+        "Tokyo",
+        "Stockholm",
+        "Dublin",
+        "Warsaw"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Belgium?",
+      "choices": [
+        "Lisbon",
+        "Brussels",
+        "London",
+        "Rome"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of the Netherlands?",
+      "choices": [
+        "Amsterdam",
+        "Copenhagen",
+        "Cairo",
+        "Paris"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Switzerland?",
+      "choices": [
+        "Bern",
+        "Paris",
+        "Stockholm",
+        "Lisbon"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Russia?",
+      "choices": [
+        "Pretoria",
+        "Tokyo",
+        "Lisbon",
+        "Moscow"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Greece?",
+      "choices": [
+        "Vienna",
+        "Madrid",
+        "Athens",
+        "Copenhagen"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Poland?",
+      "choices": [
+        "Dublin",
+        "Oslo",
+        "Warsaw",
+        "Rome"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Austria?",
+      "choices": [
+        "Mexico City",
+        "Madrid",
+        "Berlin",
+        "Vienna"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Sweden?",
+      "choices": [
+        "Washington, D.C.",
+        "Madrid",
+        "Athens",
+        "Stockholm"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Norway?",
+      "choices": [
+        "Oslo",
+        "Lisbon",
+        "Mexico City",
+        "Warsaw"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Denmark?",
+      "choices": [
+        "Copenhagen",
+        "Madrid",
+        "Oslo",
+        "Pretoria"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Finland?",
+      "choices": [
+        "Bern",
+        "Rome",
+        "Helsinki",
+        "Oslo"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of the United States?",
+      "choices": [
+        "Oslo",
+        "Washington, D.C.",
+        "Amsterdam",
+        "Beijing"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Canada?",
+      "choices": [
+        "Athens",
+        "Ottawa",
+        "Copenhagen",
+        "Dublin"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Mexico?",
+      "choices": [
+        "Bern",
+        "New Delhi",
+        "Copenhagen",
+        "Mexico City"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Brazil?",
+      "choices": [
+        "London",
+        "Copenhagen",
+        "Brasilia",
+        "Athens"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Argentina?",
+      "choices": [
+        "Brussels",
+        "Ottawa",
+        "Buenos Aires",
+        "Mexico City"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Japan?",
+      "choices": [
+        "Tokyo",
+        "Brussels",
+        "Canberra",
+        "Beijing"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of China?",
+      "choices": [
+        "Paris",
+        "Tokyo",
+        "Athens",
+        "Beijing"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of India?",
+      "choices": [
+        "New Delhi",
+        "Buenos Aires",
+        "Amsterdam",
+        "Dublin"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Australia?",
+      "choices": [
+        "Rome",
+        "Athens",
+        "Brussels",
+        "Canberra"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Egypt?",
+      "choices": [
+        "Oslo",
+        "Moscow",
+        "Dublin",
+        "Cairo"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of South Africa?",
+      "choices": [
+        "Mexico City",
+        "Rome",
+        "New Delhi",
+        "Pretoria"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital city of Morocco?",
+      "choices": [
+        "Rabat",
+        "Oslo",
+        "Pretoria",
+        "London"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

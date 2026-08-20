@@ -1,0 +1,336 @@
+{
+  "titre": "Inventions and inventors",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Who is credited with inventing the telephone?",
+      "choices": [
+        "Guglielmo Marconi",
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Alexander Graham Bell"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who is credited with inventing the light bulb (a practical version)?",
+      "choices": [
+        "Benjamin Franklin",
+        "Thomas Edison",
+        "James Watt",
+        "Alexander Graham Bell"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the World Wide Web?",
+      "choices": [
+        "Steve Jobs",
+        "Tim Berners-Lee",
+        "Alan Turing",
+        "Bill Gates"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which brothers are famous for inventing the first successful aeroplane?",
+      "choices": [
+        "the Curie brothers",
+        "the Montgolfier brothers",
+        "the Lumiere brothers",
+        "the Wright brothers"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the printing press with movable type in Europe?",
+      "choices": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Leonardo da Vinci",
+        "Johannes Gutenberg"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who developed the theory of relativity?",
+      "choices": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Stephen Hawking"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who discovered the law of gravity after seeing an apple fall?",
+      "choices": [
+        "Albert Einstein",
+        "Isaac Newton",
+        "Charles Darwin",
+        "Galileo Galilei"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who developed the theory of evolution by natural selection?",
+      "choices": [
+        "Gregor Mendel",
+        "Isaac Newton",
+        "Charles Darwin",
+        "Louis Pasteur"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who discovered penicillin, the first widely used antibiotic?",
+      "choices": [
+        "Louis Pasteur",
+        "Marie Curie",
+        "Alexander Fleming",
+        "Edward Jenner"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which scientist won two Nobel Prizes for her work on radioactivity?",
+      "choices": [
+        "Ada Lovelace",
+        "Dorothy Hodgkin",
+        "Rosalind Franklin",
+        "Marie Curie"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who is considered the first computer programmer, working with Charles Babbage?",
+      "choices": [
+        "Rosalind Franklin",
+        "Ada Lovelace",
+        "Marie Curie",
+        "Grace Hopper"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who founded Microsoft?",
+      "choices": [
+        "Mark Zuckerberg",
+        "Bill Gates",
+        "Steve Jobs",
+        "Larry Page"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who co-founded Apple and helped create the iPhone?",
+      "choices": [
+        "Bill Gates",
+        "Steve Jobs",
+        "Jeff Bezos",
+        "Elon Musk"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the steam engine improvements that powered the Industrial Revolution?",
+      "choices": [
+        "Michael Faraday",
+        "George Stephenson",
+        "James Watt",
+        "Isambard Kingdom Brunel"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who built the first successful steam locomotive railway, the 'Rocket'?",
+      "choices": [
+        "Robert Stephenson only",
+        "George Stephenson",
+        "James Watt",
+        "Isambard Kingdom Brunel"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the telegraph and Morse code with Samuel Morse's help?",
+      "choices": [
+        "Alexander Graham Bell",
+        "Samuel Morse",
+        "Thomas Edison",
+        "Guglielmo Marconi"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who is credited with the first radio transmission across the Atlantic?",
+      "choices": [
+        "Alexander Graham Bell",
+        "Thomas Edison",
+        "Guglielmo Marconi",
+        "Nikola Tesla"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which scientist developed the polio vaccine?",
+      "choices": [
+        "Jonas Salk",
+        "Louis Pasteur",
+        "Alexander Fleming",
+        "Edward Jenner"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who discovered the smallpox vaccine, the first vaccine ever created?",
+      "choices": [
+        "Edward Jenner",
+        "Jonas Salk",
+        "Alexander Fleming",
+        "Louis Pasteur"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who is considered the father of modern computer science and cracked the Enigma code?",
+      "choices": [
+        "Alan Turing",
+        "Bill Gates",
+        "Charles Babbage",
+        "Tim Berners-Lee"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the first mechanical calculating machine that led to modern computers?",
+      "choices": [
+        "Alan Turing",
+        "Charles Babbage",
+        "Tim Berners-Lee",
+        "Ada Lovelace only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which company did Jeff Bezos found?",
+      "choices": [
+        "Amazon",
+        "Apple",
+        "Tesla",
+        "Microsoft"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which company did Elon Musk co-found that makes electric cars?",
+      "choices": [
+        "Apple",
+        "Tesla",
+        "Microsoft",
+        "Amazon"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who painted while also inventing flying machines and studying anatomy?",
+      "choices": [
+        "Isaac Newton",
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Galileo Galilei"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who invented dynamite and later founded the Nobel Prize?",
+      "choices": [
+        "Nikola Tesla",
+        "James Watt",
+        "Alfred Nobel",
+        "Thomas Edison"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which scientist studied electricity and invented the lightning rod?",
+      "choices": [
+        "Thomas Edison",
+        "Michael Faraday",
+        "Benjamin Franklin",
+        "Nikola Tesla"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who invented alternating current (AC) electrical systems?",
+      "choices": [
+        "Michael Faraday",
+        "Thomas Edison",
+        "Nikola Tesla",
+        "Alexander Graham Bell"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which scientist discovered the structure of DNA along with Watson and Crick, using X-ray data?",
+      "choices": [
+        "Marie Curie",
+        "Ada Lovelace",
+        "Dorothy Hodgkin",
+        "Rosalind Franklin"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who invented the World Wide Web while working at CERN?",
+      "choices": [
+        "Bill Gates",
+        "Tim Berners-Lee",
+        "Alan Turing",
+        "Steve Jobs"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which Italian scientist improved the telescope and supported the idea that the Earth orbits the Sun?",
+      "choices": [
+        "Galileo Galilei",
+        "Nicolaus Copernicus only",
+        "Albert Einstein",
+        "Isaac Newton"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

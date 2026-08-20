@@ -1,0 +1,336 @@
+{
+  "titre": "Computers and technology",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What does 'WWW' stand for?",
+      "choices": [
+        "World Wide Web",
+        "World Web Wire",
+        "World Wide Wire",
+        "Web Wide World"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the physical parts of a computer, like the screen and keyboard?",
+      "choices": [
+        "firmware",
+        "hardware",
+        "malware",
+        "software"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the programs that run on a computer?",
+      "choices": [
+        "browser",
+        "firmware",
+        "software",
+        "hardware"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'CPU' stand for?",
+      "choices": [
+        "Central Program Utility",
+        "Central Processing Unit",
+        "Computer Processing Unit",
+        "Computer Program Unit"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call unwanted software designed to harm a computer?",
+      "choices": [
+        "freeware",
+        "hardware",
+        "malware",
+        "firmware"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the device used to point and click on a computer screen?",
+      "choices": [
+        "a keyboard",
+        "a speaker",
+        "a mouse",
+        "a monitor"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a document stored on a computer, like a photo or a text?",
+      "choices": [
+        "a browser",
+        "a folder",
+        "a program",
+        "a file"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a program used to browse the internet, like Chrome or Firefox?",
+      "choices": [
+        "an app store",
+        "an operating system",
+        "a search engine",
+        "a web browser"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'URL' stand for?",
+      "choices": [
+        "United Resource Locator",
+        "Universal Random Link",
+        "Uniform Resource Locator",
+        "Unique Reference Link"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call an unwanted email sent to many people, often advertising?",
+      "choices": [
+        "a firewall",
+        "a virus",
+        "spam",
+        "a cookie"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the storage device used to save and carry small files, plugged into a USB port?",
+      "choices": [
+        "a modem",
+        "a CD only",
+        "a USB flash drive",
+        "a hard drive only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a network of computers connected across the world?",
+      "choices": [
+        "a browser",
+        "the internet",
+        "a router only",
+        "a server only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the system that manages a computer, like Windows or macOS?",
+      "choices": [
+        "a search engine",
+        "an application",
+        "a web browser",
+        "an operating system"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'email' stand for?",
+      "choices": [
+        "electronic mail",
+        "extra mail",
+        "express mail",
+        "enclosed mail"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a short word or phrase used to protect an account?",
+      "choices": [
+        "a cookie",
+        "a username",
+        "a code",
+        "a password"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a program that looks for information online, like Google?",
+      "choices": [
+        "an operating system",
+        "an app",
+        "a search engine",
+        "a browser only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a small text file that websites store on your computer?",
+      "choices": [
+        "a virus",
+        "a browser",
+        "a cookie",
+        "a file"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is a smartphone application usually called for short?",
+      "choices": [
+        "a browser",
+        "an app",
+        "a website",
+        "a program"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call sending data to a website, like a photo, from your device?",
+      "choices": [
+        "browsing",
+        "streaming",
+        "uploading",
+        "downloading"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call receiving data from the internet onto your device?",
+      "choices": [
+        "downloading",
+        "uploading",
+        "streaming only",
+        "browsing"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does 'AI' stand for?",
+      "choices": [
+        "Artificial Intelligence",
+        "Applied Information",
+        "Advanced Interface",
+        "Automatic Internet"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the main memory a computer uses to run programs called?",
+      "choices": [
+        "ROM",
+        "CPU",
+        "GPU",
+        "RAM"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call watching a video or listening to music directly online without downloading it?",
+      "choices": [
+        "streaming",
+        "uploading",
+        "browsing",
+        "coding"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call writing instructions to make a computer do something?",
+      "choices": [
+        "streaming",
+        "typing",
+        "browsing",
+        "coding / programming"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What device connects your home network to the internet?",
+      "choices": [
+        "a mouse",
+        "a router",
+        "a monitor",
+        "a printer"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'Wi-Fi' allow devices to do?",
+      "choices": [
+        "print documents",
+        "play music only",
+        "charge the battery",
+        "connect to the internet wirelessly"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a copy of your files kept in case something goes wrong?",
+      "choices": [
+        "a backup",
+        "a cookie",
+        "a cache",
+        "a download"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a computer that provides data or services to other computers?",
+      "choices": [
+        "a server",
+        "a router",
+        "a client",
+        "a browser"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which company created the Windows operating system?",
+      "choices": [
+        "Google",
+        "Apple",
+        "Microsoft",
+        "Amazon"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which company created the iPhone?",
+      "choices": [
+        "Apple",
+        "Samsung",
+        "Microsoft",
+        "Google"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

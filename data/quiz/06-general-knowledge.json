@@ -1,0 +1,336 @@
+{
+  "titre": "General knowledge",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "How many days are there in a leap year?",
+      "choices": [
+        "367",
+        "366",
+        "364",
+        "365"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many continents are there on Earth?",
+      "choices": [
+        "eight",
+        "six",
+        "seven",
+        "five"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the largest ocean in the world?",
+      "choices": [
+        "the Indian Ocean",
+        "the Atlantic Ocean",
+        "the Arctic Ocean",
+        "the Pacific Ocean"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the longest river in the world?",
+      "choices": [
+        "the Danube",
+        "the Mississippi",
+        "the Amazon",
+        "the Nile"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the tallest mountain in the world?",
+      "choices": [
+        "K2",
+        "Kilimanjaro",
+        "Mont Blanc",
+        "Mount Everest"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the largest desert in the world?",
+      "choices": [
+        "the Sahara",
+        "the Kalahari",
+        "the Atacama",
+        "the Gobi"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How many colours are there in a rainbow?",
+      "choices": [
+        "six",
+        "eight",
+        "five",
+        "seven"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the currency used in most of the European Union?",
+      "choices": [
+        "the pound",
+        "the franc",
+        "the dollar",
+        "the euro"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the smallest country in the world?",
+      "choices": [
+        "San Marino",
+        "Vatican City",
+        "Monaco",
+        "Liechtenstein"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What language has the most native speakers in the world?",
+      "choices": [
+        "English",
+        "Hindi",
+        "Mandarin Chinese",
+        "Spanish"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the freezing point of water in Celsius?",
+      "choices": [
+        "0 degrees",
+        "10 degrees",
+        "32 degrees",
+        "100 degrees"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the boiling point of water in Celsius?",
+      "choices": [
+        "50 degrees",
+        "100 degrees",
+        "0 degrees",
+        "212 degrees"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many players are there in a football team on the pitch?",
+      "choices": [
+        "eleven",
+        "ten",
+        "twelve",
+        "nine"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How many strings does a standard guitar have?",
+      "choices": [
+        "four",
+        "five",
+        "eight",
+        "six"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the largest country in the world by area?",
+      "choices": [
+        "Canada",
+        "the United States",
+        "China",
+        "Russia"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the most spoken second language in the world?",
+      "choices": [
+        "English",
+        "Arabic",
+        "French",
+        "Spanish"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do bees produce that people eat?",
+      "choices": [
+        "pollen only",
+        "nectar only",
+        "honey",
+        "wax only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the human body's largest organ?",
+      "choices": [
+        "the brain",
+        "the heart",
+        "the liver",
+        "the skin"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How many letters are there in the English alphabet?",
+      "choices": [
+        "24",
+        "25",
+        "28",
+        "26"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the study of living things?",
+      "choices": [
+        "biology",
+        "chemistry",
+        "geology",
+        "physics"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the capital of the country where the Eiffel Tower is located?",
+      "choices": [
+        "Paris",
+        "Rome",
+        "London",
+        "Madrid"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What natural disaster is measured on the Richter scale?",
+      "choices": [
+        "a hurricane",
+        "a tsunami",
+        "a flood",
+        "an earthquake"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the wall that used to divide a European capital city until 1989?",
+      "choices": [
+        "the Iron Curtain Wall",
+        "the Great Wall",
+        "the Berlin Wall",
+        "Hadrian's Wall"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which sport is played at Wimbledon?",
+      "choices": [
+        "rugby",
+        "cricket",
+        "golf",
+        "tennis"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a word that means the same as another word?",
+      "choices": [
+        "a pronoun",
+        "an antonym",
+        "a homonym",
+        "a synonym"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a word that means the opposite of another word?",
+      "choices": [
+        "an adjective",
+        "an antonym",
+        "a synonym",
+        "a homonym"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "choices": [
+        "eight",
+        "seven",
+        "six",
+        "five"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the imaginary line around the middle of the Earth?",
+      "choices": [
+        "the equator",
+        "the axis",
+        "the tropic",
+        "the meridian"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the ship that sank in 1912 after hitting an iceberg?",
+      "choices": [
+        "the Olympic",
+        "the Britannic",
+        "the Titanic",
+        "the Lusitania"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call money that is no longer used, like old coins and notes?",
+      "choices": [
+        "interest",
+        "legal tender",
+        "foreign exchange",
+        "currency out of circulation"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

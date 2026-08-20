@@ -1,0 +1,336 @@
+{
+  "titre": "Phonetics and pronunciation",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "In the word 'knife', which letter is silent?",
+      "choices": [
+        "the i",
+        "the f",
+        "the k",
+        "the n"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'island', which letter is silent?",
+      "choices": [
+        "the s",
+        "the d",
+        "the l",
+        "the i"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'hour', which letter is silent?",
+      "choices": [
+        "the h",
+        "the u",
+        "the o",
+        "the r"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'comb', which letter is silent?",
+      "choices": [
+        "the b",
+        "the c",
+        "the m",
+        "the o"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'walk', which letter is silent?",
+      "choices": [
+        "the k",
+        "the l",
+        "the w",
+        "the a"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'write', which letter is silent?",
+      "choices": [
+        "the r",
+        "the w",
+        "the t",
+        "the i"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'listen', which letter is silent?",
+      "choices": [
+        "the t",
+        "the n",
+        "the i",
+        "the l"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'cat'?",
+      "choices": [
+        "cot",
+        "cut",
+        "hat",
+        "cost"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'blue'?",
+      "choices": [
+        "true",
+        "bow",
+        "boot",
+        "buy"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'night'?",
+      "choices": [
+        "light",
+        "not",
+        "nut",
+        "net"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'house'?",
+      "choices": [
+        "hiss",
+        "hose",
+        "horse",
+        "mouse"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'chair'?",
+      "choices": [
+        "choir",
+        "bear",
+        "char",
+        "cheer"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How is the '-ed' ending pronounced after a voiceless sound, as in 'walked'?",
+      "choices": [
+        "/id/",
+        "/e/",
+        "/d/",
+        "/t/"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How is the '-ed' ending pronounced after a voiced sound, as in 'played'?",
+      "choices": [
+        "/d/",
+        "/id/",
+        "/e/",
+        "/t/"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How is the '-ed' ending pronounced after 't' or 'd', as in 'wanted'?",
+      "choices": [
+        "/t/",
+        "/id/",
+        "/e/",
+        "/d/"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What kind of sound is made by 'th' in the word 'think'?",
+      "choices": [
+        "a simple 't' sound",
+        "a voiceless sound made between the teeth",
+        "a sound like 'z'",
+        "a sound like 'f'"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What kind of sound is made by 'th' in the word 'this'?",
+      "choices": [
+        "a simple 'd' sound",
+        "a voiced sound made between the teeth",
+        "a sound like 'v'",
+        "a sound like 's'"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How is 'read' pronounced in the present tense?",
+      "choices": [
+        "like 'raid'",
+        "like 'reed'",
+        "like 'red'",
+        "like 'road'"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'often', which letter is usually silent?",
+      "choices": [
+        "the o",
+        "the t (most commonly)",
+        "the n",
+        "the f"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'sign', which letter is silent?",
+      "choices": [
+        "the i",
+        "the g",
+        "the s",
+        "the n"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word does NOT rhyme with 'through', 'blue' and 'shoe'?",
+      "choices": [
+        "true",
+        "zoo",
+        "cow",
+        "glue"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'castle', which letter is silent?",
+      "choices": [
+        "the t",
+        "the c",
+        "the a",
+        "the l"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'phone'?",
+      "choices": [
+        "fun",
+        "bone",
+        "gone",
+        "done"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'debt', which letter is silent?",
+      "choices": [
+        "the t",
+        "the e",
+        "the b",
+        "the d"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'eight'?",
+      "choices": [
+        "sit",
+        "set",
+        "suit",
+        "late"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'honest', which letter is silent?",
+      "choices": [
+        "the h",
+        "the o",
+        "the t",
+        "the n"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What sound does 'ch' make in the word 'school'?",
+      "choices": [
+        "a 'ch' sound",
+        "a 'k' sound",
+        "a 'sh' sound",
+        "an 's' sound"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which word rhymes with 'know'?",
+      "choices": [
+        "now",
+        "how",
+        "grow",
+        "cow"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In the word 'lamb', which letter is silent?",
+      "choices": [
+        "the m",
+        "the l",
+        "the b",
+        "the a"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "How many syllables does the word 'beautiful' have?",
+      "choices": [
+        "two",
+        "four",
+        "three",
+        "five"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

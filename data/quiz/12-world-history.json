@@ -1,0 +1,336 @@
+{
+  "titre": "World history",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "In which year did the Second World War end?",
+      "choices": [
+        "1918",
+        "1950",
+        "1939",
+        "1945"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which year did the Second World War begin?",
+      "choices": [
+        "1939",
+        "1945",
+        "1914",
+        "1929"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In which year did the First World War begin?",
+      "choices": [
+        "1939",
+        "1900",
+        "1914",
+        "1918"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which ancient civilisation built the pyramids of Giza?",
+      "choices": [
+        "the Greeks",
+        "the ancient Egyptians",
+        "the Aztecs",
+        "the Romans"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which empire was ruled by Julius Caesar?",
+      "choices": [
+        "the Persian Empire",
+        "the Greek Empire",
+        "the Egyptian Empire",
+        "the Roman Empire"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who was the first President of the United States?",
+      "choices": [
+        "Abraham Lincoln",
+        "Thomas Jefferson",
+        "George Washington",
+        "John Adams"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which year did the French Revolution begin?",
+      "choices": [
+        "1799",
+        "1776",
+        "1804",
+        "1789"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which wall divided East and West Berlin until 1989?",
+      "choices": [
+        "Hadrian's Wall",
+        "the Great Wall",
+        "the Berlin Wall",
+        "the Iron Curtain"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who was the queen of England for over 60 years, from 1837 to 1901?",
+      "choices": [
+        "Queen Elizabeth II",
+        "Queen Anne",
+        "Queen Victoria",
+        "Queen Elizabeth I"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country did Christopher Columbus sail for when he reached America in 1492?",
+      "choices": [
+        "Portugal",
+        "France",
+        "Spain",
+        "England"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who was the famous general who became Emperor of France in 1804?",
+      "choices": [
+        "Charlemagne",
+        "Louis XIV",
+        "Charles de Gaulle",
+        "Napoleon Bonaparte"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What was the name of the ship the Pilgrims sailed on to America in 1620?",
+      "choices": [
+        "the Santa Maria",
+        "the Titanic",
+        "the Mayflower",
+        "the Endeavour"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which ancient Greek city is famous for its democracy and philosophers?",
+      "choices": [
+        "Rome",
+        "Troy",
+        "Athens",
+        "Sparta"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which explorer is credited with being the first European to sail around the world?",
+      "choices": [
+        "Vasco da Gama",
+        "Christopher Columbus",
+        "Ferdinand Magellan (his crew completed it)",
+        "Marco Polo"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who was the leader of Nazi Germany during the Second World War?",
+      "choices": [
+        "Otto von Bismarck",
+        "Heinrich Himmler",
+        "Kaiser Wilhelm II",
+        "Adolf Hitler"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which country was the first to land a man on the Moon?",
+      "choices": [
+        "the United States",
+        "China",
+        "the United Kingdom",
+        "the Soviet Union"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the period of history between about 500 and 1500 AD in Europe?",
+      "choices": [
+        "the Iron Age",
+        "the Middle Ages",
+        "Antiquity",
+        "the Renaissance"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which British queen currently... which British king began his reign in 2022?",
+      "choices": [
+        "King Henry VIII",
+        "King Edward VII",
+        "King Charles III",
+        "King George VI"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which civilisation built Machu Picchu in Peru?",
+      "choices": [
+        "the Incas",
+        "the Mayans",
+        "the Romans",
+        "the Aztecs"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which civilisation built famous step pyramids in Central America?",
+      "choices": [
+        "the Incas",
+        "the Romans",
+        "the Egyptians",
+        "the Mayans"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote the American Declaration of Independence in 1776?",
+      "choices": [
+        "Abraham Lincoln",
+        "Benjamin Franklin",
+        "Thomas Jefferson",
+        "George Washington"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What was the name of the disease that killed millions of people in Europe in the 14th century?",
+      "choices": [
+        "smallpox",
+        "the flu",
+        "the Black Death (the plague)",
+        "cholera"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country was ruled by pharaohs in ancient times?",
+      "choices": [
+        "Egypt",
+        "Greece",
+        "Rome",
+        "Persia"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which famous wall did the Romans build in northern England?",
+      "choices": [
+        "the Great Wall",
+        "Hadrian's Wall",
+        "the Berlin Wall",
+        "the Antonine Wall only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who was the British Prime Minister during most of the Second World War?",
+      "choices": [
+        "Winston Churchill",
+        "Margaret Thatcher",
+        "Neville Chamberlain",
+        "Tony Blair"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What was the name of the period of great scientific and artistic change in Europe starting around the 14th century?",
+      "choices": [
+        "the Renaissance",
+        "the Middle Ages",
+        "the Enlightenment only",
+        "the Reformation only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which country gained independence from Britain in 1776?",
+      "choices": [
+        "India",
+        "Australia",
+        "the United States",
+        "Canada"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country gained independence from Britain in 1947?",
+      "choices": [
+        "Australia",
+        "India",
+        "Canada",
+        "the United States"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the Cold War rivals from 1947 to 1991?",
+      "choices": [
+        "the United States and the Soviet Union",
+        "France and Germany",
+        "Britain and Spain",
+        "China and Japan"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who was the South African leader and anti-apartheid icon who became president in 1994?",
+      "choices": [
+        "Nelson Mandela",
+        "Winnie Mandela",
+        "Thabo Mbeki",
+        "Desmond Tutu"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "Vocabulary: school and everyday life",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What do we call the bag students use to carry their books to school?",
+      "choices": [
+        "a schoolbag / backpack",
+        "a suitcase",
+        "a briefcase",
+        "a handbag"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the meal students eat in the middle of the school day?",
+      "choices": [
+        "lunch",
+        "breakfast",
+        "dinner",
+        "supper"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the short rest period between lessons at school?",
+      "choices": [
+        "a lesson",
+        "a term",
+        "an exam",
+        "a break"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the work students do at home after school?",
+      "choices": [
+        "housework",
+        "classwork only",
+        "fieldwork",
+        "homework"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the test that checks what students have learned?",
+      "choices": [
+        "a subject",
+        "an exam / test",
+        "a break",
+        "a lesson"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the person in charge of a whole school?",
+      "choices": [
+        "a student",
+        "a caretaker",
+        "a teacher",
+        "the headteacher / principal"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a subject like maths, English or science at school?",
+      "choices": [
+        "a lesson only",
+        "a subject",
+        "a term only",
+        "a class only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the room where students eat lunch at school?",
+      "choices": [
+        "the canteen / cafeteria",
+        "the classroom",
+        "the gym",
+        "the library"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the room full of books where students can read and study?",
+      "choices": [
+        "the gym",
+        "the library",
+        "the office",
+        "the canteen"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the outdoor area where students play during breaks?",
+      "choices": [
+        "the playground",
+        "the hall",
+        "the classroom",
+        "the corridor"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a period of several weeks off from school, like summer holidays?",
+      "choices": [
+        "the holidays / vacation",
+        "a term",
+        "a weekend",
+        "a break"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call one of the periods the school year is divided into?",
+      "choices": [
+        "a holiday",
+        "a lesson",
+        "a break",
+        "a term"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the schedule showing what lessons happen when?",
+      "choices": [
+        "a diary",
+        "a timetable",
+        "a calendar only",
+        "a register"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the list teachers use to check who is present in class?",
+      "choices": [
+        "a timetable",
+        "a diary",
+        "a register",
+        "a rota"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call getting something wrong in an exercise?",
+      "choices": [
+        "an answer",
+        "a grade",
+        "a mistake",
+        "a question"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the mark or score given for a piece of work?",
+      "choices": [
+        "a grade",
+        "a subject",
+        "a question",
+        "a mistake"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a written piece of work students complete, often at home?",
+      "choices": [
+        "a register",
+        "a term",
+        "an assignment",
+        "a break"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a small book used for writing notes in class?",
+      "choices": [
+        "a notebook",
+        "a newspaper",
+        "a textbook only",
+        "a magazine"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the book that contains lessons and information on a subject?",
+      "choices": [
+        "a magazine",
+        "a notebook",
+        "a diary",
+        "a textbook"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the tool used to draw straight lines and measure length?",
+      "choices": [
+        "a protractor",
+        "a calculator",
+        "a ruler",
+        "a compass"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the tool used to erase pencil marks?",
+      "choices": [
+        "a sharpener",
+        "a stapler",
+        "an eraser / rubber",
+        "a highlighter"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the tool used to sharpen a pencil?",
+      "choices": [
+        "a highlighter",
+        "an eraser",
+        "a stapler",
+        "a pencil sharpener"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a coloured pen used to mark important text?",
+      "choices": [
+        "a highlighter",
+        "an eraser",
+        "a stapler",
+        "a sharpener"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the piece of furniture where a teacher writes for the class to see?",
+      "choices": [
+        "the desk",
+        "the cupboard",
+        "the board (whiteboard/blackboard)",
+        "the shelf"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the day of the week when most schools are closed, along with Sunday?",
+      "choices": [
+        "Wednesday",
+        "Saturday",
+        "Friday",
+        "Monday"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a friend you study with or sit next to in class?",
+      "choices": [
+        "a teacher",
+        "a neighbour only",
+        "a classmate",
+        "a stranger"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the group of students taught together in one class?",
+      "choices": [
+        "a term",
+        "a class",
+        "a school",
+        "a subject"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the building where children study between the ages of about 11 and 16?",
+      "choices": [
+        "a university",
+        "a primary school",
+        "a nursery",
+        "a secondary school"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the place where you study after secondary school, for a degree?",
+      "choices": [
+        "a kindergarten",
+        "a nursery",
+        "a primary school",
+        "a university"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a person who has just started learning something new?",
+      "choices": [
+        "a professional",
+        "a graduate",
+        "a beginner",
+        "an expert"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

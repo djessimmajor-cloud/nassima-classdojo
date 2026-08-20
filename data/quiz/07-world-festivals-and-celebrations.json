@@ -1,0 +1,336 @@
+{
+  "titre": "World festivals and celebrations",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What festival do people celebrate on the 31st of October with costumes and pumpkins?",
+      "choices": [
+        "Halloween",
+        "Easter",
+        "Bonfire Night",
+        "Thanksgiving"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What festival celebrates the birth of Jesus Christ on the 25th of December?",
+      "choices": [
+        "Easter",
+        "Halloween",
+        "Christmas",
+        "Diwali"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What Hindu festival is known as 'the festival of lights'?",
+      "choices": [
+        "Vaisakhi",
+        "Eid",
+        "Holi",
+        "Diwali"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What Hindu festival is known for people throwing coloured powder at each other?",
+      "choices": [
+        "Eid",
+        "Holi",
+        "Diwali",
+        "Navratri"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What Muslim festival marks the end of the fasting month of Ramadan?",
+      "choices": [
+        "Eid al-Fitr",
+        "Hanukkah",
+        "Diwali",
+        "Vaisakhi"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What Jewish festival is celebrated for eight nights with candles called a menorah?",
+      "choices": [
+        "Purim",
+        "Passover",
+        "Hanukkah",
+        "Yom Kippur"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What American festival takes place on the fourth Thursday of November?",
+      "choices": [
+        "Labor Day",
+        "Independence Day",
+        "Halloween",
+        "Thanksgiving"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What British festival on the 5th of November includes fireworks and bonfires?",
+      "choices": [
+        "Boxing Day",
+        "Halloween",
+        "Bonfire Night (Guy Fawkes Night)",
+        "May Day"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What day is celebrated on the 14th of February with cards and flowers?",
+      "choices": [
+        "Easter",
+        "Mother's Day",
+        "Halloween",
+        "Valentine's Day"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What Christian festival celebrates the resurrection of Jesus, with eggs and rabbits as symbols?",
+      "choices": [
+        "Pentecost",
+        "Easter",
+        "Christmas",
+        "Halloween"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What Chinese festival, also called Spring Festival, is celebrated with dragon dances and red envelopes?",
+      "choices": [
+        "the Dragon Boat Festival",
+        "Chinese New Year",
+        "the Mid-Autumn Festival",
+        "Diwali"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What Mexican festival honours deceased relatives with skull decorations, on the 1st and 2nd of November?",
+      "choices": [
+        "Dia de los Muertos (Day of the Dead)",
+        "Las Posadas",
+        "Cinco de Mayo",
+        "Carnival"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What festival in Brazil is famous for huge parades, costumes and samba music before Lent?",
+      "choices": [
+        "the Day of the Dead",
+        "Mardi Gras only",
+        "Dia de los Muertos",
+        "Carnival"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the traditional New Year celebration marked at midnight on the 31st of December?",
+      "choices": [
+        "Boxing Day",
+        "Christmas Eve",
+        "Halloween",
+        "New Year's Eve"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What Scottish holiday celebrates New Year with traditional songs like 'Auld Lang Syne'?",
+      "choices": [
+        "St Andrew's Day",
+        "Beltane",
+        "Hogmanay",
+        "Burns Night"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What Scottish festival in January celebrates the poet Robert Burns with haggis and poetry?",
+      "choices": [
+        "Burns Night",
+        "Hogmanay",
+        "St Andrew's Day",
+        "Beltane"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What festival, celebrated in spring, marks the Sikh new year in India?",
+      "choices": [
+        "Vaisakhi",
+        "Holi",
+        "Eid",
+        "Diwali"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What festival do Americans celebrate on the 4th of July with fireworks and parades?",
+      "choices": [
+        "Memorial Day",
+        "Thanksgiving",
+        "Labor Day",
+        "Independence Day"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is 'Mother's Day' meant to celebrate?",
+      "choices": [
+        "grandparents only",
+        "mothers and motherhood",
+        "teachers",
+        "fathers"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the day after Christmas Day called in the United Kingdom?",
+      "choices": [
+        "Twelfth Night",
+        "New Year's Day",
+        "Christmas Eve",
+        "Boxing Day"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What festival in Japan celebrates cherry blossom season?",
+      "choices": [
+        "Tanabata",
+        "Hanami",
+        "Obon",
+        "Setsubun"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What festival is celebrated by Buddhists to mark the birth, enlightenment and death of Buddha?",
+      "choices": [
+        "Holi",
+        "Vesak",
+        "Diwali",
+        "Eid"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the traditional colour worn at many Western weddings by the bride?",
+      "choices": [
+        "red",
+        "gold",
+        "white",
+        "black"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What day, observed on the 11th of November in the UK, honours soldiers who died in war?",
+      "choices": [
+        "Remembrance Day",
+        "Boxing Day",
+        "Bonfire Night",
+        "May Day"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What traditional festival, celebrated on the first of May, welcomes the arrival of spring in England?",
+      "choices": [
+        "May Day",
+        "Michaelmas",
+        "Midsummer",
+        "Harvest Festival"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What festival is held in autumn to celebrate the gathering of crops?",
+      "choices": [
+        "May Day",
+        "Harvest Festival",
+        "Midsummer",
+        "Bonfire Night"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What festival do Jewish people celebrate to remember their escape from slavery in Egypt?",
+      "choices": [
+        "Passover",
+        "Purim",
+        "Hanukkah",
+        "Yom Kippur"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the most sacred and solemn day in the Jewish calendar, known as the Day of Atonement?",
+      "choices": [
+        "Passover",
+        "Hanukkah",
+        "Purim",
+        "Yom Kippur"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What South Asian festival is dedicated to celebrating brothers and sisters, tying a bracelet called a rakhi?",
+      "choices": [
+        "Holi",
+        "Diwali",
+        "Vaisakhi",
+        "Raksha Bandhan"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the German festival famous for beer, held every autumn in Munich?",
+      "choices": [
+        "Oktoberfest",
+        "Christkindlmarkt",
+        "Maifest",
+        "Karneval"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

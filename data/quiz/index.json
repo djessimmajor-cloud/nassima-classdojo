@@ -1,0 +1,212 @@
+[
+  {
+    "id": "01-cinema-and-famous-films",
+    "file": "01-cinema-and-famous-films.json",
+    "titre": "Cinema and famous films",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "02-world-capitals",
+    "file": "02-world-capitals.json",
+    "titre": "World capitals",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "03-human-body",
+    "file": "03-human-body.json",
+    "titre": "The human body",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "04-animals-of-the-world",
+    "file": "04-animals-of-the-world.json",
+    "titre": "Animals of the world",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "05-space-and-the-solar-system",
+    "file": "05-space-and-the-solar-system.json",
+    "titre": "Space and the solar system",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "06-general-knowledge",
+    "file": "06-general-knowledge.json",
+    "titre": "General knowledge",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "07-world-festivals-and-celebrations",
+    "file": "07-world-festivals-and-celebrations.json",
+    "titre": "World festivals and celebrations",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "08-english-grammar-parts-of-speech",
+    "file": "08-english-grammar-parts-of-speech.json",
+    "titre": "English grammar: parts of speech",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "09-sport-and-the-olympic-games",
+    "file": "09-sport-and-the-olympic-games.json",
+    "titre": "Sport and the Olympic Games",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "10-art-and-music",
+    "file": "10-art-and-music.json",
+    "titre": "Art and music",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "11-computers-and-technology",
+    "file": "11-computers-and-technology.json",
+    "titre": "Computers and technology",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "12-world-history",
+    "file": "12-world-history.json",
+    "titre": "World history",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "13-famous-authors-and-literature",
+    "file": "13-famous-authors-and-literature.json",
+    "titre": "Famous authors and literature",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "14-science-physics-and-chemistry-basics",
+    "file": "14-science-physics-and-chemistry-basics.json",
+    "titre": "Science: physics and chemistry basics",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "15-earth-and-environment",
+    "file": "15-earth-and-environment.json",
+    "titre": "Earth and environment",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "16-inventions-and-inventors",
+    "file": "16-inventions-and-inventors.json",
+    "titre": "Inventions and inventors",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "17-food-and-drink-around-the-world",
+    "file": "17-food-and-drink-around-the-world.json",
+    "titre": "Food and drink around the world",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "18-idioms-and-expressions",
+    "file": "18-idioms-and-expressions.json",
+    "titre": "Idioms and expressions",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "19-british-culture",
+    "file": "19-british-culture.json",
+    "titre": "British culture",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "20-american-culture",
+    "file": "20-american-culture.json",
+    "titre": "American culture",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "21-phonetics-and-pronunciation",
+    "file": "21-phonetics-and-pronunciation.json",
+    "titre": "Phonetics and pronunciation",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "22-famous-landmarks-of-the-world",
+    "file": "22-famous-landmarks-of-the-world.json",
+    "titre": "Famous landmarks of the world",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "23-weather-and-climate",
+    "file": "23-weather-and-climate.json",
+    "titre": "Weather and climate",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "24-transport-and-travel",
+    "file": "24-transport-and-travel.json",
+    "titre": "Transport and travel",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "25-the-present-perfect",
+    "file": "25-the-present-perfect.json",
+    "titre": "Grammar: the present perfect",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "26-tv-and-pop-culture",
+    "file": "26-tv-and-pop-culture.json",
+    "titre": "TV and pop culture",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "27-music-and-famous-bands",
+    "file": "27-music-and-famous-bands.json",
+    "titre": "Music and famous bands",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "28-health-and-fitness",
+    "file": "28-health-and-fitness.json",
+    "titre": "Health and fitness",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "29-geography-mountains-rivers-oceans",
+    "file": "29-geography-mountains-rivers-oceans.json",
+    "titre": "Geography: mountains, rivers and oceans",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  },
+  {
+    "id": "30-vocabulary-school-and-everyday-life",
+    "file": "30-vocabulary-school-and-everyday-life.json",
+    "titre": "Vocabulary: school and everyday life",
+    "categorie": "Anglais",
+    "nbQuestions": 30
+  }
+]

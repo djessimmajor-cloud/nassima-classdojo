@@ -1,0 +1,336 @@
+{
+  "titre": "Famous landmarks of the world",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "In which country is the Eiffel Tower located?",
+      "choices": [
+        "Italy",
+        "France",
+        "Germany",
+        "Spain"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Great Wall located?",
+      "choices": [
+        "Mongolia",
+        "China",
+        "Japan",
+        "India"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country are the pyramids of Giza located?",
+      "choices": [
+        "Sudan",
+        "Libya",
+        "Morocco",
+        "Egypt"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Statue of Liberty located?",
+      "choices": [
+        "France",
+        "the United States",
+        "Canada",
+        "the United Kingdom"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Big Ben located?",
+      "choices": [
+        "the United Kingdom",
+        "the United States",
+        "Ireland",
+        "France"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Colosseum located?",
+      "choices": [
+        "Spain",
+        "France",
+        "Greece",
+        "Italy"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Taj Mahal located?",
+      "choices": [
+        "Bangladesh",
+        "Pakistan",
+        "India",
+        "Nepal"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Machu Picchu located?",
+      "choices": [
+        "Chile",
+        "Bolivia",
+        "Peru",
+        "Brazil"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Sydney Opera House located?",
+      "choices": [
+        "New Zealand",
+        "the United States",
+        "South Africa",
+        "Australia"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which city is the Sagrada Familia church located?",
+      "choices": [
+        "Rome, Italy",
+        "Madrid, Spain",
+        "Lisbon, Portugal",
+        "Barcelona, Spain"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country are Mount Fuji located?",
+      "choices": [
+        "South Korea",
+        "Japan",
+        "China",
+        "Thailand"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Christ the Redeemer statue located?",
+      "choices": [
+        "Argentina",
+        "Mexico",
+        "Brazil",
+        "Peru"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Stonehenge located?",
+      "choices": [
+        "Ireland",
+        "England",
+        "Scotland",
+        "Wales"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which city is the Louvre Museum located?",
+      "choices": [
+        "Madrid",
+        "London",
+        "Rome",
+        "Paris"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Leaning Tower of Pisa located?",
+      "choices": [
+        "Spain",
+        "Italy",
+        "Greece",
+        "France"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Niagara Falls located?",
+      "choices": [
+        "Mexico",
+        "Argentina",
+        "Canada and the United States",
+        "Brazil"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Grand Canyon located?",
+      "choices": [
+        "Mexico",
+        "Peru",
+        "the United States",
+        "Canada"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which city is Buckingham Palace located?",
+      "choices": [
+        "Edinburgh",
+        "Dublin",
+        "London",
+        "Cardiff"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Petra, the ancient city carved into rock, located?",
+      "choices": [
+        "Syria",
+        "Israel",
+        "Egypt",
+        "Jordan"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Acropolis located?",
+      "choices": [
+        "Italy",
+        "Turkey",
+        "Egypt",
+        "Greece"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Table Mountain located?",
+      "choices": [
+        "Kenya",
+        "Namibia",
+        "South Africa",
+        "Morocco"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Golden Gate Bridge located?",
+      "choices": [
+        "the United States (San Francisco)",
+        "Canada",
+        "Australia",
+        "the United Kingdom"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Angkor Wat, the ancient temple complex, located?",
+      "choices": [
+        "Laos",
+        "Vietnam",
+        "Thailand",
+        "Cambodia"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Kremlin located?",
+      "choices": [
+        "Russia",
+        "Belarus",
+        "Ukraine",
+        "Poland"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Mount Kilimanjaro located?",
+      "choices": [
+        "Ethiopia",
+        "Uganda",
+        "Kenya",
+        "Tanzania"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Burj Khalifa, the world's tallest building, located?",
+      "choices": [
+        "Qatar",
+        "Saudi Arabia",
+        "the United Arab Emirates",
+        "Kuwait"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Blue Lagoon geothermal spa located?",
+      "choices": [
+        "Sweden",
+        "Finland",
+        "Iceland",
+        "Norway"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Alhambra palace located?",
+      "choices": [
+        "Portugal",
+        "Spain",
+        "Morocco",
+        "Italy"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "In which country is Loch Ness located?",
+      "choices": [
+        "Ireland",
+        "Wales",
+        "England",
+        "Scotland"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "In which country is the Panama Canal located?",
+      "choices": [
+        "Nicaragua",
+        "Costa Rica",
+        "Colombia",
+        "Panama"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "Music and famous bands",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Which British band sang 'Hey Jude' and 'Let It Be'?",
+      "choices": [
+        "The Beatles",
+        "The Rolling Stones",
+        "Queen",
+        "Pink Floyd"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which band's lead singer was Freddie Mercury?",
+      "choices": [
+        "Queen",
+        "The Rolling Stones",
+        "The Beatles",
+        "ABBA"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which Swedish pop group sang 'Dancing Queen'?",
+      "choices": [
+        "Coldplay",
+        "Queen",
+        "The Beatles",
+        "ABBA"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which American singer is known as the 'King of Pop'?",
+      "choices": [
+        "Elvis Presley",
+        "Prince",
+        "Michael Jackson",
+        "Stevie Wonder"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which American singer is known as the 'King of Rock and Roll'?",
+      "choices": [
+        "Prince",
+        "Frank Sinatra",
+        "Elvis Presley",
+        "Michael Jackson"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which British band's members include Chris Martin and sang 'Yellow'?",
+      "choices": [
+        "Coldplay",
+        "Oasis",
+        "Muse",
+        "Radiohead"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What instrument is Beethoven's Symphony No. 9 famous for including alongside the orchestra?",
+      "choices": [
+        "a synthesizer",
+        "a saxophone",
+        "a choir (voices)",
+        "an electric guitar"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What genre of music began in the United States and features improvisation, brass and swing rhythms?",
+      "choices": [
+        "jazz",
+        "reggae",
+        "classical",
+        "electronic"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What genre of music originated in Jamaica, made famous by Bob Marley?",
+      "choices": [
+        "jazz",
+        "reggae",
+        "country",
+        "blues"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which musician is famous for the song 'Billie Jean' and the album 'Thriller'?",
+      "choices": [
+        "Michael Jackson",
+        "Elvis Presley",
+        "Stevie Wonder",
+        "Prince"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the person who writes the words of a song?",
+      "choices": [
+        "a composer only",
+        "a producer",
+        "a lyricist / songwriter",
+        "a conductor"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the main melody that a singer performs in a song?",
+      "choices": [
+        "the rhythm",
+        "the harmony only",
+        "the vocal line / melody",
+        "the bassline"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which decade is often called 'the golden age' of British boy bands and girl groups with acts like the Spice Girls?",
+      "choices": [
+        "the 1990s",
+        "the 1970s",
+        "the 1930s",
+        "the 1950s"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which British girl group sang 'Wannabe'?",
+      "choices": [
+        "the Spice Girls",
+        "All Saints",
+        "Little Mix",
+        "Girls Aloud"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What instrument does a drummer play in a rock band?",
+      "choices": [
+        "the bass",
+        "the drum kit",
+        "the keyboard",
+        "the guitar"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What instrument usually plays the low notes in a rock band?",
+      "choices": [
+        "the lead guitar",
+        "the drums",
+        "the bass guitar",
+        "the keyboard"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a song performed without any instruments, only voices?",
+      "choices": [
+        "instrumental",
+        "live",
+        "acoustic",
+        "a cappella"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call music played live, often recorded in front of an audience?",
+      "choices": [
+        "a studio recording",
+        "a cappella",
+        "a live performance",
+        "a remix"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What genre of music, popular in Nashville, often tells stories about everyday American life?",
+      "choices": [
+        "jazz",
+        "country music",
+        "reggae",
+        "classical"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which composer wrote famous film scores like the ones for 'Star Wars' and 'Jurassic Park'?",
+      "choices": [
+        "Danny Elfman",
+        "John Williams",
+        "Hans Zimmer",
+        "Ennio Morricone"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a collection of songs released together by an artist?",
+      "choices": [
+        "a single",
+        "a mixtape only",
+        "a playlist only",
+        "an album"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call one song released on its own, often to promote an album?",
+      "choices": [
+        "an EP only",
+        "a compilation",
+        "a single",
+        "an album"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which musical event is famous for taking place at a farm in England in 1969, with artists like Jimi Hendrix?",
+      "choices": [
+        "Glastonbury",
+        "Woodstock (in the USA, 1969)",
+        "Coachella",
+        "Live Aid"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the study or performance of music using written symbols on a staff?",
+      "choices": [
+        "a score card",
+        "musical notation / sheet music",
+        "a rhythm chart",
+        "a lyric sheet"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which musical style, with strong bass and electronic beats, is popular in nightclubs?",
+      "choices": [
+        "opera",
+        "folk music",
+        "electronic dance music (EDM)",
+        "classical music"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the speed at which a piece of music is played?",
+      "choices": [
+        "the pitch",
+        "the volume",
+        "the key",
+        "the tempo"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call how high or low a musical note sounds?",
+      "choices": [
+        "the pitch",
+        "the rhythm only",
+        "the volume",
+        "the tempo"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which famous rock band's members include Mick Jagger and Keith Richards?",
+      "choices": [
+        "The Rolling Stones",
+        "The Beatles",
+        "Queen",
+        "Led Zeppelin"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which British rock band is famous for the album 'The Dark Side of the Moon'?",
+      "choices": [
+        "The Beatles",
+        "Coldplay",
+        "Queen",
+        "Pink Floyd"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the part of a song that is repeated, often the most memorable part?",
+      "choices": [
+        "the verse",
+        "the intro",
+        "the chorus",
+        "the bridge"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "titre": "Weather and climate",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What do we call frozen water falling from the sky in winter?",
+      "choices": [
+        "hail",
+        "snow",
+        "fog",
+        "rain"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call small balls of ice that fall during a storm?",
+      "choices": [
+        "snow",
+        "sleet",
+        "hail",
+        "fog"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a thick cloud close to the ground that makes it hard to see?",
+      "choices": [
+        "fog",
+        "smog only",
+        "mist only",
+        "haze only"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the bright flash of light during a storm?",
+      "choices": [
+        "a rainbow",
+        "lightning",
+        "a sunbeam",
+        "thunder"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the loud sound that follows lightning?",
+      "choices": [
+        "a storm siren",
+        "lightning",
+        "thunder",
+        "wind"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What instrument is used to measure air pressure and predict weather?",
+      "choices": [
+        "an anemometer only",
+        "a barometer",
+        "a rain gauge",
+        "a thermometer"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What instrument is used to measure wind speed?",
+      "choices": [
+        "an anemometer",
+        "a rain gauge",
+        "a thermometer",
+        "a barometer"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a violent spinning column of air, common in the American Midwest?",
+      "choices": [
+        "a typhoon",
+        "a tornado",
+        "a monsoon",
+        "a hurricane"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a very strong tropical storm that forms over the Atlantic Ocean?",
+      "choices": [
+        "a hurricane",
+        "a drought",
+        "a tornado",
+        "a blizzard"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a heavy snowstorm with strong winds?",
+      "choices": [
+        "a drought",
+        "a monsoon",
+        "a blizzard",
+        "a hurricane"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the season with rain and mild temperatures that comes after winter?",
+      "choices": [
+        "spring",
+        "summer",
+        "winter",
+        "autumn"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the season with hot temperatures and long days?",
+      "choices": [
+        "winter",
+        "spring",
+        "summer",
+        "autumn"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the season when leaves fall from the trees?",
+      "choices": [
+        "summer",
+        "spring",
+        "autumn (fall)",
+        "winter"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the coldest season of the year?",
+      "choices": [
+        "summer",
+        "winter",
+        "spring",
+        "autumn"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a colourful arc that appears in the sky after rain?",
+      "choices": [
+        "a halo",
+        "a rainbow",
+        "an eclipse",
+        "a sunset"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the amount of water vapour in the air?",
+      "choices": [
+        "humidity",
+        "visibility",
+        "temperature",
+        "pressure"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a long period of dry weather with no rain?",
+      "choices": [
+        "a heatwave only",
+        "a flood",
+        "a drought",
+        "a frost"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a period of unusually hot weather?",
+      "choices": [
+        "a heatwave",
+        "a cold snap",
+        "a frost",
+        "a drought"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call ice crystals that form on the ground on a cold night?",
+      "choices": [
+        "dew",
+        "sleet",
+        "frost",
+        "hail"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call small drops of water that form on grass in the early morning?",
+      "choices": [
+        "sleet",
+        "hail",
+        "frost",
+        "dew"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call rain that is partly frozen, between rain and snow?",
+      "choices": [
+        "hail",
+        "frost",
+        "sleet",
+        "dew"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which continent is the coldest and windiest place on Earth?",
+      "choices": [
+        "Asia",
+        "North America",
+        "Antarctica",
+        "Europe"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the study of weather and forecasting?",
+      "choices": [
+        "meteorology",
+        "geology",
+        "climatology only",
+        "seismology"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the pattern of weather over a long period in a region?",
+      "choices": [
+        "temperature only",
+        "climate",
+        "forecast only",
+        "weather only"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What word describes a sky covered with clouds?",
+      "choices": [
+        "windy",
+        "sunny",
+        "cloudy",
+        "clear"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What word describes weather with lots of wind?",
+      "choices": [
+        "sunny",
+        "cloudy",
+        "windy",
+        "humid"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What word describes weather with a lot of moisture in the air, feeling sticky?",
+      "choices": [
+        "windy",
+        "humid",
+        "cloudy",
+        "dry"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the seasonal wind and rain pattern common in South Asia called?",
+      "choices": [
+        "a blizzard",
+        "a tornado",
+        "a monsoon",
+        "a hurricane"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the unit commonly used in the UK and the US to measure temperature?",
+      "choices": [
+        "degrees Reaumur",
+        "degrees Rankine",
+        "degrees Fahrenheit (US) / Celsius (UK, mostly)",
+        "degrees Kelvin only"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the daily report predicting the weather?",
+      "choices": [
+        "the weather log",
+        "the climate report",
+        "the meteor log",
+        "the weather forecast"
+      ],
+      "correct": 3,
+      "explication": ""
+    }
+  ]
+}

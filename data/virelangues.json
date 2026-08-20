@@ -1,0 +1,422 @@
+[
+  {
+    "texte": "She sells seashells by the seashore.",
+    "sons": "s/sh"
+  },
+  {
+    "texte": "Peter Piper picked a peck of pickled peppers.",
+    "sons": "p"
+  },
+  {
+    "texte": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+    "sons": "w/ch"
+  },
+  {
+    "texte": "Betty Botter bought some butter but she said the butter's bitter.",
+    "sons": "b/t"
+  },
+  {
+    "texte": "Fuzzy Wuzzy was a bear, Fuzzy Wuzzy had no hair.",
+    "sons": "f/w"
+  },
+  {
+    "texte": "A proper copper coffee pot.",
+    "sons": "p/k"
+  },
+  {
+    "texte": "Red lorry, yellow lorry.",
+    "sons": "r/l"
+  },
+  {
+    "texte": "Six slippery snails slid slowly seaward.",
+    "sons": "s/sl"
+  },
+  {
+    "texte": "Can you can a can as a canner can can a can?",
+    "sons": "k/n"
+  },
+  {
+    "texte": "I saw a kitten eating chicken in the kitchen.",
+    "sons": "k/ch"
+  },
+  {
+    "texte": "Which wristwatches are Swiss wristwatches?",
+    "sons": "w/s"
+  },
+  {
+    "texte": "Toy boat, toy boat, toy boat.",
+    "sons": "t/b"
+  },
+  {
+    "texte": "Unique New York, unique New York.",
+    "sons": "n/y"
+  },
+  {
+    "texte": "Irish wristwatch, Irish wristwatch.",
+    "sons": "r/w"
+  },
+  {
+    "texte": "Fresh fried fish, fish fresh fried, fried fish fresh, fish fried fresh.",
+    "sons": "f/r"
+  },
+  {
+    "texte": "The sixth sick sheikh's sixth sheep's sick.",
+    "sons": "s/sh"
+  },
+  {
+    "texte": "Greek grapes, Greek grapes, Greek grapes.",
+    "sons": "g/r"
+  },
+  {
+    "texte": "Truly rural, truly rural, truly rural.",
+    "sons": "r/l"
+  },
+  {
+    "texte": "Six sticky skeletons, six sticky skeletons.",
+    "sons": "s/k"
+  },
+  {
+    "texte": "A big black bug bit a big black bear.",
+    "sons": "b"
+  },
+  {
+    "texte": "Chop shops stock chops.",
+    "sons": "ch/sh"
+  },
+  {
+    "texte": "Nine nice night nurses nursing nicely.",
+    "sons": "n"
+  },
+  {
+    "texte": "Two toads, totally tired, tried to trot to Tarrytown.",
+    "sons": "t/tr"
+  },
+  {
+    "texte": "Any noise annoys an oyster, but a noisy noise annoys an oyster most.",
+    "sons": "n/oy"
+  },
+  {
+    "texte": "Lesser leather never weathered wetter weather better.",
+    "sons": "l/w"
+  },
+  {
+    "texte": "Round the rugged rocks the ragged rascal ran.",
+    "sons": "r"
+  },
+  {
+    "texte": "Six shiny sheep shivered silently in the snow.",
+    "sons": "s/sh"
+  },
+  {
+    "texte": "Willie's really weary, worrying whether wild worms wriggle.",
+    "sons": "w/r"
+  },
+  {
+    "texte": "Crisp crusts crackle crunchily.",
+    "sons": "cr"
+  },
+  {
+    "texte": "Freshly fried flying fish.",
+    "sons": "f/fl"
+  },
+  {
+    "texte": "Big blue buckets of blue blueberries.",
+    "sons": "b/bl"
+  },
+  {
+    "texte": "Six white sticky windmills, six white sticky windmills.",
+    "sons": "w/s"
+  },
+  {
+    "texte": "Selfish shellfish, selfish shellfish.",
+    "sons": "s/sh"
+  },
+  {
+    "texte": "Which witch wished which wicked wish?",
+    "sons": "w"
+  },
+  {
+    "texte": "Rory the warrior and Roger the worrier were reared wrongly in a rural brewery.",
+    "sons": "r/w"
+  },
+  {
+    "texte": "A synonym for cinnamon is a cinnamon synonym.",
+    "sons": "s/n"
+  },
+  {
+    "texte": "Give papa a cup of proper coffee in a copper coffee cup.",
+    "sons": "p/k"
+  },
+  {
+    "texte": "Nine nimble noblemen nibbled nuts.",
+    "sons": "n"
+  },
+  {
+    "texte": "Nine little mice ran up nine little vines.",
+    "sons": "n/v"
+  },
+  {
+    "texte": "Wayne went to Wales to watch walruses.",
+    "sons": "w/v"
+  },
+  {
+    "texte": "How many boards could the Mongols hoard if the Mongol hordes got bored?",
+    "sons": "b/h"
+  },
+  {
+    "texte": "She stood on the balcony inexplicably mimicking him hiccupping and amicably welcoming him back.",
+    "sons": "m"
+  },
+  {
+    "texte": "If two witches were watching two watches, which witch would watch which watch?",
+    "sons": "w"
+  },
+  {
+    "texte": "Yellow butter, purple jelly, red jam, black bread.",
+    "sons": "b/j"
+  },
+  {
+    "texte": "A tutor who tooted the flute tried to tutor two tooters to toot.",
+    "sons": "t"
+  },
+  {
+    "texte": "Doctors doctor other doctors the way that other doctors doctor.",
+    "sons": "d"
+  },
+  {
+    "texte": "Green glass globes glow greenly.",
+    "sons": "g/gl"
+  },
+  {
+    "texte": "Six sleek swans swam swiftly southwards.",
+    "sons": "s/sw"
+  },
+  {
+    "texte": "Nine nasty gnats gnawed nine nasty nuts.",
+    "sons": "n/g"
+  },
+  {
+    "texte": "Wretched Rita rode a red rickshaw wrecklessly.",
+    "sons": "r/w"
+  },
+  {
+    "texte": "Fred fed Ted bread and Ted fed Fred bread.",
+    "sons": "f/t"
+  },
+  {
+    "texte": "The great Greek grape growers grow great Greek grapes.",
+    "sons": "g/r"
+  },
+  {
+    "texte": "Peggy Babcock, Peggy Babcock, Peggy Babcock.",
+    "sons": "p/b"
+  },
+  {
+    "texte": "Vincent vowed vengeance very venomously.",
+    "sons": "v"
+  },
+  {
+    "texte": "Twelve twins twirled twelve twigs.",
+    "sons": "tw"
+  },
+  {
+    "texte": "Bright blue bugs bleed blue black blood.",
+    "sons": "b/bl"
+  },
+  {
+    "texte": "A cheerful chimpanzee chewed chunky cheese cheerfully.",
+    "sons": "ch"
+  },
+  {
+    "texte": "Zebras zigzagged zestfully near the zoo.",
+    "sons": "z"
+  },
+  {
+    "texte": "Larry sent the letter to Barry, but Barry sent it back to Larry.",
+    "sons": "l/r/b"
+  },
+  {
+    "texte": "Six sharp sharks swiftly swam south.",
+    "sons": "sh/s"
+  },
+  {
+    "texte": "Karl's cool koala kicked a cardboard cube.",
+    "sons": "k"
+  },
+  {
+    "texte": "Mimi made mango marmalade for Mia in May.",
+    "sons": "m"
+  },
+  {
+    "texte": "Double bubble gum bubbles double.",
+    "sons": "b/d"
+  },
+  {
+    "texte": "Quick kiwis quietly quit quivering.",
+    "sons": "k/q"
+  },
+  {
+    "texte": "A loyal royal soldier stood soundly on solid soil.",
+    "sons": "l/r/s"
+  },
+  {
+    "texte": "Real weird rear wheels rolled rapidly.",
+    "sons": "r/w"
+  },
+  {
+    "texte": "The blue bluebird blinks blindly at bright blue skies.",
+    "sons": "b/bl"
+  },
+  {
+    "texte": "Sneaky snakes sneak silently through the sandy shrubs.",
+    "sons": "s/sn"
+  },
+  {
+    "texte": "Freddy found forty fresh figs for Frida.",
+    "sons": "f"
+  },
+  {
+    "texte": "Jolly jellyfish jiggle joyfully in the jelly jar.",
+    "sons": "j"
+  },
+  {
+    "texte": "Purple pyjamas, purple pyjamas, purple pyjamas.",
+    "sons": "p"
+  },
+  {
+    "texte": "Lucky lizards lick lollipops lazily.",
+    "sons": "l"
+  },
+  {
+    "texte": "Hank helped hungry hedgehogs hide huge hazelnuts.",
+    "sons": "h"
+  },
+  {
+    "texte": "Vivid violet violins vibrate vividly.",
+    "sons": "v"
+  },
+  {
+    "texte": "Odd otters ogle orange oranges often.",
+    "sons": "o"
+  },
+  {
+    "texte": "Deep dark ducks dive daily under the dock.",
+    "sons": "d"
+  },
+  {
+    "texte": "Mickey's mice munch minty mints midweek.",
+    "sons": "m"
+  },
+  {
+    "texte": "Winter winds whisk white wisps westward.",
+    "sons": "w"
+  },
+  {
+    "texte": "Curly crickets creep quietly across the carpet.",
+    "sons": "cr/c"
+  },
+  {
+    "texte": "Silent seals swim serenely through the salty sea.",
+    "sons": "s"
+  },
+  {
+    "texte": "Nine noisy narwhals nudged the northern net.",
+    "sons": "n"
+  },
+  {
+    "texte": "Grumpy goats gobble green grapes greedily.",
+    "sons": "g"
+  },
+  {
+    "texte": "Tall twins toss twelve tiny tomatoes together.",
+    "sons": "t/tw"
+  },
+  {
+    "texte": "A quick quail quietly questioned the queasy quokka.",
+    "sons": "q"
+  },
+  {
+    "texte": "Roaring rivers rush rapidly round the ragged rocks.",
+    "sons": "r"
+  },
+  {
+    "texte": "Yellow yaks yawn yearly in the yard.",
+    "sons": "y"
+  },
+  {
+    "texte": "Foggy frogs forecast forty fresh forecasts.",
+    "sons": "f"
+  },
+  {
+    "texte": "The proud prince practiced precise pronunciation.",
+    "sons": "p/r"
+  },
+  {
+    "texte": "Slippery seals slid slowly along the slick slope.",
+    "sons": "sl/s"
+  },
+  {
+    "texte": "Chubby chipmunks chatted cheerfully by the chestnut tree.",
+    "sons": "ch"
+  },
+  {
+    "texte": "Bold black bulls bump big brown barrels.",
+    "sons": "b"
+  },
+  {
+    "texte": "Sixty-six sick chicks sat silently.",
+    "sons": "s/ch"
+  },
+  {
+    "texte": "Wobbly wombats wander widely in the wild.",
+    "sons": "w"
+  },
+  {
+    "texte": "Kevin's kittens kept kicking crumpled cardboard.",
+    "sons": "k"
+  },
+  {
+    "texte": "Three free fleas flew from the frosty tree.",
+    "sons": "fr/f"
+  },
+  {
+    "texte": "Loud lions lounge lazily under leafy leaves.",
+    "sons": "l"
+  },
+  {
+    "texte": "Nifty gnomes knitted nine knotty knapsacks.",
+    "sons": "n/k"
+  },
+  {
+    "texte": "Please pause plainly and place the plump plums properly.",
+    "sons": "p/pl"
+  },
+  {
+    "texte": "Two tiny turtles trotted toward the teal tent.",
+    "sons": "t/tr"
+  },
+  {
+    "texte": "Dizzy ducks dabble daintily down the dusty ditch.",
+    "sons": "d"
+  },
+  {
+    "texte": "Whales wail wistfully while wandering westward.",
+    "sons": "w"
+  },
+  {
+    "texte": "Merry mermaids murmured melodies made of moonlight.",
+    "sons": "m"
+  },
+  {
+    "texte": "Grey geese greedily gobble golden grain.",
+    "sons": "g"
+  },
+  {
+    "texte": "Silly seagulls squawk swiftly over the shallow shore.",
+    "sons": "s/sq"
+  },
+  {
+    "texte": "Curious cats cautiously chase clever crickets.",
+    "sons": "c"
+  }
+]

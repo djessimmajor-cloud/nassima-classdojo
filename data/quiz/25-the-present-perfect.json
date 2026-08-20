@@ -1,0 +1,336 @@
+{
+  "titre": "Grammar: the present perfect",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "I ___ never been to Japan.",
+      "choices": [
+        "has",
+        "have",
+        "had",
+        "did"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "She ___ already finished her homework.",
+      "choices": [
+        "had",
+        "have",
+        "has",
+        "did"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "They ___ just arrived at the station.",
+      "choices": [
+        "did",
+        "have",
+        "has",
+        "had"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "___ you ever eaten sushi?",
+      "choices": [
+        "Have",
+        "Has",
+        "Did",
+        "Had"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "He ___ lived here for ten years.",
+      "choices": [
+        "did",
+        "has",
+        "have",
+        "had"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "We ___ seen that film twice.",
+      "choices": [
+        "has",
+        "have",
+        "did",
+        "had"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "I have ___ my keys, I can't find them! (lose)",
+      "choices": [
+        "losing",
+        "lose",
+        "lost",
+        "losed"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "She has ___ to London three times. (be)",
+      "choices": [
+        "was",
+        "being",
+        "gone",
+        "been"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "He has just ___ his lunch. (eat)",
+      "choices": [
+        "eat",
+        "eating",
+        "eaten",
+        "ate"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Have you ___ your homework yet? (do)",
+      "choices": [
+        "did",
+        "doing",
+        "done",
+        "does"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "They have ___ in this house since 2010. (live)",
+      "choices": [
+        "live",
+        "lives",
+        "lived",
+        "living"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "I haven't ___ him for a long time. (see)",
+      "choices": [
+        "see",
+        "seen",
+        "saw",
+        "seeing"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "She has already ___ the book. (read)",
+      "choices": [
+        "reads",
+        "readed",
+        "reading",
+        "read"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "We have never ___ such a beautiful place. (visit)",
+      "choices": [
+        "visit",
+        "visited",
+        "visits",
+        "visiting"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "He has ___ his car this morning. (wash)",
+      "choices": [
+        "washing",
+        "washes",
+        "wash",
+        "washed"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Have they ___ finished the project?",
+      "choices": [
+        "last",
+        "yesterday",
+        "ago",
+        "already"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "She has ___ come back from school. (recently)",
+      "choices": [
+        "last week",
+        "yesterday",
+        "ago",
+        "just"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "We haven't decided ___. (not yet)",
+      "choices": [
+        "just",
+        "yet",
+        "ago",
+        "already"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "This is the best cake I ___ ever eaten.",
+      "choices": [
+        "had",
+        "has",
+        "did",
+        "have"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How long ___ you known each other?",
+      "choices": [
+        "had",
+        "did",
+        "has",
+        "have"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "She's ___ finished her exams. (already)",
+      "choices": [
+        "ago",
+        "yesterday",
+        "already",
+        "last year"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "They ___ moved to a new flat recently.",
+      "choices": [
+        "have",
+        "did",
+        "has",
+        "had"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "I have ___ that song a hundred times. (hear)",
+      "choices": [
+        "hear",
+        "hearing",
+        "heard",
+        "heared"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Has she ___ her exam results yet? (get)",
+      "choices": [
+        "gets",
+        "got",
+        "get",
+        "getting"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "We have ___ our project. (finish)",
+      "choices": [
+        "finishing",
+        "finish",
+        "finished",
+        "finishes"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "He has never ___ a horse before. (ride)",
+      "choices": [
+        "ridden",
+        "rode",
+        "ride",
+        "riding"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "I have ___ my phone somewhere. (put)",
+      "choices": [
+        "put",
+        "puts",
+        "putted",
+        "putting"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "The train ___ already left when we arrived.",
+      "choices": [
+        "has",
+        "have",
+        "did",
+        "had"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "By the time we arrived, the film ___ already started.",
+      "choices": [
+        "has",
+        "did",
+        "had",
+        "have"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "She told me she ___ finished the book already.",
+      "choices": [
+        "has",
+        "have",
+        "had",
+        "did"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}

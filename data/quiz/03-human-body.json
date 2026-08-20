@@ -1,0 +1,336 @@
+{
+  "titre": "The human body",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Which organ pumps blood around the body?",
+      "choices": [
+        "the kidney",
+        "the liver",
+        "the lungs",
+        "the heart"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which organ do we use to breathe?",
+      "choices": [
+        "the stomach",
+        "the lungs",
+        "the heart",
+        "the liver"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "How many bones are there in the adult human body?",
+      "choices": [
+        "100",
+        "300",
+        "206",
+        "150"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which organ is the largest in the human body?",
+      "choices": [
+        "the brain",
+        "the liver",
+        "the heart",
+        "the skin"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What controls the whole body and our thoughts?",
+      "choices": [
+        "the brain",
+        "the lungs",
+        "the heart",
+        "the spine"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Where does digestion mainly take place?",
+      "choices": [
+        "the lungs",
+        "the brain",
+        "the stomach and intestines",
+        "the heart"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the liquid tissue that carries oxygen in our body?",
+      "choices": [
+        "water",
+        "saliva",
+        "sweat",
+        "blood"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How many chambers does the human heart have?",
+      "choices": [
+        "three",
+        "four",
+        "six",
+        "two"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the hardest substance in the human body?",
+      "choices": [
+        "hair",
+        "nails",
+        "tooth enamel",
+        "bone"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which sense organ do we use to see?",
+      "choices": [
+        "the nose",
+        "the eyes",
+        "the tongue",
+        "the ears"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which sense organ do we use to hear?",
+      "choices": [
+        "the ears",
+        "the skin",
+        "the eyes",
+        "the nose"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the smallest bone in the human body?",
+      "choices": [
+        "the skull",
+        "the rib",
+        "the stirrup (in the ear)",
+        "the femur"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the longest bone in the human body?",
+      "choices": [
+        "the femur",
+        "the skull",
+        "the spine",
+        "the rib"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which organ filters waste from the blood?",
+      "choices": [
+        "the heart",
+        "the kidneys",
+        "the stomach",
+        "the lungs"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the gas we breathe in that our body needs?",
+      "choices": [
+        "nitrogen",
+        "hydrogen",
+        "carbon dioxide",
+        "oxygen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the gas we breathe out?",
+      "choices": [
+        "oxygen",
+        "nitrogen",
+        "helium",
+        "carbon dioxide"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "How many teeth does a typical adult have?",
+      "choices": [
+        "28",
+        "32",
+        "36",
+        "20"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What protects the brain?",
+      "choices": [
+        "the skin",
+        "the spine",
+        "the ribs",
+        "the skull"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the main function of red blood cells?",
+      "choices": [
+        "fighting infection",
+        "producing hormones",
+        "digesting food",
+        "carrying oxygen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do white blood cells mainly do?",
+      "choices": [
+        "produce sound",
+        "store fat",
+        "fight infection",
+        "carry oxygen"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which muscle never gets tired and works all your life?",
+      "choices": [
+        "the tongue",
+        "the biceps",
+        "the calf",
+        "the heart"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Where is your diaphragm located?",
+      "choices": [
+        "in the arm",
+        "in the leg",
+        "in the head",
+        "below the lungs"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the study of the human body called?",
+      "choices": [
+        "biology only",
+        "anatomy",
+        "chemistry",
+        "geology"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What connects muscles to bones?",
+      "choices": [
+        "tendons",
+        "veins",
+        "ligaments only",
+        "nerves"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What connects bones to other bones?",
+      "choices": [
+        "ligaments",
+        "arteries",
+        "nerves",
+        "tendons"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "How many pairs of ribs does the human body usually have?",
+      "choices": [
+        "14 pairs",
+        "12 pairs",
+        "8 pairs",
+        "10 pairs"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which part of the body produces insulin?",
+      "choices": [
+        "the kidney",
+        "the liver",
+        "the pancreas",
+        "the spleen"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the outer layer of skin called?",
+      "choices": [
+        "the cortex",
+        "the epidermis",
+        "the dermis",
+        "the retina"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What carries electrical signals around the body?",
+      "choices": [
+        "tendons",
+        "nerves",
+        "muscles",
+        "veins"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the process of the heart beating?",
+      "choices": [
+        "circulation / heartbeat",
+        "reflex",
+        "respiration",
+        "digestion"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

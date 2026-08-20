@@ -1,0 +1,336 @@
+{
+  "titre": "Famous authors and literature",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Who wrote the Harry Potter book series?",
+      "choices": [
+        "Roald Dahl",
+        "C.S. Lewis",
+        "Jane Austen",
+        "J.K. Rowling"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "choices": [
+        "William Shakespeare",
+        "Jane Austen",
+        "Charles Dickens",
+        "Oscar Wilde"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Charlie and the Chocolate Factory'?",
+      "choices": [
+        "C.S. Lewis",
+        "Lewis Carroll",
+        "J.K. Rowling",
+        "Roald Dahl"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who created the detective Sherlock Holmes?",
+      "choices": [
+        "Agatha Christie",
+        "Mark Twain",
+        "Charles Dickens",
+        "Arthur Conan Doyle"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Alice's Adventures in Wonderland'?",
+      "choices": [
+        "C.S. Lewis",
+        "Roald Dahl",
+        "J.K. Rowling",
+        "Lewis Carroll"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'The Chronicles of Narnia'?",
+      "choices": [
+        "Roald Dahl",
+        "J.R.R. Tolkien",
+        "J.K. Rowling",
+        "C.S. Lewis"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'The Lord of the Rings'?",
+      "choices": [
+        "Roald Dahl",
+        "George R.R. Martin",
+        "J.R.R. Tolkien",
+        "C.S. Lewis"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which American writer wrote 'The Adventures of Tom Sawyer'?",
+      "choices": [
+        "Ernest Hemingway",
+        "F. Scott Fitzgerald",
+        "Herman Melville",
+        "Mark Twain"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Pride and Prejudice'?",
+      "choices": [
+        "Emily Bronte",
+        "Jane Austen",
+        "Charlotte Bronte",
+        "Virginia Woolf"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Oliver Twist' and 'A Christmas Carol'?",
+      "choices": [
+        "Thomas Hardy",
+        "H.G. Wells",
+        "Charles Dickens",
+        "William Shakespeare"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who is the famous mystery writer who created detective Hercule Poirot?",
+      "choices": [
+        "Ian Fleming",
+        "Arthur Conan Doyle",
+        "Agatha Christie",
+        "Charles Dickens"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who created the spy character James Bond?",
+      "choices": [
+        "Arthur Conan Doyle",
+        "Ian Fleming",
+        "Agatha Christie",
+        "John le Carre"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which playwright is known as 'the Bard of Avon'?",
+      "choices": [
+        "William Shakespeare",
+        "Christopher Marlowe",
+        "George Bernard Shaw",
+        "Oscar Wilde"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "In which English town was William Shakespeare born?",
+      "choices": [
+        "Stratford-upon-Avon",
+        "Cambridge",
+        "Oxford",
+        "London"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Robinson Crusoe'?",
+      "choices": [
+        "Daniel Defoe",
+        "Charles Dickens",
+        "Mark Twain",
+        "Jonathan Swift"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote the dystopian novel '1984'?",
+      "choices": [
+        "Aldous Huxley",
+        "H.G. Wells",
+        "Ray Bradbury",
+        "George Orwell"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'The Hobbit'?",
+      "choices": [
+        "Terry Pratchett",
+        "C.S. Lewis",
+        "J.R.R. Tolkien",
+        "Philip Pullman"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the title of the first Harry Potter book?",
+      "choices": [
+        "Harry Potter and the Deathly Hallows",
+        "Harry Potter and the Philosopher's Stone",
+        "Harry Potter and the Goblet of Fire",
+        "Harry Potter and the Chamber of Secrets"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Peter Pan'?",
+      "choices": [
+        "Lewis Carroll",
+        "A.A. Milne",
+        "J.M. Barrie",
+        "Kenneth Grahame"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who created Winnie the Pooh?",
+      "choices": [
+        "Roald Dahl",
+        "A.A. Milne",
+        "J.M. Barrie",
+        "Beatrix Potter"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote the poem-filled 'Jungle Book'?",
+      "choices": [
+        "Rudyard Kipling",
+        "Lewis Carroll",
+        "C.S. Lewis",
+        "Roald Dahl"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a story that is not true, made up by the author?",
+      "choices": [
+        "fiction",
+        "a memoir",
+        "non-fiction",
+        "biography"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a true story about someone's own life, written by themselves?",
+      "choices": [
+        "a biography",
+        "an autobiography",
+        "fiction",
+        "a novel"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the main character in a story?",
+      "choices": [
+        "the author",
+        "the protagonist",
+        "the antagonist",
+        "the narrator"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the character who opposes the main character?",
+      "choices": [
+        "the protagonist",
+        "the narrator",
+        "the antagonist",
+        "the hero"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a poem or story told in the first person using 'I'?",
+      "choices": [
+        "a script",
+        "a biography",
+        "third-person narrative",
+        "first-person narrative"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a short story with a moral lesson, often with animal characters?",
+      "choices": [
+        "a fable",
+        "a novel",
+        "a sonnet",
+        "a biography"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a 14-line poem, often about love, made famous by Shakespeare?",
+      "choices": [
+        "a haiku",
+        "an ode",
+        "a limerick",
+        "a sonnet"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'Great Expectations' and 'David Copperfield'?",
+      "choices": [
+        "William Shakespeare",
+        "H.G. Wells",
+        "Charles Dickens",
+        "Thomas Hardy"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Who wrote 'The Time Machine' and 'The War of the Worlds'?",
+      "choices": [
+        "H.G. Wells",
+        "George Orwell",
+        "Jules Verne",
+        "Aldous Huxley"
+      ],
+      "correct": 0,
+      "explication": ""
+    }
+  ]
+}

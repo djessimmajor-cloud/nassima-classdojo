@@ -1,0 +1,336 @@
+{
+  "titre": "Idioms and expressions",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What does the idiom 'it's raining cats and dogs' mean?",
+      "choices": [
+        "it is snowing",
+        "it is a sunny day",
+        "animals are falling from the sky",
+        "it is raining very heavily"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'break a leg' mean when said to someone before a performance?",
+      "choices": [
+        "good luck",
+        "be careful, you might fall",
+        "you did badly",
+        "stop performing"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does 'a piece of cake' mean?",
+      "choices": [
+        "something difficult",
+        "a delicious dessert",
+        "a small amount",
+        "something very easy"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'once in a blue moon' mean?",
+      "choices": [
+        "every month",
+        "very rarely",
+        "very often",
+        "never"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'under the weather' mean?",
+      "choices": [
+        "standing outside in the rain",
+        "feeling unwell",
+        "enjoying good weather",
+        "feeling very happy"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to cost an arm and a leg' mean?",
+      "choices": [
+        "to be painful",
+        "to be free",
+        "to be very expensive",
+        "to be dangerous"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to hit the books' mean?",
+      "choices": [
+        "to buy new books",
+        "to start studying hard",
+        "to read for fun",
+        "to throw books away"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to let the cat out of the bag' mean?",
+      "choices": [
+        "to reveal a secret",
+        "to make a mistake",
+        "to lose something",
+        "to release an animal"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to kill two birds with one stone' mean?",
+      "choices": [
+        "to fail twice",
+        "to achieve two things with one action",
+        "to hurt two people",
+        "to waste time"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'a blessing in disguise' mean?",
+      "choices": [
+        "a costume party",
+        "something that seems bad but turns out to be good",
+        "a religious ceremony",
+        "a bad surprise"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'speak of the devil' mean when someone appears unexpectedly?",
+      "choices": [
+        "we were just talking about that person",
+        "that person is very bad",
+        "that person is late",
+        "be careful of that person"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does 'the ball is in your court' mean?",
+      "choices": [
+        "it's not your decision",
+        "it's your turn to decide or act",
+        "you are playing sport",
+        "you have lost the game"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'better late than never' mean?",
+      "choices": [
+        "being late is never acceptable",
+        "you should always be on time",
+        "it's good you did it, even though it's late",
+        "time doesn't matter"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'don't judge a book by its cover' mean?",
+      "choices": [
+        "always trust first impressions",
+        "don't read books",
+        "don't judge something only by appearance",
+        "covers are important"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'every cloud has a silver lining' mean?",
+      "choices": [
+        "there is something good in every bad situation",
+        "nothing good ever happens",
+        "the sky is always grey",
+        "clouds bring rain"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What does 'on cloud nine' mean?",
+      "choices": [
+        "very confused",
+        "extremely happy",
+        "very tired",
+        "very angry"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'feeling blue' mean?",
+      "choices": [
+        "feeling sick",
+        "feeling cold",
+        "feeling sad",
+        "feeling excited"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to break the ice' mean?",
+      "choices": [
+        "to end a friendship",
+        "to cause an accident",
+        "to make people feel more comfortable in a social situation",
+        "to cancel a plan"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to miss the boat' mean?",
+      "choices": [
+        "to fall asleep",
+        "to be late for a trip only",
+        "to miss an opportunity",
+        "to lose something at sea"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to call it a day' mean?",
+      "choices": [
+        "to plan a party",
+        "to wake up early",
+        "to name a day after someone",
+        "to stop working for the day"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to cut corners' mean?",
+      "choices": [
+        "to cut paper",
+        "to lose a game",
+        "to do something badly or cheaply to save time or money",
+        "to take a shortcut on a road"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to get out of hand' mean?",
+      "choices": [
+        "to escape danger",
+        "to become uncontrollable",
+        "to finish a task",
+        "to shake hands"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'hang in there' mean?",
+      "choices": [
+        "stop immediately",
+        "hold an object",
+        "keep trying, don't give up",
+        "wait outside"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to be in the same boat' mean?",
+      "choices": [
+        "to like the same things",
+        "to be in the same difficult situation as someone else",
+        "to travel together",
+        "to disagree with each other"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to keep an eye on' something mean?",
+      "choices": [
+        "to ignore it",
+        "to watch or look after it carefully",
+        "to buy it",
+        "to look at it once"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'so far so good' mean?",
+      "choices": [
+        "nothing has happened yet",
+        "everything is going badly",
+        "the distance is short",
+        "everything is going well up to now"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to be a couch potato' mean?",
+      "choices": [
+        "to eat a lot of vegetables",
+        "to be lazy and watch a lot of TV",
+        "to be very active",
+        "to enjoy gardening"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What does 'when pigs fly' mean?",
+      "choices": [
+        "a farm activity",
+        "something that happens rarely",
+        "something impossible but true",
+        "something that will never happen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'to bite the bullet' mean?",
+      "choices": [
+        "to eat quickly",
+        "to give up",
+        "to argue with someone",
+        "to accept something difficult or unpleasant"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What does 'actions speak louder than words' mean?",
+      "choices": [
+        "actions are always noisy",
+        "what people do is more important than what they say",
+        "talking is more important than doing",
+        "loud voices are convincing"
+      ],
+      "correct": 1,
+      "explication": ""
+    }
+  ]
+}

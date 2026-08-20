@@ -1,0 +1,336 @@
+{
+  "titre": "Science: physics and chemistry basics",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "What is the chemical symbol for water?",
+      "choices": [
+        "O2",
+        "CO2",
+        "H2O2",
+        "H2O"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the chemical symbol for oxygen?",
+      "choices": [
+        "C",
+        "O",
+        "H",
+        "O2 only is wrong here, pick O"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What force pulls objects towards the Earth?",
+      "choices": [
+        "friction",
+        "magnetism",
+        "electricity",
+        "gravity"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the three states of matter?",
+      "choices": [
+        "hard, soft and liquid",
+        "solid, liquid and gas",
+        "hot, warm and cold",
+        "big, medium and small"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the process called when a liquid turns into a gas?",
+      "choices": [
+        "condensation",
+        "evaporation",
+        "melting",
+        "freezing"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the process called when a gas turns into a liquid?",
+      "choices": [
+        "condensation",
+        "evaporation",
+        "freezing",
+        "melting"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the process called when a solid turns into a liquid?",
+      "choices": [
+        "evaporation",
+        "condensation",
+        "melting",
+        "freezing"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the process called when a liquid turns into a solid?",
+      "choices": [
+        "melting",
+        "evaporation",
+        "freezing",
+        "condensation"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the smallest unit of a chemical element?",
+      "choices": [
+        "a molecule",
+        "a cell",
+        "an electron",
+        "an atom"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call two or more atoms joined together?",
+      "choices": [
+        "an atom",
+        "a cell",
+        "a molecule",
+        "a proton"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What are the tiny negatively charged particles in an atom called?",
+      "choices": [
+        "electrons",
+        "atoms",
+        "neutrons",
+        "protons"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What are the tiny positively charged particles in an atom called?",
+      "choices": [
+        "neutrons",
+        "protons",
+        "electrons",
+        "molecules"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What force makes a magnet attract metal objects?",
+      "choices": [
+        "electricity",
+        "gravity",
+        "friction",
+        "magnetism"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call energy that comes from the movement of electrons?",
+      "choices": [
+        "electricity",
+        "light",
+        "heat",
+        "sound"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What instrument is used to measure temperature?",
+      "choices": [
+        "a ruler",
+        "a scale",
+        "a thermometer",
+        "a barometer"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What instrument is used to measure weight or mass?",
+      "choices": [
+        "a thermometer",
+        "a ruler",
+        "a barometer",
+        "a scale (balance)"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the speed of light approximately?",
+      "choices": [
+        "3,000 km per second",
+        "30,000 km per second",
+        "300,000 km per second",
+        "3 million km per second"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What gas do plants absorb from the air to make food?",
+      "choices": [
+        "hydrogen",
+        "nitrogen",
+        "carbon dioxide",
+        "oxygen"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What gas do plants release into the air during photosynthesis?",
+      "choices": [
+        "carbon dioxide",
+        "hydrogen",
+        "nitrogen",
+        "oxygen"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the process called by which plants make their own food using sunlight?",
+      "choices": [
+        "digestion",
+        "photosynthesis",
+        "evaporation",
+        "respiration"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a substance that cannot be broken down into simpler substances?",
+      "choices": [
+        "a compound",
+        "an element",
+        "a mixture",
+        "a solution"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call two or more substances mixed together but not chemically joined?",
+      "choices": [
+        "a solution",
+        "a compound",
+        "a mixture",
+        "an element"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which planet in our solar system is known for having a strong greenhouse effect and being very hot?",
+      "choices": [
+        "Jupiter",
+        "Mars",
+        "Mercury",
+        "Venus"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the force that opposes motion between two surfaces?",
+      "choices": [
+        "tension",
+        "magnetism",
+        "gravity",
+        "friction"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a scientist who studies chemicals and reactions?",
+      "choices": [
+        "a biologist",
+        "a physicist",
+        "a chemist",
+        "a geologist"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a scientist who studies matter, energy and forces?",
+      "choices": [
+        "a botanist",
+        "a biologist",
+        "a physicist",
+        "a chemist"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is the pH value of pure water considered to be?",
+      "choices": [
+        "0 (very acidic)",
+        "1 (acidic)",
+        "7 (neutral)",
+        "14 (very basic)"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What natural phenomenon is caused by light passing through raindrops?",
+      "choices": [
+        "lightning",
+        "an eclipse",
+        "a shadow",
+        "a rainbow"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the natural satellite that causes tides on Earth?",
+      "choices": [
+        "a comet",
+        "Mars",
+        "the Sun",
+        "the Moon"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What is the unit used to measure electric current?",
+      "choices": [
+        "the ohm",
+        "the ampere (amp)",
+        "the volt",
+        "the watt"
+      ],
+      "correct": 1,
+      "explication": ""
+    }
+  ]
+}

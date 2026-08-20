@@ -1,0 +1,336 @@
+{
+  "titre": "Food and drink around the world",
+  "categorie": "Anglais",
+  "questions": [
+    {
+      "question": "Which country is famous for inventing pizza?",
+      "choices": [
+        "Spain",
+        "Italy",
+        "France",
+        "Greece"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for sushi?",
+      "choices": [
+        "China",
+        "Korea",
+        "Thailand",
+        "Japan"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for the traditional dish 'fish and chips'?",
+      "choices": [
+        "Ireland",
+        "France",
+        "the United Kingdom",
+        "Germany"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for croissants and baguettes?",
+      "choices": [
+        "Italy",
+        "Spain",
+        "France",
+        "Belgium"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for tacos and burritos?",
+      "choices": [
+        "Brazil",
+        "Mexico",
+        "Spain",
+        "Argentina"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for curry as a traditional dish?",
+      "choices": [
+        "Japan",
+        "India",
+        "China",
+        "Thailand"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the traditional main dish of American Thanksgiving?",
+      "choices": [
+        "turkey",
+        "ham",
+        "fish",
+        "chicken"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What British dish is traditionally eaten on Sundays with roast meat and vegetables?",
+      "choices": [
+        "fish and chips",
+        "shepherd's pie",
+        "a full English breakfast",
+        "a Sunday roast"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "What do we call the main ingredient of guacamole?",
+      "choices": [
+        "avocado",
+        "tomato",
+        "onion",
+        "pepper"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the main ingredient of hummus?",
+      "choices": [
+        "peas",
+        "chickpeas",
+        "beans",
+        "lentils"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which fruit is used to make traditional apple pie?",
+      "choices": [
+        "pears",
+        "apples",
+        "bananas",
+        "oranges"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is pasta traditionally made from?",
+      "choices": [
+        "wheat flour and water",
+        "corn and milk",
+        "rice and water",
+        "potato and eggs"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What do we call a hot drink made from roasted beans, popular in the morning?",
+      "choices": [
+        "tea",
+        "coffee",
+        "juice",
+        "hot chocolate"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What British drink is traditionally served with milk in the afternoon?",
+      "choices": [
+        "juice",
+        "coffee",
+        "tea",
+        "lemonade"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country is the origin of the hamburger, as we know it today?",
+      "choices": [
+        "the United States",
+        "France",
+        "Canada",
+        "Germany"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the main ingredient of traditional French onion soup?",
+      "choices": [
+        "potatoes",
+        "onions",
+        "tomatoes",
+        "carrots"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for producing feta cheese and olives?",
+      "choices": [
+        "Italy",
+        "Greece",
+        "Spain",
+        "Turkey"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is the name of the spicy Korean fermented cabbage dish?",
+      "choices": [
+        "dim sum",
+        "sushi",
+        "kimchi",
+        "tempura"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which country is the origin of chocolate, first used by the Aztecs and Mayans?",
+      "choices": [
+        "Switzerland",
+        "Belgium",
+        "Mexico (Central America)",
+        "France"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "Which European country is most famous for producing chocolate today?",
+      "choices": [
+        "Spain",
+        "Switzerland",
+        "Greece",
+        "Portugal"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do the British traditionally eat for breakfast, with eggs, bacon and beans?",
+      "choices": [
+        "porridge only",
+        "a full English breakfast",
+        "a fry-up only",
+        "a continental breakfast"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is a traditional Scottish dish made from sheep's offal?",
+      "choices": [
+        "black pudding",
+        "shepherd's pie",
+        "haggis",
+        "toad in the hole"
+      ],
+      "correct": 2,
+      "explication": ""
+    },
+    {
+      "question": "What is a traditional dessert made with layers of pastry, nuts and honey, from the Middle East?",
+      "choices": [
+        "baklava",
+        "pavlova",
+        "cheesecake",
+        "tiramisu"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which Italian dessert is made with coffee, mascarpone and cocoa powder?",
+      "choices": [
+        "panna cotta",
+        "baklava",
+        "cheesecake",
+        "tiramisu"
+      ],
+      "correct": 3,
+      "explication": ""
+    },
+    {
+      "question": "Which country is famous for paella, a rice dish with seafood?",
+      "choices": [
+        "Spain",
+        "Greece",
+        "Portugal",
+        "Italy"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "What is the main grain used to make traditional Japanese sushi?",
+      "choices": [
+        "barley",
+        "rice",
+        "corn",
+        "wheat"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "Which country is associated with the traditional dish 'goulash'?",
+      "choices": [
+        "Poland",
+        "Hungary",
+        "Austria",
+        "Romania"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What is a traditional English dessert made with fruit and custard or cream?",
+      "choices": [
+        "a scone",
+        "a trifle",
+        "a flapjack",
+        "a crumpet"
+      ],
+      "correct": 1,
+      "explication": ""
+    },
+    {
+      "question": "What do we call small round cakes often served with jam and cream in England?",
+      "choices": [
+        "scones",
+        "muffins",
+        "crumpets",
+        "trifles"
+      ],
+      "correct": 0,
+      "explication": ""
+    },
+    {
+      "question": "Which fruit is squeezed to make traditional British marmalade?",
+      "choices": [
+        "apples",
+        "strawberries",
+        "oranges",
+        "lemons"
+      ],
+      "correct": 2,
+      "explication": ""
+    }
+  ]
+}
