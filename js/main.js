@@ -99,6 +99,7 @@
     if (viewId === 'viewDojo') renderDojo();
     if (viewId === 'viewPicker') renderPicker();
     if (viewId === 'viewTools') renderTools('timer');
+    if (viewId === 'viewConsigne') renderConsigne();
     if (viewId === 'viewQuiz') renderQuizList();
     if (viewId === 'viewVerbs') renderVerbs('list');
     if (viewId === 'viewTwisters') renderTwisters('list');
@@ -122,6 +123,9 @@
   function wireModalClose() {
     document.getElementById('modalRoot').addEventListener('click', (e) => {
       if (e.target.id === 'modalOverlay') closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('modalOverlay')) closeModal();
     });
   }
 
@@ -211,19 +215,17 @@
     grid.innerHTML = c.eleves.map(e => `
       <div class="student-card">
         <div class="avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
-        <div><strong>${escapeHtml(e.nom)}</strong> <span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'F' : 'G'}</span></div>
+        <div class="student-name">${escapeHtml(e.nom)} <span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'F' : 'G'}</span></div>
         <div class="student-points">${e.points || 0}</div>
-        <div class="point-buttons">
-          ${c.categories.map(cat => `<button class="catBtn" data-eleve="${e.id}" data-cat="${cat.id}" data-pts="${cat.points}" title="${escapeHtml(cat.nom)}">${cat.points > 0 ? '+' : ''}${cat.points} ${escapeHtml(cat.nom)}</button>`).join('')}
+        <div class="student-card-actions">
+          <button class="btn btn-sm btn-points" data-points="${e.id}"><svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/></svg> Points</button>
+          <button class="btn btn-sm btn-danger" data-remove="${e.id}"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 15H6L5 6"/></svg></button>
         </div>
-        <button class="btn btn-sm btn-danger" style="margin-top:8px;" data-remove="${e.id}">Retirer l'élève</button>
       </div>
     `).join('');
 
-    grid.querySelectorAll('.catBtn').forEach(b => b.addEventListener('click', () => {
-      const cat = c.categories.find(x => x.id === b.dataset.cat);
-      Dojo.addPoints(c.id, b.dataset.eleve, cat.nom, cat.points);
-      renderDojo();
+    grid.querySelectorAll('[data-points]').forEach(b => b.addEventListener('click', () => {
+      openPointsModal(c.id, b.dataset.points);
     }));
     grid.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
       if (confirm('Retirer cet élève de la classe ?')) { Classes.removeStudent(c.id, b.dataset.remove); renderDojo(); }
@@ -282,6 +284,73 @@
     });
   }
 
+  // ---- Modale de points par élève ----
+  function openPointsModal(classId, eleveId) {
+    const c = Classes.get(classId);
+    if (!c) return;
+    const e = c.eleves.find(x => x.id === eleveId);
+    if (!e) return;
+
+    openModal(`
+      <div class="points-modal-box">
+        <div class="points-modal-head">
+          <button class="points-modal-close" id="pmClose" aria-label="Fermer">${Icons.svg('close')}</button>
+          <div class="pm-avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
+          <div class="pm-name">${escapeHtml(e.nom)}</div>
+          <div class="pm-total" id="pmTotal">${e.points || 0}</div>
+          <div class="hint" style="color:rgba(255,255,255,.85); justify-content:center;">points au total</div>
+        </div>
+        <div class="points-modal-body">
+          <div id="pmCatList">${c.categories.map(cat => `
+            <div class="pm-cat-row">
+              <div class="pm-cat-name">${escapeHtml(cat.nom)}<br><span class="pm-cat-val">± ${Math.abs(cat.points)} pt${Math.abs(cat.points) > 1 ? 's' : ''}</span></div>
+              <div class="pm-cat-actions">
+                <button class="pm-minus" data-cat="${cat.id}" title="Retirer">${Icons.svg('minus')}</button>
+                <button class="pm-plus" data-cat="${cat.id}" title="Ajouter">${Icons.svg('plus')}</button>
+              </div>
+            </div>`).join('') || '<p class="hint">Aucune catégorie. Ajoutez-en une ci-dessous.</p>'}
+          </div>
+          <div class="pm-add-cat">
+            <label style="margin:0 0 6px;">Nouvelle catégorie</label>
+            <div class="pm-add-cat-row">
+              <input type="text" id="pmNewCatName" placeholder="Nom de la catégorie">
+              <input type="number" id="pmNewCatPts" value="1" title="Valeur en points">
+              <button class="btn btn-sm btn-primary" id="pmAddCat">${Icons.svg('plus')}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `);
+
+    function refreshTotal() {
+      const fresh = Classes.get(classId).eleves.find(x => x.id === eleveId);
+      document.getElementById('pmTotal').textContent = fresh ? (fresh.points || 0) : 0;
+    }
+    function wireCatButtons() {
+      document.querySelectorAll('#pmCatList .pm-plus').forEach(b => b.addEventListener('click', () => {
+        const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
+        if (!cat) return;
+        Dojo.addPoints(classId, eleveId, cat.nom, Math.abs(cat.points));
+        refreshTotal(); renderDojo();
+      }));
+      document.querySelectorAll('#pmCatList .pm-minus').forEach(b => b.addEventListener('click', () => {
+        const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
+        if (!cat) return;
+        Dojo.addPoints(classId, eleveId, cat.nom, -Math.abs(cat.points));
+        refreshTotal(); renderDojo();
+      }));
+    }
+    wireCatButtons();
+
+    document.getElementById('pmClose').addEventListener('click', closeModal);
+    document.getElementById('pmAddCat').addEventListener('click', () => {
+      try {
+        Classes.addCategory(classId, document.getElementById('pmNewCatName').value, document.getElementById('pmNewCatPts').value);
+        openPointsModal(classId, eleveId); // ré-ouvre la modale rafraîchie avec la nouvelle catégorie
+      } catch (ex) { alert(ex.message); }
+    });
+  }
+
   document.getElementById('btnResetPoints').addEventListener('click', () => {
     const c = requireClass(); if (!c) return;
     if (confirm('Remettre tous les points à zéro et effacer l’historique de cette classe ?')) { Dojo.resetPoints(c.id); renderDojo(); }
@@ -310,7 +379,7 @@
     const c = requireClass(); if (!c) return;
     try {
       const res = Picker.draw(c.id);
-      document.getElementById('pickerAnim').textContent = res.eleve.sexe === 'F' ? `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M8 9c-2 3-2 6-1 9h10c1-3 1-6-1-9"/><path d="M9 18v3M15 18v3"/></svg>` : `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M6 21v-5a6 6 0 0 1 12 0v5"/></svg>`;
+      document.getElementById('pickerAnim').innerHTML = res.eleve.sexe === 'F' ? `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M8 9c-2 3-2 6-1 9h10c1-3 1-6-1-9"/><path d="M9 18v3M15 18v3"/></svg>` : `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M6 21v-5a6 6 0 0 1 12 0v5"/></svg>`;
       document.getElementById('pickerName').textContent = res.eleve.nom;
       document.getElementById('pickerMeta').textContent = res.poolWasReset ? 'Nouveau cycle démarré pour ce sexe.' : `Encore ${res.restantsMemeSexe} élève(s) de ce sexe dans le cycle actuel.`;
       renderPickerHistory(c.id);
@@ -320,6 +389,66 @@
     const c = requireClass(); if (!c) return;
     if (confirm('Réinitialiser complètement le tirage aléatoire de cette classe ?')) { Picker.resetAll(c.id); renderPicker(); }
   });
+
+  // ================= CONSIGNE (affichage diaporama) =================
+  const CG_POS = [
+    { v: 'top', h: 'left' }, { v: 'top', h: 'center' }, { v: 'top', h: 'right' },
+    { v: 'center', h: 'left' }, { v: 'center', h: 'center' }, { v: 'center', h: 'right' },
+    { v: 'bottom', h: 'left' }, { v: 'bottom', h: 'center' }, { v: 'bottom', h: 'right' },
+  ];
+  function renderConsigne() {
+    const s = Consigne.getSettings();
+
+    document.getElementById('cgText').value = s.text || '';
+    document.getElementById('cgFont').value = s.font;
+    document.getElementById('cgSize').value = s.size;
+    document.getElementById('cgSizeVal').textContent = s.size + 'px';
+    document.getElementById('cgColor').value = s.color;
+    document.getElementById('cgColorVal').textContent = s.color;
+
+    // grille de positions
+    const posGrid = document.getElementById('cgPosGrid');
+    posGrid.innerHTML = CG_POS.map(p => `<button type="button" class="consigne-pos-btn${p.v === s.posV && p.h === s.posH ? ' active' : ''}" data-v="${p.v}" data-h="${p.h}" title="${p.v}/${p.h}"></button>`).join('');
+
+    // grille d'icônes
+    const iconGrid = document.getElementById('cgIconGrid');
+    iconGrid.innerHTML = `<button type="button" class="consigne-icon-btn${!s.icon ? ' active' : ''}" data-icon="" title="Aucune">${Icons.svg('close')}</button>` +
+      Icons.CONSIGNE_ICONS.map(ic => `<button type="button" class="consigne-icon-btn${s.icon === ic.id ? ' active' : ''}" data-icon="${ic.id}" title="${ic.label}">${Icons.svg(ic.id)}</button>`).join('');
+
+    const imgActions = document.getElementById('cgImageActions');
+    imgActions.style.display = s.image ? 'block' : 'none';
+
+    function updatePreview() { Consigne.renderPreview(document.getElementById('cgPreview'), Consigne.getSettings()); }
+    updatePreview();
+
+    document.getElementById('cgText').oninput = (e) => { Consigne.saveSettings({ text: e.target.value }); updatePreview(); };
+    document.getElementById('cgFont').onchange = (e) => { Consigne.saveSettings({ font: e.target.value }); updatePreview(); };
+    document.getElementById('cgSize').oninput = (e) => {
+      document.getElementById('cgSizeVal').textContent = e.target.value + 'px';
+      Consigne.saveSettings({ size: Number(e.target.value) }); updatePreview();
+    };
+    document.getElementById('cgColor').oninput = (e) => {
+      document.getElementById('cgColorVal').textContent = e.target.value;
+      Consigne.saveSettings({ color: e.target.value }); updatePreview();
+    };
+    posGrid.querySelectorAll('.consigne-pos-btn').forEach(b => b.addEventListener('click', () => {
+      Consigne.saveSettings({ posV: b.dataset.v, posH: b.dataset.h });
+      renderConsigne();
+    }));
+    iconGrid.querySelectorAll('.consigne-icon-btn').forEach(b => b.addEventListener('click', () => {
+      Consigne.saveSettings({ icon: b.dataset.icon });
+      renderConsigne();
+    }));
+    document.getElementById('cgImageInput').onchange = (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => { Consigne.saveSettings({ image: reader.result }); renderConsigne(); };
+      reader.readAsDataURL(file);
+    };
+    document.getElementById('cgImageRemove').onclick = () => { Consigne.saveSettings({ image: null }); renderConsigne(); };
+    document.getElementById('cgShowBtn').onclick = () => { Consigne.showFullscreen(Consigne.getSettings()); };
+  }
 
   // ================= OUTILS =================
   document.querySelectorAll('.toolTab').forEach(t => t.addEventListener('click', () => {
