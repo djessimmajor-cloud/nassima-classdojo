@@ -3,10 +3,10 @@ const Lesson = (function () {
   const MODEL = 'llama-3.2-3b-preview';
   const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
   const POLLINATIONS_ENDPOINT = 'https://image.pollinations.ai/prompt/';
-  // Pas de clé par défaut codée en dur (GitHub bloque les secrets en clair dans le code).
-  // L'utilisateur doit renseigner sa clé Groq dans Réglages > Compte ; elle est alors
-  // stockée en localStorage (donc visible côté client, limite inhérente à une appli 100% front-end).
-  const DEFAULT_API_KEY = '';
+  // Clé Groq par défaut pré-remplie dans les réglages (l'utilisateur peut la remplacer).
+  // Rappel : toute clé stockée côté client (localStorage) reste visible dans le navigateur,
+  // et codée en dur ici elle est aussi visible dans le code source de la page.
+  const DEFAULT_API_KEY = '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';
 
   function getApiKey() {
     const user = Auth.getCurrentUser();
