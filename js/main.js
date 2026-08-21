@@ -9,8 +9,10 @@
     wireSidebar();
     wireModalClose();
 
+    wireDailyClassScreen();
+
     const user = Auth.getCurrentUser();
-    if (user) showApp(); else showAuth();
+    if (user) enterAppFlow(); else showAuth();
   }
 
   // ================= AUTH =================
@@ -35,7 +37,7 @@
       err.textContent = '';
       try {
         await Auth.login(document.getElementById('loginEmail').value, document.getElementById('loginPass').value);
-        showApp();
+        enterAppFlow();
       } catch (ex) { err.textContent = ex.message; }
     });
 
@@ -45,19 +47,21 @@
       err.textContent = '';
       try {
         await Auth.register(document.getElementById('regNom').value, document.getElementById('regEmail').value, document.getElementById('regPass').value);
-        showApp();
+        enterAppFlow();
       } catch (ex) { err.textContent = ex.message; }
     });
   }
 
   function showAuth() {
     document.getElementById('authScreen').style.display = 'flex';
+    document.getElementById('dailyClassScreen').style.display = 'none';
     document.getElementById('appScreen').style.display = 'none';
     Theme.apply('normal', false);
   }
 
   function showApp() {
     document.getElementById('authScreen').style.display = 'none';
+    document.getElementById('dailyClassScreen').style.display = 'none';
     document.getElementById('appScreen').style.display = 'grid';
     Theme.applyFromUser();
     const user = Auth.getCurrentUser();
@@ -68,6 +72,7 @@
     darkToggle.checked = !!user.settings.darkMode;
     document.getElementById('groqKeyInput').value = user.settings.groqApiKey || Lesson.DEFAULT_API_KEY;
 
+    updateDailyClassLabel();
     switchView('viewClasses');
     renderClasses();
   }
@@ -75,6 +80,87 @@
   document.getElementById('logoutBtn') && document.getElementById('logoutBtn').addEventListener('click', () => {
     Auth.logout(); currentClassId = null; showAuth();
   });
+
+  // ================= CLASSE DU JOUR =================
+  // Ecran affiché juste après connexion : le prof choisit sa classe active du jour.
+  // Ce choix n'est volontairement PAS persisté d'un jour à l'autre (variable en mémoire
+  // uniquement) : à chaque nouvelle connexion / rechargement de page, l'écran est redemandé,
+  // sauf si le prof n'a qu'une seule classe (sélection automatique pour ne pas l'embêter).
+  // Le seul moyen de revenir sur ce choix ensuite est le bouton "Changer de classe" du header.
+  function updateDailyClassLabel() {
+    const label = document.getElementById('dailyClassLabel');
+    if (!label) return;
+    const c = currentClassId ? Classes.get(currentClassId) : null;
+    label.textContent = c ? c.nom : 'Aucune';
+  }
+
+  function enterAppFlow() {
+    const list = Classes.forCurrentUser();
+    if (list.length === 0) {
+      showDailyClassScreen({ forceEmpty: true });
+      return;
+    }
+    if (list.length === 1) {
+      currentClassId = list[0].id;
+      showApp();
+      return;
+    }
+    showDailyClassScreen();
+  }
+
+  function showDailyClassScreen(opts) {
+    opts = opts || {};
+    document.getElementById('authScreen').style.display = 'none';
+    document.getElementById('appScreen').style.display = 'none';
+    document.getElementById('dailyClassScreen').style.display = 'flex';
+    Theme.applyFromUser();
+
+    const list = Classes.forCurrentUser();
+    const grid = document.getElementById('dailyClassGrid');
+    const createZone = document.getElementById('dailyClassCreate');
+    const hint = document.getElementById('dailyClassHint');
+    document.getElementById('dailyClassError').textContent = '';
+
+    if (list.length === 0) {
+      grid.style.display = 'none';
+      createZone.style.display = 'block';
+      hint.textContent = "Vous n'avez encore aucune classe. Créez votre première classe pour commencer.";
+      return;
+    }
+
+    grid.style.display = '';
+    createZone.style.display = 'none';
+    hint.textContent = 'Choisissez la classe avec laquelle vous travaillez aujourd\'hui.';
+    grid.innerHTML = list.map(c => `
+      <div class="card class-card" data-id="${c.id}" style="cursor:pointer;">
+        <h3>${escapeHtml(c.nom)}</h3>
+        <p class="hint">${c.eleves.length} élève(s)</p>
+        <button class="btn btn-primary btn-block dailyPickBtn" data-id="${c.id}" style="margin-top:8px;">Choisir cette classe</button>
+      </div>`).join('');
+    grid.querySelectorAll('.dailyPickBtn').forEach(b => b.addEventListener('click', () => {
+      currentClassId = b.dataset.id;
+      showApp();
+    }));
+  }
+
+  function wireDailyClassScreen() {
+    const createBtn = document.getElementById('dailyCreateClassBtn');
+    if (createBtn) {
+      createBtn.addEventListener('click', () => {
+        const err = document.getElementById('dailyClassError');
+        err.textContent = '';
+        try {
+          const c = Classes.create(document.getElementById('dailyNewClassName').value);
+          currentClassId = c.id;
+          showApp();
+        } catch (ex) { err.textContent = ex.message; }
+      });
+    }
+    const changeBtn = document.getElementById('btnChangeDailyClass');
+    if (changeBtn) {
+      changeBtn.addEventListener('click', () => { showDailyClassScreen(); });
+    }
+  }
 
   // ================= NAVIGATION =================
   function wireSidebar() {
@@ -151,6 +237,7 @@
     }
     grid.querySelectorAll('.selectClassBtn').forEach(b => b.addEventListener('click', () => {
       currentClassId = b.dataset.id;
+      updateDailyClassLabel();
       renderClasses();
     }));
     grid.querySelectorAll('.deleteClassBtn').forEach(b => b.addEventListener('click', () => {
@@ -224,6 +311,7 @@
       try {
         const c = Classes.create(document.getElementById('newClassName').value);
         currentClassId = c.id;
+        updateDailyClassLabel();
         closeModal();
         renderClasses();
       } catch (ex) { alert(ex.message); }
@@ -866,6 +954,30 @@
     } catch (ex) {
       err.textContent = ex.message;
       result.innerHTML = '';
+    }
+  });
+
+  document.getElementById('btnGenLessonPdf').addEventListener('click', async () => {
+    const err = document.getElementById('lessonPdfError');
+    const btn = document.getElementById('btnGenLessonPdf');
+    const subject = document.getElementById('lessonSubject').value;
+    err.textContent = '';
+    if (!subject || !subject.trim()) { err.textContent = 'Veuillez saisir un sujet de cours.'; return; }
+    btn.disabled = true;
+    const originalLabel = btn.textContent;
+    btn.textContent = 'Génération du PDF…';
+    try {
+      const data = await Lesson.generateExercises(subject);
+      const classe = currentClassId ? Classes.get(currentClassId) : null;
+      const headerTitle = classe ? classe.nom : subject.trim();
+      const doc = Lesson.buildExercisesPdf(headerTitle, data);
+      const safeName = (data.titre || subject).trim().replace(/[^a-z0-9\-_ ]/gi, '').slice(0, 60) || 'exercices';
+      doc.save(`${safeName}.pdf`);
+    } catch (ex) {
+      err.textContent = ex.message;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
     }
   });
 

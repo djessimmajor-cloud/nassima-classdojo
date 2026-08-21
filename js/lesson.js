@@ -140,6 +140,158 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. So
     return items;
   }
 
+  // ================= GÉNÉRATION PDF D'EXERCICES (via Groq + jsPDF) =================
+  // Types d'exercices attendus dans le JSON retourné par Groq (mélange volontaire) :
+  // qcm, texte_a_trous, correction_erreurs, remise_en_ordre, association, redaction
+  async function generateExercises(sujet) {
+    if (!sujet || !sujet.trim()) throw new Error('Veuillez saisir un sujet de cours.');
+    const s = sujet.trim();
+
+    const prompt = `Tu es un professeur d'anglais en collège. Génère un jeu de 8 exercices d'anglais VARIÉS liés au sujet suivant : "${s}".
+Mélange réellement les types d'exercices parmi cette liste : "qcm" (choix multiple), "texte_a_trous" (fill in the blanks), "correction_erreurs" (repérer et corriger une erreur dans une phrase), "remise_en_ordre" (remettre des mots ou une phrase dans l'ordre), "association" (associer des éléments deux à deux), "redaction" (courte production écrite en 2-4 phrases).
+Utilise au moins 4 types différents parmi cette liste sur les 8 exercices.
+
+Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans balises markdown, au format suivant exactement :
+{
+  "titre": "titre court du jeu d'exercices en francais",
+  "exercices": [
+    {
+      "type": "qcm",
+      "consigne": "consigne en francais expliquant quoi faire",
+      "contenu": "le texte de la question ou de la phrase en anglais, avec pour qcm les choix listes sous forme 'A) ... B) ... C) ...' inclus dans ce champ",
+      "reponse": "la reponse correcte, courte"
+    }
+  ]
+}
+Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Les consignes sont en français, le contenu des exercices est en anglais. N'ajoute aucun commentaire, uniquement le JSON.`;
+
+    const raw = await callGroq(prompt, 2200);
+    return parseExercisesResponse(raw, s);
+  }
+
+  function parseExercisesResponse(raw, fallbackTitle) {
+    let jsonStr = raw.trim();
+    // Retire d'éventuelles balises markdown ```json ... ``` que le modèle ajoute parfois
+    // malgré la consigne stricte de ne renvoyer que du JSON.
+    jsonStr = jsonStr.replace(/^```(?:json)?/i, '').replace(/```$/i, '').trim();
+    // Si du texte entoure quand même le JSON, on isole le premier bloc { ... } complet.
+    const first = jsonStr.indexOf('{');
+    const last = jsonStr.lastIndexOf('}');
+    if (first !== -1 && last !== -1 && last > first) jsonStr = jsonStr.slice(first, last + 1);
+
+    let data;
+    try {
+      data = JSON.parse(jsonStr);
+    } catch (e) {
+      throw new Error("Impossible d'analyser la réponse de Groq (JSON invalide).");
+    }
+    const exercices = Array.isArray(data.exercices) ? data.exercices.filter(x => x && x.consigne && x.contenu) : [];
+    if (!exercices.length) throw new Error('Aucun exercice exploitable dans la réponse de Groq.');
+    return {
+      titre: (data.titre && String(data.titre).trim()) || fallbackTitle,
+      exercices: exercices.map(x => ({
+        type: String(x.type || 'exercice').trim(),
+        consigne: String(x.consigne || '').trim(),
+        contenu: String(x.contenu || '').trim(),
+        reponse: String(x.reponse || '').trim(),
+      })),
+    };
+  }
+
+  const TYPE_LABELS = {
+    qcm: 'QCM',
+    texte_a_trous: 'Texte à trous',
+    correction_erreurs: "Correction d'erreurs",
+    remise_en_ordre: 'Remise en ordre',
+    association: 'Association',
+    redaction: 'Rédaction courte',
+  };
+
+  // Construit un vrai PDF (jsPDF) : page de garde/en-tête, consignes numérotées avec
+  // espace pour répondre, et une page de corrigé à la fin. Retourne l'objet jsPDF (doc),
+  // à qui l'appelant peut faire doc.save(filename) ou doc.output('blob').
+  function buildExercisesPdf(headerTitle, data) {
+    if (!window.jspdf || !window.jspdf.jsPDF) throw new Error('jsPDF n\'est pas chargé.');
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const marginX = 18;
+    const maxWidth = pageWidth - marginX * 2;
+    let y = 20;
+
+    function ensureSpace(needed) {
+      if (y + needed > pageHeight - 18) { doc.addPage(); y = 20; }
+    }
+    function writeParagraph(text, opts) {
+      opts = opts || {};
+      doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
+      doc.setFontSize(opts.size || 11);
+      const lines = doc.splitTextToSize(text, maxWidth);
+      lines.forEach(line => {
+        ensureSpace(6);
+        doc.text(line, marginX, y);
+        y += 6;
+      });
+    }
+
+    // En-tête
+    doc.setFillColor(79, 142, 247);
+    doc.rect(0, 0, pageWidth, 30, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.text('EnglishDojo — Feuille d\'exercices', marginX, 14);
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    doc.text(headerTitle, marginX, 23);
+    doc.setTextColor(0, 0, 0);
+    y = 40;
+
+    writeParagraph(data.titre, { bold: true, size: 15 });
+    y += 2;
+    writeParagraph(`Date : ________________     Nom : ____________________________`, { size: 10 });
+    y += 4;
+
+    data.exercices.forEach((ex, i) => {
+      ensureSpace(16);
+      const label = TYPE_LABELS[ex.type] || ex.type;
+      writeParagraph(`${i + 1}. [${label}] ${ex.consigne}`, { bold: true, size: 11.5 });
+      writeParagraph(ex.contenu, { size: 11 });
+      // Lignes pour répondre (espace pour l'élève)
+      const linesToDraw = /redaction|association|remise_en_ordre/.test(ex.type) ? 3 : 2;
+      for (let l = 0; l < linesToDraw; l++) {
+        ensureSpace(8);
+        doc.setDrawColor(180, 180, 180);
+        doc.line(marginX, y, pageWidth - marginX, y);
+        y += 7;
+      }
+      y += 3;
+    });
+
+    // Page de corrigé
+    doc.addPage();
+    y = 20;
+    doc.setFillColor(87, 199, 133);
+    doc.rect(0, 0, pageWidth, 22, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(16);
+    doc.text('Corrigé', marginX, 14);
+    doc.setTextColor(0, 0, 0);
+    y = 34;
+
+    data.exercices.forEach((ex, i) => {
+      ensureSpace(14);
+      const label = TYPE_LABELS[ex.type] || ex.type;
+      writeParagraph(`${i + 1}. [${label}]`, { bold: true, size: 11 });
+      writeParagraph(ex.reponse || 'Réponse libre / à apprécier selon la production de l\'élève.', { size: 10.5 });
+      y += 2;
+    });
+
+    return doc;
+  }
+
   function pollinationsUrl(prompt) {
     // On interdit systématiquement tout texte/lettres dans l'image générée, car Pollinations
     // essaie parfois d'ajouter du texte halluciné (souvent illisible ou incorrect) dans l'image.
@@ -173,5 +325,5 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. So
   function escapeHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function inlineMd(s) { return s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
 
-  return { generate, mdToHtml, pollinationsUrl, DEFAULT_API_KEY, getApiKey };
+  return { generate, mdToHtml, pollinationsUrl, DEFAULT_API_KEY, getApiKey, generateExercises, buildExercisesPdf };
 })();
