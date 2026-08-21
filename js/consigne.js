@@ -8,6 +8,7 @@ const Consigne = (function () {
     font: "'Sora', sans-serif",
     size: 56,
     color: '#ffffff',
+    bgColor: '#000000',
     posV: 'center', // top | center | bottom
     posH: 'center',  // left | center | right
     icon: '',
@@ -50,8 +51,8 @@ const Consigne = (function () {
   }
 
   function renderPreview(el, s) {
+    el.style.backgroundColor = s.bgColor || DEFAULTS.bgColor;
     el.style.backgroundImage = s.image ? `url("${s.image}")` : 'none';
-    el.style.backgroundColor = s.image ? '#101a14' : '';
     el.style.backgroundSize = 'cover';
     el.style.backgroundPosition = 'center';
     el.innerHTML = buildContentHTML(s);
@@ -60,6 +61,7 @@ const Consigne = (function () {
   function showFullscreen(s) {
     const overlay = document.createElement('div');
     overlay.className = 'consigne-fullscreen';
+    overlay.style.background = s.bgColor || DEFAULTS.bgColor;
     if (s.image) {
       overlay.style.backgroundImage = `url("${s.image}")`;
       overlay.style.backgroundSize = 'cover';

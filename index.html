@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EnglishDojo — Outil pour professeurs d'anglais</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f8ef7'/%3E%3Cstop offset='1' stop-color='%237b5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 14 50 23 32 32 14 23Z' fill='%23fff'/%3E%3Cpath d='M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M50 23v13' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f8ef7'/%3E%3Cstop offset='1' stop-color='%237b5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cg transform='translate(12,12) scale(1.6)' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 9l-10 -4l-10 4l10 4l10 -4v6'/%3E%3Cpath d='M6 10.6v5.4a6 3 0 0 0 12 0v-5.4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
 <div id="authScreen">
   <div class="auth-box card">
     <div class="app-logo">
-      <svg viewBox="0 0 64 64" class="app-logo-mark"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="url(#logoGrad)"/><path d="M32 14 50 23 32 32 14 23Z" fill="#fff"/><path d="M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M50 23v13" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 64 64" class="app-logo-mark"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="url(#logoGrad)"/><g transform="translate(12,20) scale(1.7)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></g></svg>
       <h1>English<span>Dojo</span></h1>
     </div>
     <p class="hint">Outil tout-en-un pour la classe d'anglais — 100% local dans votre navigateur.</p>
@@ -46,7 +46,7 @@
 <div id="appScreen" class="grid-layout">
   <nav class="sidebar">
     <div class="brand">
-      <svg viewBox="0 0 64 64" class="brand-mark"><rect width="64" height="64" rx="18" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><path d="M32 14 50 23 32 32 14 23Z" fill="#fff"/><path d="M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M50 23v13" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 64 64" class="brand-mark"><rect width="64" height="64" rx="18" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><g transform="translate(12,20) scale(1.7)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/></g></svg>
       <span>English<em>Dojo</em></span>
     </div>
     <div class="zoom-control" title="Zoom de l'interface">
@@ -54,19 +54,16 @@
       <span id="zoomLevel" class="zoom-level">100%</span>
       <button id="zoomIn" class="zoom-btn" type="button" aria-label="Zoom avant">+</button>
     </div>
-    <div class="nav-item" data-view="viewClasses"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/><path d="M3 9h18"/></svg> Mes classes</div>
-    <div class="nav-item" data-view="viewDashboard"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg> Tableau de bord</div>
-    <div class="nav-item" data-view="viewDojo"><svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/></svg> Points</div>
-    <div class="nav-item" data-view="viewPicker"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v10L4.6 6.4"/><path d="M12 12 19.4 6.4"/><path d="M12 12 4.9 17.4"/><path d="M12 12l7.1 5.4"/><path d="M12 12V22"/><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><path d="M12 0.6 9.8 3.6h4.4Z" fill="currentColor" stroke="none"/></svg> Sélecteur aléatoire</div>
-    <div class="nav-item" data-view="viewTools"><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.66 5.66L3 18l3 3 6.04-6.04a4 4 0 0 1 5.66-5.66L21 6l-3-3-3.3 3.3Z"/></svg> Outils</div>
-    <div class="nav-item" data-view="viewConsigne"><svg class="icon" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/></svg> Consigne</div>
+    <div class="nav-item" data-view="viewClasses"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg> Mes classes</div>
+    <div class="nav-item" data-view="viewTools"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" /></svg> Outils</div>
+    <div class="nav-item" data-view="viewConsigne"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 0 1 0 6" /><path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5" /><path d="M12 8h0l4.524 -3.77a.9 .9 0 0 1 1.476 .692v12.156a.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8" /></svg> Consigne</div>
     <div class="divider"></div>
-    <div class="nav-item" data-view="viewQuiz"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/><path d="M8 9h8M8 13h5"/></svg> Quiz Kahoot</div>
-    <div class="nav-item" data-view="viewLesson"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h7"/></svg> Cours express</div>
+    <div class="nav-item" data-view="viewQuiz"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8" /><path d="M8 13h6" /><path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3z" /></svg> Quiz Kahoot</div>
+    <div class="nav-item" data-view="viewLesson"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" /></svg> Cours express</div>
     <div class="nav-item" data-view="viewVerbs"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="5" width="10" height="14" rx="1"/><rect x="13" y="5" width="10" height="14" rx="1" fill="#c8102e" stroke="#c8102e"/><path d="M13 5h10v14H13Z" fill="none" stroke="currentColor"/><path d="M13 5l10 14M23 5 13 19" stroke="#fff" stroke-width="1.4"/></svg> Verbes irréguliers</div>
-    <div class="nav-item" data-view="viewTwisters"><svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4A8.5 8.5 0 0 1 4 12a8.5 8.5 0 0 1 15.9-4.2L21 3v5.5h-5.5"/><circle cx="12" cy="12" r="3"/></svg> Virelangues</div>
+    <div class="nav-item" data-view="viewTwisters"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10a7 7 0 1 1 13 3.6a10 10 0 0 1 -2 2a8 8 0 0 0 -2 3a4.5 4.5 0 0 1 -6.8 1.4" /><path d="M10 10a3 3 0 1 1 5 2.2" /></svg> Virelangues</div>
     <div class="divider"></div>
-    <div class="nav-item" data-view="viewSettings"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg> Réglages</div>
+    <div class="nav-item" data-view="viewSettings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg> Réglages</div>
     <div class="user-box">
       <div id="userNameDisplay"></div>
       <button class="btn btn-sm" id="logoutBtn" style="margin-top:8px;">Déconnexion</button>
@@ -75,61 +72,41 @@
 
   <main class="main">
 
-    <!-- ---- Mes classes ---- -->
+    <!-- ---- Mes classes (classes + tableau de bord + points, fusionnés) ---- -->
     <section id="viewClasses" class="view">
       <div class="view-header">
-        <h2><svg class="icon" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/><path d="M3 9h18"/></svg> Mes classes</h2>
+        <h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg> Mes classes</h2>
         <button class="btn btn-primary" id="btnNewClass">+ Nouvelle classe</button>
       </div>
       <div id="classGrid" class="grid-cards"></div>
-    </section>
 
-    <!-- ---- Tableau de bord ---- -->
-    <section id="viewDashboard" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg> Tableau de bord</h2><div id="dashClassLabel" class="pill"></div></div>
-      <div id="dashboardContent"></div>
-    </section>
-
-    <!-- ---- Points (Dojo) ---- -->
-    <section id="viewDojo" class="view">
-      <div class="view-header">
-        <h2><svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/></svg> Points de classe</h2>
-        <div>
-          <button class="btn btn-sm" id="btnManageCats">Catégories</button>
-          <button class="btn btn-sm" id="btnAddStudent">+ Élève</button>
-          <button class="btn btn-sm btn-danger" id="btnResetPoints">Réinitialiser</button>
-          <button class="btn btn-sm" id="btnExportCsv">Exporter CSV</button>
+      <div id="classDetail" style="display:none; margin-top:32px;">
+        <div class="view-header">
+          <h2 id="classDetailName"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l8 0" /><path d="M12 17l0 4" /><path d="M7 4l10 0" /><path d="M17 4v8a5 5 0 0 1 -10 0v-8" /><path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /></svg> <span id="classDetailNameText"></span></h2>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="btn btn-sm" id="btnManageCats">Catégories</button>
+            <button class="btn btn-sm" id="btnAddStudent">+ Élève</button>
+            <button class="btn btn-sm btn-danger" id="btnResetPoints">Réinitialiser</button>
+            <button class="btn btn-sm" id="btnExportCsv">Exporter CSV</button>
+          </div>
         </div>
+        <div id="classStatsGrid" class="grid-cards" style="margin-bottom:24px;"></div>
+        <p id="dojoEmptyMsg" class="hint" style="display:none;">Aucun élève dans cette classe. Ajoutez-en avec le bouton "+ Élève".</p>
+        <div id="studentGrid" class="student-grid"></div>
       </div>
-      <p id="dojoEmptyMsg" class="hint" style="display:none;">Aucun élève dans cette classe. Ajoutez-en avec le bouton "+ Élève".</p>
-      <div id="studentGrid" class="student-grid"></div>
-      <h3 style="margin-top:26px;">Historique récent</h3>
-      <div style="max-height:300px; overflow-y:auto;">
-        <table id="dojoHistoryTable"><thead><tr><th>Date</th><th>Élève</th><th>Catégorie</th><th>Points</th></tr></thead><tbody></tbody></table>
-      </div>
-    </section>
-
-    <!-- ---- Sélecteur aléatoire ---- -->
-    <section id="viewPicker" class="view">
-      <div class="view-header">
-        <h2><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg> Sélecteur aléatoire (alterné fille/garçon)</h2>
-        <button class="btn btn-sm btn-danger" id="btnResetPicker">Réinitialiser le tirage</button>
-      </div>
-      <div class="card picker-stage">
-        <div class="picker-anim" id="pickerAnim"><svg viewBox="0 0 24 24" style="width:2.4em;height:2.4em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 2v10L4.6 6.4"/><path d="M12 12 19.4 6.4"/><path d="M12 12 4.9 17.4"/><path d="M12 12l7.1 5.4"/><path d="M12 12V22"/><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><path d="M12 0.6 9.8 3.6h4.4Z" fill="currentColor" stroke="none"/></svg></div>
-        <div class="picker-name" id="pickerName">—</div>
-        <div id="pickerMeta" class="hint"></div>
-        <button class="btn btn-primary" id="btnDraw" style="margin-top:18px; font-size:1.1rem; padding:14px 28px;">Tirer un élève</button>
-      </div>
-      <h3 style="margin-top:24px;">Historique des tirages</h3>
-      <table id="pickerHistoryTable"><thead><tr><th>Élève</th><th>Sexe</th><th>Heure</th></tr></thead><tbody></tbody></table>
     </section>
 
     <!-- ---- Outils ---- -->
     <section id="viewTools" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.66 5.66L3 18l3 3 6.04-6.04a4 4 0 0 1 5.66-5.66L21 6l-3-3-3.3 3.3Z"/></svg> Outils de classe</h2></div>
+      <div class="view-header">
+        <h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5" /></svg> Outils de classe</h2>
+        <label style="margin:0; min-width:220px;">
+          <select id="toolsClassSelect"></select>
+        </label>
+      </div>
       <div class="tabs-row">
         <button class="toolTab active" data-tool="timer">Minuteur</button>
+        <button class="toolTab" data-tool="picker">Sélecteur aléatoire</button>
         <button class="toolTab" data-tool="groups">Groupes aléatoires</button>
         <button class="toolTab" data-tool="seating">Plan de classe</button>
         <button class="toolTab" data-tool="calendar">Calendrier</button>
@@ -168,6 +145,13 @@
             </div>
           </label>
 
+          <label>Couleur de fond de l'écran
+            <div class="consigne-color-row">
+              <input type="color" id="cgBgColor" value="#000000">
+              <span id="cgBgColorVal" class="pill mono">#000000</span>
+            </div>
+          </label>
+
           <label>Position sur l'écran</label>
           <div class="consigne-pos-grid" id="cgPosGrid"></div>
 
@@ -178,11 +162,11 @@
             <input type="file" id="cgImageInput" accept="image/*">
           </label>
           <div id="cgImageActions" style="display:none; margin-top:8px;">
-            <button class="btn btn-sm btn-danger" id="cgImageRemove"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 15H6L5 6"/><path d="M10 11v6M14 11v6"/></svg> Retirer l'image</button>
+            <button class="btn btn-sm btn-danger" id="cgImageRemove"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Retirer l'image</button>
           </div>
 
           <button class="btn btn-primary btn-block" id="cgShowBtn" style="margin-top:18px; font-size:1.05rem; padding:14px;">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M6 3.5 20 12 6 20.5Z"/></svg> Afficher en diaporama
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16l13 -8z" /></svg> Afficher en diaporama
           </button>
         </div>
 
@@ -196,13 +180,13 @@
 
     <!-- ---- Quiz Kahoot ---- -->
     <section id="viewQuiz" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/><path d="M8 9h8M8 13h5"/></svg> Quiz façon Kahoot</h2></div>
+      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8" /><path d="M8 13h6" /><path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3z" /></svg> Quiz façon Kahoot</h2></div>
       <div id="quizListZone"></div>
     </section>
 
     <!-- ---- Cours express ---- -->
     <section id="viewLesson" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h7"/></svg> Cours express (IA Groq)</h2></div>
+      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" /><path d="M3 6l0 13" /><path d="M12 6l0 13" /><path d="M21 6l0 13" /></svg> Cours express (IA Groq)</h2></div>
       <div class="card">
         <label>Sujet du mini-cours <textarea id="lessonSubject" rows="2" placeholder="ex: Le théorème de Pythagore"></textarea></label>
         <button class="btn btn-primary" id="btnGenLesson" style="margin-top:10px;">Générer le cours</button>
@@ -224,7 +208,7 @@
 
     <!-- ---- Virelangues ---- -->
     <section id="viewTwisters" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4A8.5 8.5 0 0 1 4 12a8.5 8.5 0 0 1 15.9-4.2L21 3v5.5h-5.5"/><circle cx="12" cy="12" r="3"/></svg> Virelangues</h2></div>
+      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10a7 7 0 1 1 13 3.6a10 10 0 0 1 -2 2a8 8 0 0 0 -2 3a4.5 4.5 0 0 1 -6.8 1.4" /><path d="M10 10a3 3 0 1 1 5 2.2" /></svg> Virelangues</h2></div>
       <div class="tabs-row">
         <button class="twistTab active" data-mode="list">Liste complète</button>
         <button class="twistTab" data-mode="random">Lecture aléatoire</button>
@@ -234,7 +218,7 @@
 
     <!-- ---- Réglages ---- -->
     <section id="viewSettings" class="view">
-      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg> Réglages</h2></div>
+      <div class="view-header"><h2><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg> Réglages</h2></div>
       <div class="card" style="max-width:560px;">
         <h3>Apparence</h3>
         <label>Thème
@@ -259,7 +243,7 @@
         <label>Clé API Groq
           <input type="text" id="groqKeyInput" placeholder="gsk_...">
         </label>
-        <p class="hint"><svg class="icon" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg> Cette clé est stockée uniquement dans le navigateur (localStorage) et reste visible côté client. C'est une limite technique inhérente à une application 100% front-end : ne l'utilisez pas si votre ordinateur est partagé, et ne la communiquez jamais.</p>
+        <p class="hint"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg> Cette clé est stockée uniquement dans le navigateur (localStorage) et reste visible côté client. C'est une limite technique inhérente à une application 100% front-end : ne l'utilisez pas si votre ordinateur est partagé, et ne la communiquez jamais.</p>
         <button class="btn btn-primary" id="btnSaveSettings" style="margin-top:10px;">Enregistrer</button>
         <p id="settingsMsg" class="success-msg"></p>
       </div>

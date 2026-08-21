@@ -172,7 +172,7 @@ button{ font-family:inherit; cursor:pointer; }
 :root[data-theme="nature"] .sidebar{ background:linear-gradient(180deg,var(--surface),var(--surface-2)); }
 :root[data-theme="neon"] .sidebar{ border-right:1px solid var(--border); box-shadow:4px 0 30px rgba(255,47,208,.12); backdrop-filter:blur(16px); }
 
-.main{ padding:38px 48px 60px; overflow-y:auto; height:100vh; }
+.main{ padding:38px 48px 60px; overflow-y:auto; overflow-x:hidden; height:100vh; }
 .view{ display:none; }
 .view.active{ display:block; animation:fadeUp .4s var(--ease); }
 .view-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; flex-wrap:wrap; gap:12px; padding-bottom:18px; border-bottom:1px solid var(--border); }
@@ -238,10 +238,13 @@ tbody tr:hover{ background:var(--surface-2); }
 :root[data-mode="dark"] .pill-f{ background:#5a1c39; color:#ffc2dd; }
 :root[data-mode="dark"] .pill-m{ background:#1c3a5a; color:#c2ddff; }
 
-.picker-stage{ text-align:center; padding:56px 24px; }
-.picker-name{ font-size:2.9rem; font-weight:900; margin:18px 0; font-family:var(--font-display); }
-.picker-anim{ font-size:4rem; color:var(--primary); }
-.picker-anim.spinning svg{ animation:spin 1.4s cubic-bezier(.2,.8,.3,1) infinite; }
+.picker-stage{ text-align:center; padding:40px 24px; }
+
+/* ============ SÉLECTEUR ALÉATOIRE — animation "machine à sous" (défilement de noms) ============ */
+.picker-reel-wrap{ position:relative; height:5.25rem; max-width:520px; margin:0 auto; overflow:hidden; border-radius:var(--radius); background:var(--surface-2); border:1.5px solid var(--border); box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--primary) 25%, transparent); }
+.picker-reel{ display:flex; flex-direction:column; will-change:transform; }
+.picker-reel-item{ height:5.25rem; display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:900; font-family:var(--font-display); padding:0 14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; box-sizing:border-box; }
+.picker-reel-shade{ position:absolute; inset:0; pointer-events:none; background:linear-gradient(var(--surface-2), transparent 22%, transparent 78%, var(--surface-2)); }
 
 /* ============ QUIZ FULLSCREEN (diaporama) ============ */
 .quiz-fullscreen{ position:fixed; inset:0; background:var(--bg); z-index:200; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px; animation:fadeUp .3s var(--ease); }
@@ -306,12 +309,41 @@ tbody tr:hover{ background:var(--surface-2); }
 .consigne-pos-btn{ aspect-ratio:1; border-radius:8px; border:1.5px solid var(--border); background:var(--surface-2); }
 .consigne-pos-btn.active{ background:var(--primary); border-color:var(--primary); color:#fff; }
 .consigne-preview{ background:var(--surface-2); border:1px dashed var(--border); border-radius:var(--radius); min-height:220px; position:relative; overflow:hidden; display:flex; }
-.consigne-color-row{ display:flex; gap:8px; align-items:center; }
-.consigne-color-row input[type="color"]{ width:44px; height:44px; padding:2px; margin-top:0; }
+.consigne-color-row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.consigne-color-row input[type="color"]{ width:2.75em; height:2.75em; padding:2px; margin-top:0; flex-shrink:0; }
 
 .consigne-fullscreen{ position:fixed; inset:0; z-index:210; background:#101a14; display:flex; overflow:hidden; }
-.consigne-fs-close{ position:absolute; top:20px; right:20px; z-index:5; width:44px; height:44px; border-radius:50%; border:none; background:rgba(255,255,255,.15); color:#fff; display:flex; align-items:center; justify-content:center; }
+.consigne-fs-close{ position:absolute; top:20px; right:20px; z-index:5; width:2.75em; height:2.75em; border-radius:50%; border:none; background:rgba(255,255,255,.15); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .consigne-fs-content{ display:flex; flex-direction:column; width:100%; padding:6%; text-align:center; }
-.consigne-fs-text{ max-width:90%; margin:0; white-space:pre-wrap; text-shadow:0 4px 20px rgba(0,0,0,.35); }
+.consigne-fs-text{ max-width:90%; margin:0; white-space:pre-wrap; text-shadow:0 4px 20px rgba(0,0,0,.35); overflow-wrap:anywhere; }
 .consigne-fs-icon{ margin-bottom:.3em; }
 .consigne-fs-icon svg{ width:1em; height:1em; }
+
+/* ============================================================
+   FIXES DE CONTAINMENT POUR LE ZOOM (--ui-scale)
+   Le zoom agrandit --ui-scale, ce qui grossit tout ce qui est en rem
+   (dont le texte). Les éléments dimensionnés en px fixes (boutons ronds,
+   avatars, grilles à largeur minimale fixe...) ne suivaient pas, ce qui
+   faisait déborder le contenu de leur carte/bouton à fort zoom. On les
+   repasse en unités relatives (em/rem) pour qu'ils grandissent avec le
+   reste de l'interface, et on sécurise les conteneurs flex/grid pour
+   qu'ils wrappent au lieu de déborder.
+   ============================================================ */
+.zoom-btn{ width:1.7em; height:1.7em; flex-shrink:0; }
+.points-modal-close{ width:2.2em; height:2.2em; flex-shrink:0; }
+.pm-cat-actions button{ width:2.4em; height:2.4em; flex-shrink:0; }
+.avatar, .pm-avatar{ width:3.75em; height:3.75em; flex-shrink:0; }
+.seat{ min-height:3.1em; }
+.grid-cards{ grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr)); }
+.student-grid{ grid-template-columns:repeat(auto-fill,minmax(12.5rem,1fr)); }
+
+.card, .student-card, .class-card, .modal-box, .points-modal-box, .quiz-choice{ min-width:0; max-width:100%; }
+.view-header, .view-header > div, .student-card-actions, .pm-add-cat-row,
+.consigne-color-row, .zoom-slider-row, .tabs-row, .remote-lobby-grid, .badge-row{
+  flex-wrap:wrap; min-width:0;
+}
+button, .btn{ max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+h1, h2, h3, h4, p, td, th, .hint, .pill, .student-name, .class-card h3{ overflow-wrap:anywhere; }
+.picker-reel-item{ overflow-wrap:normal; }
+img, svg{ max-width:100%; }
+.pm-add-cat-row input[type="number"]{ max-width:5.6em; }

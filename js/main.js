@@ -61,7 +61,7 @@
     document.getElementById('appScreen').style.display = 'grid';
     Theme.applyFromUser();
     const user = Auth.getCurrentUser();
-    document.getElementById('userNameDisplay').innerHTML = '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg> ' + escapeHtml(user.nom);
+    document.getElementById('userNameDisplay').innerHTML = Icons.svg('user') + ' ' + escapeHtml(user.nom);
     const themeSel = document.getElementById('themeSelect');
     const darkToggle = document.getElementById('darkModeToggle');
     themeSel.value = user.settings.theme || 'normal';
@@ -95,10 +95,13 @@
     if (nav) nav.classList.add('active');
 
     if (viewId === 'viewClasses') renderClasses();
-    if (viewId === 'viewDashboard') renderDashboard();
-    if (viewId === 'viewDojo') renderDojo();
-    if (viewId === 'viewPicker') renderPicker();
-    if (viewId === 'viewTools') renderTools('timer');
+    if (viewId === 'viewTools') {
+      document.querySelectorAll('.toolTab').forEach(x => x.classList.remove('active'));
+      const first = document.querySelector('.toolTab[data-tool="timer"]');
+      if (first) first.classList.add('active');
+      populateToolsClassSelect();
+      renderTools('timer');
+    }
     if (viewId === 'viewConsigne') renderConsigne();
     if (viewId === 'viewQuiz') renderQuizList();
     if (viewId === 'viewVerbs') renderVerbs('list');
@@ -129,7 +132,7 @@
     });
   }
 
-  // ================= MES CLASSES =================
+  // ================= MES CLASSES (fusion : classes + tableau de bord + points) =================
   function renderClasses() {
     const grid = document.getElementById('classGrid');
     const list = Classes.forCurrentUser();
@@ -140,8 +143,8 @@
         <div class="card class-card" data-id="${c.id}">
           <h3>${escapeHtml(c.nom)}</h3>
           <p class="hint">${c.eleves.length} élève(s)${currentClassId === c.id ? ' · <strong>classe active</strong>' : ''}</p>
-          <div style="display:flex; gap:6px; margin-top:8px;">
-            <button class="btn btn-sm btn-primary selectClassBtn" data-id="${c.id}">Sélectionner</button>
+          <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
+            <button class="btn btn-sm btn-primary selectClassBtn" data-id="${c.id}">${currentClassId === c.id ? 'Classe active' : 'Sélectionner'}</button>
             <button class="btn btn-sm btn-danger deleteClassBtn" data-id="${c.id}">Supprimer</button>
           </div>
         </div>`).join('');
@@ -149,7 +152,6 @@
     grid.querySelectorAll('.selectClassBtn').forEach(b => b.addEventListener('click', () => {
       currentClassId = b.dataset.id;
       renderClasses();
-      switchView('viewDashboard');
     }));
     grid.querySelectorAll('.deleteClassBtn').forEach(b => b.addEventListener('click', () => {
       if (confirm('Supprimer définitivement cette classe et toutes ses données ?')) {
@@ -157,6 +159,58 @@
         if (currentClassId === b.dataset.id) currentClassId = null;
         renderClasses();
       }
+    }));
+
+    const detail = document.getElementById('classDetail');
+    if (!currentClassId || !Classes.get(currentClassId)) {
+      detail.style.display = 'none';
+      return;
+    }
+    detail.style.display = 'block';
+    renderClassDetail();
+  }
+
+  function renderClassDetail() {
+    const c = Classes.get(currentClassId);
+    if (!c) return;
+    document.getElementById('classDetailNameText').textContent = c.nom;
+
+    const statsGrid = document.getElementById('classStatsGrid');
+    if (c.eleves.length === 0) {
+      statsGrid.innerHTML = '';
+    } else {
+      const sorted = c.eleves.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
+      const top = sorted[0];
+      const totalPts = c.eleves.reduce((s, e) => s + (e.points || 0), 0);
+      const scores = Quiz.getScores(c.id);
+      statsGrid.innerHTML = `
+        <div class="card"><h3>${Icons.svg('star')} Meilleur score</h3><p style="font-size:1.6rem;font-weight:800;">${escapeHtml(top.nom)}</p><p class="hint">${top.points || 0} points</p></div>
+        <div class="card"><h3>${Icons.svg('chartBar')} Total classe</h3><p style="font-size:1.6rem;font-weight:800;">${totalPts} pts</p><p class="hint">${c.eleves.length} élèves</p></div>
+        <div class="card"><h3>${Icons.svg('speech')} Quiz joués</h3><p style="font-size:1.6rem;font-weight:800;">${scores.length}</p><p class="hint">${scores[0] ? escapeHtml(scores[0].titre) : 'Aucun quiz encore'}</p></div>
+      `;
+    }
+
+    const grid = document.getElementById('studentGrid');
+    const emptyMsg = document.getElementById('dojoEmptyMsg');
+    emptyMsg.style.display = c.eleves.length === 0 ? 'block' : 'none';
+
+    grid.innerHTML = c.eleves.map(e => `
+      <div class="student-card">
+        <div class="avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
+        <div class="student-name">${escapeHtml(e.nom)} <span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'F' : 'G'}</span></div>
+        <div class="student-points">${e.points || 0}</div>
+        <div class="student-card-actions">
+          <button class="btn btn-sm btn-points" data-points="${e.id}">${Icons.svg('trophy')} Points</button>
+          <button class="btn btn-sm btn-danger" data-remove="${e.id}">${Icons.svg('trash')}</button>
+        </div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('[data-points]').forEach(b => b.addEventListener('click', () => {
+      openPointsModal(c.id, b.dataset.points);
+    }));
+    grid.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
+      if (confirm('Retirer cet élève de la classe ?')) { Classes.removeStudent(c.id, b.dataset.remove); renderClassDetail(); }
     }));
   }
 
@@ -176,67 +230,6 @@
     });
   });
 
-  // ================= TABLEAU DE BORD =================
-  function renderDashboard() {
-    const c = requireClass(); if (!c) return;
-    document.getElementById('dashClassLabel').textContent = c.nom;
-    const cont = document.getElementById('dashboardContent');
-    if (c.eleves.length === 0) {
-      cont.innerHTML = '<p class="hint">Cette classe n’a pas encore d’élèves. Ajoutez-en depuis "Points".</p>';
-      return;
-    }
-    const sorted = c.eleves.slice().sort((a, b) => (b.points || 0) - (a.points || 0));
-    const top = sorted[0];
-    const totalPts = c.eleves.reduce((s, e) => s + (e.points || 0), 0);
-    const pickHist = Picker.getHistory(c.id);
-    const dernierTirage = pickHist[0];
-    const scores = Quiz.getScores(c.id);
-
-    cont.innerHTML = `
-      <div class="grid-cards">
-        <div class="card"><h3><svg class="icon" viewBox="0 0 24 24"><path d="m3 18 1.5-9L9 13l3-7 3 7 4.5-4L21 18Z"/><path d="M5 21h14"/></svg> Meilleur score</h3><p style="font-size:1.6rem;font-weight:800;">${escapeHtml(top.nom)}</p><p class="hint">${top.points || 0} points</p></div>
-        <div class="card"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg> Total classe</h3><p style="font-size:1.6rem;font-weight:800;">${totalPts} pts</p><p class="hint">${c.eleves.length} élèves</p></div>
-        <div class="card"><h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg> Dernier tirage</h3><p style="font-size:1.3rem;font-weight:800;">${dernierTirage ? escapeHtml(dernierTirage.eleveNom) : '—'}</p><p class="hint">${dernierTirage ? new Date(dernierTirage.date).toLocaleString('fr-FR') : 'Aucun tirage encore'}</p></div>
-        <div class="card"><h3><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/><path d="M8 9h8M8 13h5"/></svg> Quiz joués</h3><p style="font-size:1.6rem;font-weight:800;">${scores.length}</p><p class="hint">${scores[0] ? escapeHtml(scores[0].titre) : 'Aucun quiz encore'}</p></div>
-      </div>
-      <h3 style="margin-top:22px;">Classement</h3>
-      <table><thead><tr><th>#</th><th>Élève</th><th>Sexe</th><th>Points</th></tr></thead>
-      <tbody>${sorted.map((e, i) => `<tr><td>${i + 1}</td><td>${escapeHtml(e.nom)}</td><td><span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'Fille' : 'Garçon'}</span></td><td>${e.points || 0}</td></tr>`).join('')}</tbody></table>
-    `;
-  }
-
-  // ================= POINTS (DOJO) =================
-  function renderDojo() {
-    const c = requireClass(); if (!c) return;
-    const grid = document.getElementById('studentGrid');
-    const emptyMsg = document.getElementById('dojoEmptyMsg');
-    emptyMsg.style.display = c.eleves.length === 0 ? 'block' : 'none';
-
-    grid.innerHTML = c.eleves.map(e => `
-      <div class="student-card">
-        <div class="avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
-        <div class="student-name">${escapeHtml(e.nom)} <span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'F' : 'G'}</span></div>
-        <div class="student-points">${e.points || 0}</div>
-        <div class="student-card-actions">
-          <button class="btn btn-sm btn-points" data-points="${e.id}"><svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/></svg> Points</button>
-          <button class="btn btn-sm btn-danger" data-remove="${e.id}"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 15H6L5 6"/></svg></button>
-        </div>
-      </div>
-    `).join('');
-
-    grid.querySelectorAll('[data-points]').forEach(b => b.addEventListener('click', () => {
-      openPointsModal(c.id, b.dataset.points);
-    }));
-    grid.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
-      if (confirm('Retirer cet élève de la classe ?')) { Classes.removeStudent(c.id, b.dataset.remove); renderDojo(); }
-    }));
-
-    const hist = Dojo.getHistory(c.id).slice(0, 60);
-    document.querySelector('#dojoHistoryTable tbody').innerHTML = hist.map(h => `
-      <tr><td>${new Date(h.date).toLocaleString('fr-FR')}</td><td>${escapeHtml(h.eleveNom)}</td><td>${escapeHtml(h.categorie)}</td><td>${h.points > 0 ? '+' : ''}${h.points}</td></tr>
-    `).join('') || '<tr><td colspan="4" class="hint">Aucun historique.</td></tr>';
-  }
-
   document.getElementById('btnAddStudent').addEventListener('click', () => {
     const c = requireClass(); if (!c) return;
     openModal(`
@@ -250,7 +243,7 @@
     document.getElementById('confirmAddStudent').addEventListener('click', () => {
       try {
         Classes.addStudent(c.id, document.getElementById('newStudentName').value, document.getElementById('newStudentSexe').value);
-        closeModal(); renderDojo();
+        closeModal(); renderClassDetail();
       } catch (ex) { alert(ex.message); }
     });
   });
@@ -265,7 +258,7 @@
       <div id="catList">${c.categories.map(cat => `
         <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid var(--border);">
           <span>${escapeHtml(cat.nom)} (${cat.points > 0 ? '+' : ''}${cat.points})</span>
-          <button class="btn btn-sm btn-danger" data-catdel="${cat.id}"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          <button class="btn btn-sm btn-danger" data-catdel="${cat.id}">${Icons.svg('close')}</button>
         </div>`).join('')}</div>
       <h4 style="margin-top:14px;">Ajouter une catégorie</h4>
       <label>Nom <input type="text" id="newCatName"></label>
@@ -331,13 +324,13 @@
         const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
         if (!cat) return;
         Dojo.addPoints(classId, eleveId, cat.nom, Math.abs(cat.points));
-        refreshTotal(); renderDojo();
+        refreshTotal(); renderClassDetail();
       }));
       document.querySelectorAll('#pmCatList .pm-minus').forEach(b => b.addEventListener('click', () => {
         const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
         if (!cat) return;
         Dojo.addPoints(classId, eleveId, cat.nom, -Math.abs(cat.points));
-        refreshTotal(); renderDojo();
+        refreshTotal(); renderClassDetail();
       }));
     }
     wireCatButtons();
@@ -353,41 +346,13 @@
 
   document.getElementById('btnResetPoints').addEventListener('click', () => {
     const c = requireClass(); if (!c) return;
-    if (confirm('Remettre tous les points à zéro et effacer l’historique de cette classe ?')) { Dojo.resetPoints(c.id); renderDojo(); }
+    if (confirm('Remettre tous les points à zéro pour cette classe ?')) { Dojo.resetPoints(c.id); renderClassDetail(); }
   });
 
   document.getElementById('btnExportCsv').addEventListener('click', () => {
     const c = requireClass(); if (!c) return;
     const csv = Dojo.exportCSV(c.id);
     downloadFile(`points_${c.nom}.csv`, csv, 'text/csv;charset=utf-8;');
-  });
-
-  // ================= SÉLECTEUR ALÉATOIRE =================
-  function renderPicker() {
-    const c = requireClass(); if (!c) return;
-    document.getElementById('pickerName').textContent = '—';
-    document.getElementById('pickerMeta').textContent = '';
-    renderPickerHistory(c.id);
-  }
-  function renderPickerHistory(classId) {
-    const hist = Picker.getHistory(classId);
-    document.querySelector('#pickerHistoryTable tbody').innerHTML = hist.map(h => `
-      <tr><td>${escapeHtml(h.eleveNom)}</td><td><span class="pill ${h.sexe === 'F' ? 'pill-f' : 'pill-m'}">${h.sexe === 'F' ? 'Fille' : 'Garçon'}</span></td><td>${new Date(h.date).toLocaleTimeString('fr-FR')}</td></tr>
-    `).join('') || '<tr><td colspan="3" class="hint">Aucun tirage.</td></tr>';
-  }
-  document.getElementById('btnDraw').addEventListener('click', () => {
-    const c = requireClass(); if (!c) return;
-    try {
-      const res = Picker.draw(c.id);
-      document.getElementById('pickerAnim').innerHTML = res.eleve.sexe === 'F' ? `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M8 9c-2 3-2 6-1 9h10c1-3 1-6-1-9"/><path d="M9 18v3M15 18v3"/></svg>` : `<svg class="icon-lg" viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="7" r="4"/><path d="M6 21v-5a6 6 0 0 1 12 0v5"/></svg>`;
-      document.getElementById('pickerName').textContent = res.eleve.nom;
-      document.getElementById('pickerMeta').textContent = res.poolWasReset ? 'Nouveau cycle démarré pour ce sexe.' : `Encore ${res.restantsMemeSexe} élève(s) de ce sexe dans le cycle actuel.`;
-      renderPickerHistory(c.id);
-    } catch (ex) { alert(ex.message); }
-  });
-  document.getElementById('btnResetPicker').addEventListener('click', () => {
-    const c = requireClass(); if (!c) return;
-    if (confirm('Réinitialiser complètement le tirage aléatoire de cette classe ?')) { Picker.resetAll(c.id); renderPicker(); }
   });
 
   // ================= CONSIGNE (affichage diaporama) =================
@@ -405,6 +370,8 @@
     document.getElementById('cgSizeVal').textContent = s.size + 'px';
     document.getElementById('cgColor').value = s.color;
     document.getElementById('cgColorVal').textContent = s.color;
+    document.getElementById('cgBgColor').value = s.bgColor;
+    document.getElementById('cgBgColorVal').textContent = s.bgColor;
 
     // grille de positions
     const posGrid = document.getElementById('cgPosGrid');
@@ -430,6 +397,10 @@
     document.getElementById('cgColor').oninput = (e) => {
       document.getElementById('cgColorVal').textContent = e.target.value;
       Consigne.saveSettings({ color: e.target.value }); updatePreview();
+    };
+    document.getElementById('cgBgColor').oninput = (e) => {
+      document.getElementById('cgBgColorVal').textContent = e.target.value;
+      Consigne.saveSettings({ bgColor: e.target.value }); updatePreview();
     };
     posGrid.querySelectorAll('.consigne-pos-btn').forEach(b => b.addEventListener('click', () => {
       Consigne.saveSettings({ posV: b.dataset.v, posH: b.dataset.h });
@@ -457,11 +428,36 @@
     renderTools(t.dataset.tool);
   }));
 
+  // Dropdown de sélection de classe directement dans l'onglet Outils, pour ne pas avoir
+  // besoin d'aller sur "Mes classes" avant d'utiliser un outil (sélecteur, groupes, etc.).
+  function populateToolsClassSelect() {
+    const sel = document.getElementById('toolsClassSelect');
+    if (!sel) return;
+    const list = Classes.forCurrentUser();
+    if (list.length === 0) {
+      sel.innerHTML = '<option value="">Aucune classe — créez-en une dans "Mes classes"</option>';
+      sel.value = '';
+      return;
+    }
+    sel.innerHTML = list.map(c => `<option value="${c.id}">${escapeHtml(c.nom)}</option>`).join('');
+    if (currentClassId && list.some(c => c.id === currentClassId)) sel.value = currentClassId;
+    else { currentClassId = list[0].id; sel.value = currentClassId; }
+  }
+  const toolsClassSelectEl = document.getElementById('toolsClassSelect');
+  if (toolsClassSelectEl) {
+    toolsClassSelectEl.addEventListener('change', (e) => {
+      currentClassId = e.target.value || null;
+      const activeTab = document.querySelector('.toolTab.active');
+      renderTools(activeTab ? activeTab.dataset.tool : 'timer');
+    });
+  }
+
   function renderTools(tool) {
     const cont = document.getElementById('toolContent');
     if (tool === 'timer') return renderTimer(cont);
     const c = requireClass();
     if (!c) { cont.innerHTML = ''; return; }
+    if (tool === 'picker') return renderPickerTool(cont, c);
     if (tool === 'groups') return renderGroups(cont, c);
     if (tool === 'seating') return renderSeating(cont, c);
     if (tool === 'calendar') return renderCalendar(cont, c);
@@ -469,9 +465,82 @@
     if (tool === 'badges') return renderBadgesTool(cont, c);
   }
 
+  // ---- Sélecteur aléatoire (alterné fille/garçon, sans répétition) ----
+  // Animation "défilement de noms qui ralentit et atterrit sur un élève", façon machine
+  // à sous : une colonne de noms défile verticalement, ralentit progressivement puis
+  // s'arrête pile sur le nom tiré par Picker.draw() (logique métier inchangée).
+  function renderPickerTool(cont, c) {
+    cont.innerHTML = `
+      <h3>${Icons.svg('dice')} Sélecteur aléatoire (alterné fille/garçon)</h3>
+      <p class="hint">Tire un élève au hasard en alternant filles et garçons, sans répétition tant que tout le monde n'est pas passé.</p>
+      <div class="card picker-stage">
+        <div class="picker-reel-wrap" id="pickerReelWrap">
+          <div class="picker-reel" id="pickerReel"></div>
+          <div class="picker-reel-shade"></div>
+        </div>
+        <div id="pickerMeta" class="hint" style="justify-content:center; margin-top:10px;"></div>
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:18px; flex-wrap:wrap;">
+          <button class="btn btn-primary" id="btnDraw" style="font-size:1.1rem; padding:14px 28px;">${Icons.svg('dice')} Tirer un élève</button>
+          <button class="btn btn-sm btn-danger" id="btnResetPicker">Réinitialiser le tirage</button>
+        </div>
+      </div>
+    `;
+
+    const reel = document.getElementById('pickerReel');
+    function setReelNames(names) {
+      reel.innerHTML = names.map(n => `<div class="picker-reel-item">${escapeHtml(n)}</div>`).join('');
+    }
+    setReelNames(['—']);
+
+    document.getElementById('btnDraw').addEventListener('click', () => {
+      if (c.eleves.length === 0) { alert('Cette classe n’a pas d’élèves.'); return; }
+      const drawBtn = document.getElementById('btnDraw');
+      let res;
+      try {
+        res = Picker.draw(c.id);
+      } catch (ex) { alert(ex.message); return; }
+      drawBtn.disabled = true;
+
+      // Bande de noms aléatoires (façon machine à sous) se terminant sur le nom tiré.
+      const pool = c.eleves.length ? c.eleves : [{ nom: '—' }];
+      const REEL_LEN = 26;
+      const names = [];
+      for (let i = 0; i < REEL_LEN - 1; i++) names.push(pool[Math.floor(Math.random() * pool.length)].nom);
+      names.push(res.eleve.nom);
+      setReelNames(names);
+
+      const firstItem = reel.querySelector('.picker-reel-item');
+      const itemH = firstItem ? firstItem.getBoundingClientRect().height : 84;
+      const finalOffset = (REEL_LEN - 1) * itemH;
+      reel.style.transition = 'none';
+      reel.style.transform = 'translateY(0)';
+      // force reflow puis lance la transition d'easing qui ralentit progressivement.
+      void reel.offsetHeight;
+      reel.style.transition = 'transform 3.2s cubic-bezier(.12,.72,.14,1)';
+      reel.style.transform = `translateY(-${finalOffset}px)`;
+
+      const onEnd = () => {
+        reel.removeEventListener('transitionend', onEnd);
+        drawBtn.disabled = false;
+        document.getElementById('pickerMeta').textContent = res.poolWasReset
+          ? 'Nouveau cycle démarré pour ce sexe.'
+          : `Encore ${res.restantsMemeSexe} élève(s) de ce sexe dans le cycle actuel.`;
+      };
+      reel.addEventListener('transitionend', onEnd);
+    });
+
+    document.getElementById('btnResetPicker').addEventListener('click', () => {
+      if (confirm('Réinitialiser complètement le tirage aléatoire de cette classe ?')) {
+        Picker.resetAll(c.id);
+        setReelNames(['—']);
+        document.getElementById('pickerMeta').textContent = '';
+      }
+    });
+  }
+
   function renderTimer(cont) {
     cont.innerHTML = `
-      <h3>⏱️ Minuteur de classe</h3>
+      <h3>${Icons.svg('clock')} Minuteur de classe</h3>
       <label>Durée (minutes) <input type="number" id="timerMinutes" value="5" min="1"></label>
       <button class="btn btn-primary" id="btnStartTimer" style="margin-top:10px;">Démarrer</button>
       <button class="btn" id="btnStopTimer">Arrêter</button>
@@ -489,7 +558,7 @@
 
   function renderGroups(cont, c) {
     cont.innerHTML = `
-      <h3><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.3 2.9-5.5 6.5-5.5s6.5 2.2 6.5 5.5"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M15.8 14.7c2.9.4 5.2 2.3 5.2 5.3"/></svg> Groupes aléatoires équilibrés</h3>
+      <h3>${Icons.svg('users')} Groupes aléatoires équilibrés</h3>
       <label>Nombre de groupes <input type="number" id="nbGroupes" value="4" min="1"></label>
       <button class="btn btn-primary" id="btnMakeGroups" style="margin-top:10px;">Générer</button>
       <div id="groupsResult" style="margin-top:16px;"></div>
@@ -506,7 +575,7 @@
   function renderSeating(cont, c) {
     const plan = Tools.getSeating(c.id);
     cont.innerHTML = `
-      <h3><svg class="icon" viewBox="0 0 24 24"><path d="M6 4h12v9H6Z"/><path d="M6 13v7M18 13v7M6 8h12"/></svg> Plan de classe</h3>
+      <h3>${Icons.svg('seating')} Plan de classe</h3>
       <label>Rangées <input type="number" id="seatRows" value="${plan ? plan.rows : 4}" min="1"></label>
       <label>Colonnes <input type="number" id="seatCols" value="${plan ? plan.cols : 5}" min="1"></label>
       <button class="btn btn-primary" id="btnGenSeating" style="margin-top:10px;">Générer un plan aléatoire</button>
@@ -530,12 +599,12 @@
   function renderCalendar(cont, c) {
     const events = Tools.getEvents(c.id);
     cont.innerHTML = `
-      <h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg> Calendrier de classe</h3>
+      <h3>${Icons.svg('calendar')} Calendrier de classe</h3>
       <label>Titre <input type="text" id="evTitre"></label>
       <label>Date <input type="date" id="evDate"></label>
       <button class="btn btn-primary" id="btnAddEvent" style="margin-top:10px;">Ajouter</button>
       <table style="margin-top:16px;"><thead><tr><th>Date</th><th>Événement</th><th></th></tr></thead>
-      <tbody>${events.map(ev => `<tr><td>${new Date(ev.date).toLocaleDateString('fr-FR')}</td><td>${escapeHtml(ev.titre)}</td><td><button class="btn btn-sm btn-danger" data-evdel="${ev.id}"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></td></tr>`).join('') || '<tr><td colspan="3" class="hint">Aucun événement.</td></tr>'}</tbody></table>
+      <tbody>${events.map(ev => `<tr><td>${new Date(ev.date).toLocaleDateString('fr-FR')}</td><td>${escapeHtml(ev.titre)}</td><td><button class="btn btn-sm btn-danger" data-evdel="${ev.id}">${Icons.svg('close')}</button></td></tr>`).join('') || '<tr><td colspan="3" class="hint">Aucun événement.</td></tr>'}</tbody></table>
     `;
     document.getElementById('btnAddEvent').addEventListener('click', () => {
       const titre = document.getElementById('evTitre').value.trim();
@@ -551,7 +620,7 @@
     if (c.eleves.length === 0) { cont.innerHTML = '<p class="hint">Aucun élève dans cette classe.</p>'; return; }
     const notes = Tools.getNotes(c.id);
     cont.innerHTML = `
-      <h3><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7M9 11h7"/></svg> Notes rapides par élève</h3>
+      <h3>${Icons.svg('notes')} Notes rapides par élève</h3>
       <label>Élève <select id="noteEleve">${c.eleves.map(e => `<option value="${e.id}">${escapeHtml(e.nom)}</option>`).join('')}</select></label>
       <label>Note <textarea id="noteText" rows="2"></textarea></label>
       <button class="btn btn-primary" id="btnAddNote" style="margin-top:10px;">Ajouter la note</button>
@@ -579,7 +648,7 @@
   function renderBadgesTool(cont, c) {
     if (c.eleves.length === 0) { cont.innerHTML = '<p class="hint">Aucun élève dans cette classe.</p>'; return; }
     const badges = Tools.computeBadges(c.id);
-    cont.innerHTML = `<h3><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M9 10 6 3M15 10l3-7M9.5 15.5l1.7 1.7 3.3-3.3"/></svg> Badges débloqués (selon les points cumulés)</h3>
+    cont.innerHTML = `<h3>${Icons.svg('award')} Badges débloqués (selon les points cumulés)</h3>
       <p class="hint">${Tools.BADGE_DEFS.map(d => `${d.emoji} ${d.label}`).join(' · ')}</p>
       <div class="grid-cards" style="margin-top:12px;">
         ${c.eleves.map(e => `<div class="card"><strong>${escapeHtml(e.nom)}</strong><div class="badge-row">${(badges[e.id] || []).map(bid => `<span class="badge">${Tools.BADGE_DEFS.find(d => d.id === bid).emoji}</span>`).join('') || '<span class="hint">Aucun badge encore</span>'}</div></div>`).join('')}
@@ -657,7 +726,7 @@
       const remoteUrl = new URL('remote.html', location.href);
       remoteUrl.searchParams.set('code', host.code);
       overlay.innerHTML = `
-        <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Fermer</button></div>
+        <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn">${Icons.svg('close')} Fermer</button></div>
         <h2>${escapeHtml(quiz.titre)}</h2>
         <div class="remote-lobby-grid">
           <div style="text-align:center;">
@@ -721,7 +790,7 @@
       const colors = ['qc0', 'qc1', 'qc2', 'qc3'];
       const dots = quiz.questions.map((_, i) => `<span class="${i < qIndex ? 'done' : (i === qIndex ? 'done' : '')}"></span>`).join('');
       overlay.innerHTML = `
-        <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Fermer</button></div>
+        <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn">${Icons.svg('close')} Fermer</button></div>
         <div class="quiz-timer" id="quizTimer">${QUESTION_SECONDS}</div>
         <div class="quiz-progress-dots">${dots}</div>
         <p class="hint">Question ${qIndex + 1} / ${quiz.questions.length}${mode === 'remote' ? ' — Réponses reçues : <strong id="answerCount">0</strong>' : ''}</p>
@@ -771,7 +840,7 @@
 
     function finishQuiz() {
       if (mode === 'remote' && host) host.broadcast({ type: 'end' });
-      let bodyHtml = `<h2><svg class="icon" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg> Quiz terminé : ${escapeHtml(quiz.titre)}</h2>`;
+      let bodyHtml = `<h2>${Icons.svg('trophy')} Quiz terminé : ${escapeHtml(quiz.titre)}</h2>`;
       if (mode === 'remote') {
         const ranking = Object.entries(scores).sort((a, b) => b[1] - a[1]);
         bodyHtml += `<table><thead><tr><th>Élève</th><th>Score</th></tr></thead><tbody>${ranking.map(([pid, sc]) => `<tr><td>${escapeHtml((host.connections[pid] && host.connections[pid].pseudo) || 'Élève')}</td><td>${sc} / ${quiz.questions.length}</td></tr>`).join('') || '<tr><td colspan="2" class="hint">Aucune réponse reçue.</td></tr>'}</tbody></table>`;
@@ -781,7 +850,7 @@
       if (classe) {
         Quiz.saveScore(classe.id, { titre: quiz.titre, date: Date.now(), mode });
       }
-      overlay.innerHTML = `<div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Fermer</button></div>${bodyHtml}`;
+      overlay.innerHTML = `<div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn">${Icons.svg('close')} Fermer</button></div>${bodyHtml}`;
       overlay.querySelector('#closeQuizBtn').addEventListener('click', closeQuiz);
     }
   }
@@ -805,7 +874,7 @@
 
     if (lesson.imagePrompt) {
       html += `<div class="card lesson-image-card" style="margin-top:16px;">
-        <h3><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg> Illustration disponible</h3>
+        <h3>${Icons.svg('image')} Illustration disponible</h3>
         <p class="hint">Une image liée au sujet peut être générée (via Pollinations).</p>
         <button class="btn btn-sm" id="btnGenLessonImage">Générer l'image</button>
         <div id="lessonImageZone" style="margin-top:10px;"></div>
@@ -875,7 +944,7 @@
       cont.querySelectorAll('[data-choice]').forEach(b => b.addEventListener('click', () => {
         const fb = document.getElementById('verbFeedback');
         if (b.dataset.choice === item.bonne) { fb.textContent = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
-        else { fb.textContent = `<svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
+        else { fb.textContent = `${Icons.svg('close')} Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
         setTimeout(() => nextVerbQuestion(mode, cont), 1400);
       }));
     } else {
@@ -889,7 +958,7 @@
         const val = document.getElementById('verbInput').value.trim().toLowerCase();
         const fb = document.getElementById('verbFeedback');
         if (val === item.bonne.toLowerCase()) { fb.textContent = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
-        else { fb.textContent = `<svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
+        else { fb.textContent = `${Icons.svg('close')} Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
         setTimeout(() => nextVerbQuestion(mode, cont), 1400);
       };
       document.getElementById('verbSubmit').addEventListener('click', submit);
