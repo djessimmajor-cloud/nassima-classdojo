@@ -481,13 +481,28 @@
     overlay.className = 'quiz-fullscreen';
     document.body.appendChild(overlay);
 
+    // Vrai plein écran (API Fullscreen) pour le mode diaporama, en plus de l'overlay CSS.
+    if (overlay.requestFullscreen) {
+      overlay.requestFullscreen().catch(() => {}); // ignoré si refusé/non supporté (ex: iframe)
+    }
+
     let qIndex = 0;
     let scores = {}; // pour mode remote
     let host = null;
+    let timerInterval = null;
+    const QUESTION_SECONDS = 20;
     const classe = currentClassId ? Classes.get(currentClassId) : null;
 
+    function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
+
+    // Doit être déclaré avant le premier appel à renderQuestion() ci-dessous (sinon TDZ/ReferenceError
+    // sur "answersThisQuestion avant initialisation" — c'était le bug qui cassait le mode diaporama).
+    let answersThisQuestion = {};
+
     function closeQuiz() {
+      stopTimer();
       if (host) host.destroy();
+      if (document.fullscreenElement) { document.exitFullscreen().catch(() => {}); }
       overlay.remove();
     }
 
@@ -510,21 +525,58 @@
     }
 
     function renderLobby() {
+      const remoteUrl = new URL('remote.html', location.href);
+      remoteUrl.searchParams.set('code', host.code);
       overlay.innerHTML = `
         <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Fermer</button></div>
         <h2>${escapeHtml(quiz.titre)}</h2>
-        <p>Les élèves rejoignent sur leur téléphone via <strong>remote.html</strong> avec le code :</p>
-        <p style="font-size:2rem; font-weight:900;" class="mono">${host.code}</p>
-        <p class="hint">Ou l'URL complète : <span class="mono">remote.html?code=${host.code}</span></p>
-        <p>Élèves connectés : <strong id="lobbyCount">0</strong></p>
+        <div class="remote-lobby-grid">
+          <div style="text-align:center;">
+            <p>Les élèves scannent ce QR code avec leur téléphone pour rejoindre :</p>
+            <div id="qrZone" class="qr-box" style="margin:0 auto;"></div>
+          </div>
+          <div style="text-align:center;">
+            <p class="hint">Ou saisie manuelle sur <strong>remote.html</strong> avec le code :</p>
+            <p style="font-size:2rem; font-weight:900;" class="mono">${host.code}</p>
+            <p class="hint">URL complète : <span class="mono">${remoteUrl.href}</span></p>
+          </div>
+        </div>
+        <p style="margin-top:18px;">Élèves connectés : <strong id="lobbyCount">0</strong></p>
         <button class="btn btn-primary" id="startRemoteQuizBtn" style="margin-top:16px; font-size:1.2rem; padding:14px 30px;">Démarrer le quiz</button>
-        <p class="hint" style="max-width:600px; text-align:center; margin-top:14px;">ℹ️ Cette connexion utilise le serveur public gratuit PeerJS pour établir une connexion directe (WebRTC) entre le téléphone de chaque élève et cet ordinateur — pas besoin d'être sur le même Wi-Fi. En cas d'instabilité avec de nombreux élèves connectés en même temps, préférez le mode "Diaporama".</p>
+        <p class="hint" style="max-width:600px; text-align:center; margin-top:14px;">Cette connexion utilise le serveur public gratuit PeerJS pour établir une connexion directe (WebRTC) entre le téléphone de chaque élève et cet ordinateur — pas besoin d'être sur le même Wi-Fi. En cas d'instabilité avec de nombreux élèves connectés en même temps, préférez le mode "Diaporama".</p>
       `;
       overlay.querySelector('#closeQuizBtn').addEventListener('click', closeQuiz);
       overlay.querySelector('#startRemoteQuizBtn').addEventListener('click', () => renderQuestion());
+      renderQrCode(overlay.querySelector('#qrZone'), remoteUrl.href);
     }
 
-    let answersThisQuestion = {};
+    function renderQrCode(container, text) {
+      if (!container) return;
+      try {
+        const qr = qrcode(0, 'M'); // typeNumber 0 = auto, correction 'M'
+        qr.addData(text);
+        qr.make();
+        const cellSize = 5;
+        const margin = 3;
+        const canvas = document.createElement('canvas');
+        const count = qr.getModuleCount();
+        const size = (count + margin * 2) * cellSize;
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, size, size);
+        ctx.fillStyle = '#000';
+        for (let r = 0; r < count; r++) {
+          for (let c = 0; c < count; c++) {
+            if (qr.isDark(r, c)) ctx.fillRect((c + margin) * cellSize, (r + margin) * cellSize, cellSize, cellSize);
+          }
+        }
+        container.innerHTML = '';
+        container.appendChild(canvas);
+      } catch (ex) {
+        container.innerHTML = '<p class="hint">QR code indisponible, utilisez le code texte.</p>';
+      }
+    }
+
     function registerAnswer(peerId, choiceIndex) {
       answersThisQuestion[peerId] = choiceIndex;
       const correct = quiz.questions[qIndex].correct;
@@ -534,11 +586,15 @@
     }
 
     function renderQuestion() {
+      stopTimer();
       answersThisQuestion = {};
       const q = quiz.questions[qIndex];
       const colors = ['qc0', 'qc1', 'qc2', 'qc3'];
+      const dots = quiz.questions.map((_, i) => `<span class="${i < qIndex ? 'done' : (i === qIndex ? 'done' : '')}"></span>`).join('');
       overlay.innerHTML = `
         <div class="quiz-topbar"><button class="btn btn-sm" id="closeQuizBtn"><svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg> Fermer</button></div>
+        <div class="quiz-timer" id="quizTimer">${QUESTION_SECONDS}</div>
+        <div class="quiz-progress-dots">${dots}</div>
         <p class="hint">Question ${qIndex + 1} / ${quiz.questions.length}${mode === 'remote' ? ' — Réponses reçues : <strong id="answerCount">0</strong>' : ''}</p>
         <div class="quiz-question">${escapeHtml(q.question)}</div>
         <div class="quiz-choices">
@@ -554,9 +610,22 @@
         host.broadcast({ type: 'question', num: qIndex + 1, total: quiz.questions.length, choices: q.choices });
       }
       overlay.querySelector('#revealBtn').addEventListener('click', () => reveal(null));
+
+      // Décompte : affiché en permanence, colore en rouge dans les 5 dernières secondes,
+      // révèle automatiquement la réponse à 0 (le prof garde la main via "Afficher la réponse" avant ça).
+      let secondsLeft = QUESTION_SECONDS;
+      const timerEl = overlay.querySelector('#quizTimer');
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        if (!timerEl) { stopTimer(); return; }
+        timerEl.textContent = String(Math.max(secondsLeft, 0));
+        if (secondsLeft <= 5) timerEl.classList.add('low');
+        if (secondsLeft <= 0) { stopTimer(); reveal(null); }
+      }, 1000);
     }
 
     function reveal(clickedIdx) {
+      stopTimer();
       const q = quiz.questions[qIndex];
       overlay.querySelectorAll('.quiz-choice').forEach((b, i) => {
         if (i === q.correct) b.classList.add('correct'); else b.classList.add('wrong');

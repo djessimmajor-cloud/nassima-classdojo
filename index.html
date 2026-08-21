@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClassDojo+ — Outil pour professeurs</title>
+<title>EnglishDojo — Outil pour professeurs d'anglais</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f8ef7'/%3E%3Cstop offset='1' stop-color='%237b5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 14 50 23 32 32 14 23Z' fill='%23fff'/%3E%3Cpath d='M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M50 23v13' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-theme="normal" data-mode="light">
@@ -11,8 +15,11 @@
 <!-- ================= ÉCRAN DE CONNEXION ================= -->
 <div id="authScreen">
   <div class="auth-box card">
-    <h1><svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12.5V17c0 1.1 2.7 3 6 3s6-1.9 6-3v-4.5"/><path d="M22 10v6"/></svg> ClassDojo+</h1>
-    <p class="hint">Outil tout-en-un pour la classe — 100% local dans votre navigateur.</p>
+    <div class="app-logo">
+      <svg viewBox="0 0 64 64" class="app-logo-mark"><defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><rect width="64" height="64" rx="18" fill="url(#logoGrad)"/><path d="M32 14 50 23 32 32 14 23Z" fill="#fff"/><path d="M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M50 23v13" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <h1>English<span>Dojo</span></h1>
+    </div>
+    <p class="hint">Outil tout-en-un pour la classe d'anglais — 100% local dans votre navigateur.</p>
     <div class="auth-tabs">
       <button id="tabLogin" class="active">Connexion</button>
       <button id="tabRegister">Inscription</button>
@@ -38,7 +45,15 @@
 <!-- ================= APPLICATION ================= -->
 <div id="appScreen" class="grid-layout">
   <nav class="sidebar">
-    <div class="brand"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12.5V17c0 1.1 2.7 3 6 3s6-1.9 6-3v-4.5"/></svg> ClassDojo+</div>
+    <div class="brand">
+      <svg viewBox="0 0 64 64" class="brand-mark"><rect width="64" height="64" rx="18" fill="url(#logoGrad2)"/><defs><linearGradient id="logoGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--primary)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs><path d="M32 14 50 23 32 32 14 23Z" fill="#fff"/><path d="M20 27v10c0 3 5.4 6 12 6s12-3 12-6V27" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M50 23v13" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      <span>English<em>Dojo</em></span>
+    </div>
+    <div class="zoom-control" title="Zoom de l'interface">
+      <button id="zoomOut" class="zoom-btn" type="button" aria-label="Zoom arrière">−</button>
+      <span id="zoomLevel" class="zoom-level">100%</span>
+      <button id="zoomIn" class="zoom-btn" type="button" aria-label="Zoom avant">+</button>
+    </div>
     <div class="nav-item" data-view="viewClasses"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/><path d="M3 9h18"/></svg> Mes classes</div>
     <div class="nav-item" data-view="viewDashboard"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="17" y="3" width="4" height="17"/></svg> Tableau de bord</div>
     <div class="nav-item" data-view="viewDojo"><svg class="icon" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9-6.2-3.3-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z"/></svg> Points</div>
@@ -177,6 +192,13 @@
           <input type="checkbox" id="darkModeToggle" style="width:auto;"> Mode sombre
         </label>
 
+        <label style="margin-top:18px;">Zoom de l'interface (utile en vidéoprojection)
+          <div class="zoom-slider-row">
+            <input type="range" id="zoomSlider" min="80" max="160" step="5" value="100">
+            <span id="zoomSliderVal" class="pill">100%</span>
+          </div>
+        </label>
+
         <h3 style="margin-top:22px;">Compte</h3>
         <label>Clé API Groq
           <input type="text" id="groqKeyInput" placeholder="gsk_...">
@@ -196,10 +218,12 @@
 <footer class="app-signature">Créé par Djess — vous avez intérêt à tout donner</footer>
 
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="js/vendor/qrcode.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/hash.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/zoom.js"></script>
 <script src="js/classes.js"></script>
 <script src="js/dojo.js"></script>
 <script src="js/picker.js"></script>
