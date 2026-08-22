@@ -148,20 +148,21 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. So
   // ================= GÉNÉRATION PDF D'EXERCICES (via Groq + jsPDF) =================
   // Types d'exercices attendus dans le JSON retourné par Groq (mélange volontaire) :
   // qcm, texte_a_trous, correction_erreurs, remise_en_ordre, association, redaction, relier
-  // La feuille doit tenir sur 1 page A4 (exercices) + 1 page A4 (corrigé) : on demande donc
-  // un nombre limité d'exercices — 6 courts + 3 "gros" (plus longs/substantiels) — plutôt
-  // que d'entasser trop de contenu illisible.
+  // La feuille doit tenir sur 1 page A4 (exercices) + 1 page A4 (corrigé) avec une police
+  // confortable : on demande donc un nombre limité d'exercices COURTS — 4 — plus 3 "gros"
+  // exercices qui sont désormais systématiquement des exercices de RÉDACTION (production
+  // écrite d'un ou plusieurs paragraphes en anglais), et non des exercices "à relier" ou
+  // "remise en ordre".
   async function generateExercises(sujet) {
     if (!sujet || !sujet.trim()) throw new Error('Veuillez saisir un sujet de cours.');
     const s = sujet.trim();
 
-    const prompt = `Tu es un professeur d'anglais en collège. Génère un jeu de 9 exercices d'anglais VARIÉS liés au sujet suivant : "${s}", conçu pour tenir sur UNE SEULE page A4 (donc reste concis).
+    const prompt = `Tu es un professeur d'anglais en collège. Génère un jeu de 7 exercices d'anglais liés au sujet suivant : "${s}", conçu pour tenir sur UNE SEULE page A4 avec une police confortable (donc reste concis sur les exercices courts).
 Le jeu doit contenir EXACTEMENT :
-- 6 exercices COURTS (taille "court") : rapides, 1 à 2 lignes de contenu maximum chacun.
-- 3 GROS exercices SUBSTANTIELS (taille "grand") : plus longs/complexes, par exemple une rédaction plus développée (3-5 phrases), un exercice "à relier" avec 4-5 paires, ou une remise en ordre de plusieurs phrases (2-3 phrases à remettre en ordre).
+- 4 exercices COURTS (taille "court") : rapides, 1 à 2 lignes de contenu maximum chacun. Choisis leurs types parmi : "qcm" (choix multiple), "texte_a_trous" (fill in the blanks), "correction_erreurs" (repérer et corriger une erreur dans une phrase), "association" (associer des éléments deux à deux en une ligne de texte), "relier" (deux courtes colonnes à relier, 3-4 paires max). Mélange au moins 3 types différents parmi les 4 exercices courts.
+- 3 GROS exercices de RÉDACTION (taille "grand", type OBLIGATOIREMENT "redaction") : ce sont de vraies consignes d'écriture où l'élève doit rédiger un texte en anglais, PAS des exercices "à relier" ni "remise en ordre". Varie les 3 consignes parmi par exemple : écrire un paragraphe argumenté ou descriptif sur le sujet (5-8 phrases), écrire une courte histoire liée au sujet, écrire un dialogue entre deux personnes sur le sujet, ou écrire une lettre/un e-mail informel en lien avec le sujet. Chaque consigne doit être claire, motivante et donner un cadre précis (nombre de phrases attendu, ce dont il faut parler) pour guider l'élève.
 
-Mélange réellement les types parmi cette liste : "qcm" (choix multiple), "texte_a_trous" (fill in the blanks), "correction_erreurs" (repérer et corriger une erreur dans une phrase), "remise_en_ordre" (remettre des mots ou des phrases dans l'ordre), "association" (associer des éléments deux à deux en une ligne de texte), "redaction" (courte production écrite), "relier" (exercice à relier : deux colonnes d'éléments à associer par des traits, ex. mots anglais à gauche / traductions ou définitions à droite, dans le désordre).
-Utilise au moins 4 types différents sur les 9 exercices. Utilise le type "relier" pour au moins un des 3 "gros" exercices.
+N'utilise JAMAIS le type "redaction" pour du contenu à trous ou une phrase à corriger : "redaction" signifie toujours "écris un texte" avec un champ "contenu" vide (l'élève écrit directement sur la feuille).
 
 Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans balises markdown, au format suivant exactement :
 {
@@ -175,8 +176,15 @@ Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans 
       "reponse": "la reponse correcte, courte"
     },
     {
-      "type": "relier",
+      "type": "redaction",
       "taille": "grand",
+      "consigne": "consigne en francais claire et precise demandant d'ecrire un paragraphe/une histoire/un dialogue/une lettre en anglais sur le sujet, avec une indication de longueur attendue (ex: 5 a 8 phrases)",
+      "contenu": "",
+      "reponse": "quelques idees/points cles attendus dans une bonne reponse, a titre de correction indicative"
+    },
+    {
+      "type": "relier",
+      "taille": "court",
       "consigne": "consigne en francais expliquant quoi faire (relier chaque element de gauche a celui qui correspond a droite)",
       "contenu": "",
       "gauche": ["mot ou expression 1 en anglais", "mot ou expression 2 en anglais"],
@@ -185,7 +193,7 @@ Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans 
     }
   ]
 }
-Pour le type "relier" uniquement, remplis "gauche" et "droite" (4-5 éléments chacun, même longueur), laisse "contenu" vide, et donne la correspondance dans "reponse" au format "1-B, 2-A, ...". Pour tous les autres types, n'utilise pas les champs "gauche"/"droite".
+Pour le type "relier" uniquement, remplis "gauche" et "droite" (3-4 éléments chacun, même longueur), laisse "contenu" vide, et donne la correspondance dans "reponse" au format "1-B, 2-A, ...". Pour le type "redaction", laisse "contenu" vide. Pour tous les autres types, n'utilise pas les champs "gauche"/"droite".
 Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Les consignes sont en français, le contenu des exercices est en anglais. N'ajoute aucun commentaire, uniquement le JSON.`;
 
     const raw = await callGroq(prompt, 2600);
@@ -223,18 +231,31 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
       droite: Array.isArray(x.droite) ? x.droite.map(v => String(v).trim()).filter(Boolean) : null,
     }));
 
-    // Garantit exactement 3 "gros" exercices : si Groq n'en a pas mis assez/trop,
-    // on reclasse par ordre (les plus longs/relier en priorité) pour respecter la mise en page.
-    const isBigCandidate = ex => ex.type === 'relier' || ex.type === 'redaction' || ex.type === 'remise_en_ordre';
+    // Garantit exactement 3 "gros" exercices, et que les gros exercices soient bien des
+    // exercices de RÉDACTION (le prof ne veut plus de "à relier"/"remise en ordre" en gros
+    // exercice) : on force le type à "redaction" pour tout gros exercice qui ne l'est pas déjà.
     let big = parsed.filter(x => x.taille === 'grand');
     let small = parsed.filter(x => x.taille !== 'grand');
     if (big.length !== 3) {
-      const all = parsed.slice().sort((a, b) => (isBigCandidate(b) ? 1 : 0) - (isBigCandidate(a) ? 1 : 0));
+      // Priorise les exercices déjà de type "redaction" pour composer les 3 gros exercices ;
+      // complète avec les autres si besoin (ils seront convertis en "redaction" ci-dessous).
+      const all = parsed.slice().sort((a, b) => (b.type === 'redaction' ? 1 : 0) - (a.type === 'redaction' ? 1 : 0));
       big = all.slice(0, Math.min(3, all.length)).map(x => Object.assign({}, x, { taille: 'grand' }));
       small = all.slice(Math.min(3, all.length)).map(x => Object.assign({}, x, { taille: 'court' }));
     }
-    // Limite à 6 exercices courts + 3 gros pour tenir sur une page.
-    small = small.slice(0, 6);
+    // Les 3 gros exercices doivent être des exercices de rédaction : si Groq a renvoyé un
+    // "relier"/"remise_en_ordre" en gros exercice, on le convertit en consigne de rédaction
+    // générique pour respecter la consigne du prof plutôt que de casser la mise en page PDF.
+    big = big.map(x => {
+      if (x.type === 'redaction') return x;
+      return Object.assign({}, x, {
+        type: 'redaction',
+        contenu: '',
+        consigne: x.consigne || 'Écris un paragraphe en anglais (5 à 8 phrases) en lien avec le sujet du cours.',
+      });
+    });
+    // Limite à 4 exercices courts + 3 gros pour tenir sur une page avec une police confortable.
+    small = small.slice(0, 4);
     parsed = small.concat(big);
 
     return {
@@ -253,12 +274,13 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
     relier: 'À relier',
   };
 
-  // Construit un vrai PDF (jsPDF) COMPACT tenant sur 1 page A4 pour les exercices +
-  // 1 page A4 pour le corrigé (2 pages au total). La mise en page est volontairement
-  // resserrée (petites polices, marges réduites, peu d'espace de réponse) et le nombre
-  // d'exercices est limité (6 courts + 3 gros, cf. parseExercisesResponse) pour que tout
-  // reste lisible sans texte coupé. Retourne l'objet jsPDF (doc), à qui l'appelant peut
-  // faire doc.save(filename) ou doc.output('blob').
+  // Construit un vrai PDF (jsPDF) tenant sur 1 page A4 pour les exercices + 1 page A4
+  // pour le corrigé (2 pages au total), avec une police confortable (10-11pt pour le
+  // corps des consignes). Pour tenir sur 1 page malgré la police plus grande, le nombre
+  // d'exercices est limité (4 courts + 3 gros, cf. parseExercisesResponse) plutôt que
+  // d'écraser la taille du texte. Les gros exercices sont des exercices de rédaction et
+  // reçoivent un espace généreux de lignes vides pour écrire un paragraphe. Retourne
+  // l'objet jsPDF (doc), à qui l'appelant peut faire doc.save(filename) ou doc.output('blob').
   function buildExercisesPdf(headerTitle, data) {
     if (!window.jspdf || !window.jspdf.jsPDF) throw new Error('jsPDF n\'est pas chargé.');
     const { jsPDF } = window.jspdf;
@@ -280,8 +302,8 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
     function writeLines(text, opts) {
       opts = opts || {};
       doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
-      doc.setFontSize(opts.size || 8.5);
-      const lh = opts.lh || (opts.size ? opts.size * 0.52 : 4.4);
+      doc.setFontSize(opts.size || 10);
+      const lh = opts.lh || (opts.size ? opts.size * 0.52 : 5.2);
       const lines = doc.splitTextToSize(text, opts.width || maxWidth);
       lines.forEach(line => {
         ensureSpace(lh);
@@ -291,47 +313,52 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
       return lines.length * lh;
     }
 
-    // ---- En-tête compact ----
+    // ---- En-tête ----
     doc.setFillColor(79, 142, 247);
     doc.rect(0, 0, pageWidth, 16, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(11);
+    doc.setFontSize(12);
     doc.text("EnglishDojo — Feuille d'exercices", marginX, 7.5);
-    doc.setFontSize(8.5);
+    doc.setFontSize(9.5);
     doc.setFont('helvetica', 'normal');
     doc.text(String(headerTitle).slice(0, 70), marginX, 12.8);
     doc.setTextColor(0, 0, 0);
     y = 21;
 
-    writeLines(data.titre, { bold: true, size: 12.5, lh: 5.4 });
-    writeLines('Date : ______________     Nom : ________________________________', { size: 8, lh: 4.2 });
+    writeLines(data.titre, { bold: true, size: 14, lh: 6 });
+    writeLines('Date : ______________     Nom : ________________________________', { size: 9, lh: 4.6 });
     y += 1.5;
 
     // ---- Exercices ----
+    // Le type d'exercice reste disponible en interne (ex.type) pour la logique de mise en
+    // page (relier / redaction) mais n'est plus affiché en préfixe "[Type]" dans la consigne :
+    // le prof ne veut plus voir ces étiquettes de type dans le PDF.
     data.exercices.forEach((ex, i) => {
-      const label = TYPE_LABELS[ex.type] || ex.type;
       const isBig = ex.taille === 'grand';
-      const consigneSize = isBig ? 8.7 : 8.2;
-      writeLines(`${i + 1}. [${label}${isBig ? ' — gros exercice' : ''}] ${ex.consigne}`, { bold: true, size: consigneSize, lh: 3.9 });
+      const isRedaction = ex.type === 'redaction';
+      const consigneSize = isBig ? 11 : 10.5;
+      writeLines(`${i + 1}. ${ex.consigne}`, { bold: true, size: consigneSize, lh: consigneSize * 0.52 });
 
       if (ex.type === 'relier' && ex.gauche && ex.droite && ex.gauche.length) {
         drawRelierColumns(doc, ex, marginX, maxWidth, () => y, (v) => { y = v; }, ensureSpace);
       } else if (ex.contenu) {
-        writeLines(ex.contenu, { size: isBig ? 8.3 : 8, lh: 3.8 });
+        writeLines(ex.contenu, { size: isBig ? 10.5 : 10, lh: isBig ? 5.2 : 4.8 });
       }
 
-      // Espace pour répondre (réduit pour tenir sur 1 page).
+      // Espace pour répondre : généreux (plusieurs lignes) pour les gros exercices de
+      // rédaction, où l'élève doit écrire un paragraphe complet ; plus réduit pour les
+      // exercices courts.
       if (ex.type !== 'relier') {
-        const nLines = isBig ? 2 : 1;
+        const nLines = isRedaction ? 6 : (isBig ? 3 : 1);
         for (let l = 0; l < nLines; l++) {
-          ensureSpace(5.2);
+          ensureSpace(6.2);
           doc.setDrawColor(180, 180, 180);
           doc.line(marginX, y, pageWidth - marginX, y);
-          y += 4.6;
+          y += 5.8;
         }
       }
-      y += isBig ? 2 : 1.2;
+      y += isBig ? 2.5 : 1.5;
     });
 
     // ---- Page de corrigé (compacte, 1 page) ----
@@ -347,15 +374,14 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
     y = 20;
 
     data.exercices.forEach((ex, i) => {
-      const label = TYPE_LABELS[ex.type] || ex.type;
-      writeLines(`${i + 1}. [${label}]`, { bold: true, size: 8.5, lh: 4 });
+      writeLines(`${i + 1}.`, { bold: true, size: 10, lh: 4.6 });
       if (ex.type === 'relier' && ex.gauche && ex.droite && ex.gauche.length) {
         const pairs = describeRelierAnswer(ex);
-        writeLines(pairs, { size: 8, lh: 3.8 });
+        writeLines(pairs, { size: 9.5, lh: 4.4 });
       } else {
-        writeLines(ex.reponse || "Réponse libre / à apprécier selon la production de l'élève.", { size: 8, lh: 3.8 });
+        writeLines(ex.reponse || "Réponse libre / à apprécier selon la production de l'élève.", { size: 9.5, lh: 4.4 });
       }
-      y += 1.3;
+      y += 1.5;
     });
 
     return doc;
