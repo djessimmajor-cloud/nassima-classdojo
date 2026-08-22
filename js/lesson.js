@@ -1,6 +1,8 @@
 // lesson.js — cours express généré via l'API Groq (appel direct depuis le navigateur).
 const Lesson = (function () {
-  const MODEL = 'llama-3.1-8b-instant';
+  // Groq a retiré tous les modeles Llama de son catalogue ; gpt-oss-20b est
+  // desormais le modele texte le moins cher disponible (verifie via /v1/models).
+  const MODEL = 'openai/gpt-oss-20b';
   const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
   const POLLINATIONS_ENDPOINT = 'https://image.pollinations.ai/prompt/';
   // Clé Groq par défaut pré-remplie dans les réglages (l'utilisateur peut la remplacer).
@@ -29,7 +31,10 @@ const Lesson = (function () {
         model: MODEL,
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.6,
-        max_tokens: maxTokens || 900,
+        // gpt-oss-20b est un modele de raisonnement : reasoning_effort bas
+        // limite les tokens depenses a "reflechir" avant de repondre.
+        reasoning_effort: 'low',
+        max_tokens: (maxTokens || 900) + 400,
       }),
     });
     if (!res.ok) {
