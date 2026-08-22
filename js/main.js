@@ -192,6 +192,53 @@
     if (viewId === 'viewQuiz') renderQuizList();
     if (viewId === 'viewVerbs') renderVerbs('list');
     if (viewId === 'viewTwisters') renderTwisters('list');
+    if (viewId === 'viewSettings') renderAdmin();
+  }
+
+  // ================= ADMIN (comptes locaux à cet appareil) =================
+  function renderAdmin() {
+    const box = document.getElementById('adminUsersList');
+    if (!box) return;
+    const users = Auth.getUsers();
+    const currentEmail = Auth.getSessionEmail();
+    if (users.length === 0) {
+      box.innerHTML = '<p class="hint">Aucun compte enregistré dans ce navigateur.</p>';
+      return;
+    }
+    const allClasses = Classes.all();
+    box.innerHTML = users.map(u => {
+      const nbClasses = allClasses.filter(c => c.owner === u.email).length;
+      const created = u.createdAt ? new Date(u.createdAt).toLocaleDateString('fr-FR') : 'inconnue';
+      const isCurrent = u.email === currentEmail;
+      return `
+        <div class="card" style="margin-bottom:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+          <div>
+            <div style="font-weight:700;">${escapeHtml(u.nom)} ${isCurrent ? '<span class="pill">Connecté</span>' : ''}</div>
+            <div class="hint" style="margin-top:4px;">${escapeHtml(u.email)} · Créé le ${created} · ${nbClasses} classe(s)</div>
+          </div>
+          <button class="btn btn-sm btn-danger" data-del-user="${escapeHtml(u.email)}" title="Supprimer ce compte">${Icons.svg('trash')} Supprimer</button>
+        </div>`;
+    }).join('');
+
+    box.querySelectorAll('[data-del-user]').forEach(b => b.addEventListener('click', () => {
+      const email = b.dataset.delUser;
+      const u = users.find(x => x.email === email);
+      const label = u ? u.nom : email;
+      if (!confirm(`Supprimer définitivement le compte "${label}" (${email}) et toutes ses classes/données associées ? Cette action est irréversible.`)) return;
+
+      // Supprime d'abord les classes de ce compte (et leurs données liées : points, quiz, notes...)
+      Classes.all().filter(c => c.owner === email).forEach(c => Classes.remove(c.id));
+      const wasCurrent = Auth.getSessionEmail() === email;
+      Auth.deleteUser(email);
+
+      if (wasCurrent) {
+        // Le prof supprime son propre compte pendant qu'il est connecté : on le déconnecte proprement.
+        currentClassId = null;
+        showAuth();
+        return;
+      }
+      renderAdmin();
+    }));
   }
 
   function requireClass() {

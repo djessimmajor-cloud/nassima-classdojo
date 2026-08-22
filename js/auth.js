@@ -56,5 +56,14 @@ const Auth = (function () {
     return users[idx];
   }
 
-  return { register, login, logout, getCurrentUser, getSessionEmail, updateSettings, getUsers };
+  // Supprime un compte (et son éventuelle session active) — utilisé par la page Admin.
+  // Ne touche pas aux classes/données liées : c'est à l'appelant de les nettoyer via Classes.
+  function deleteUser(email) {
+    email = (email || '').trim().toLowerCase();
+    const users = getUsers().filter(u => u.email !== email);
+    saveUsers(users);
+    if (getSessionEmail() === email) setSessionEmail(null);
+  }
+
+  return { register, login, logout, getCurrentUser, getSessionEmail, updateSettings, getUsers, deleteUser };
 })();
