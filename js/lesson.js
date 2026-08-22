@@ -1,6 +1,6 @@
 // lesson.js — cours express généré via l'API Groq (appel direct depuis le navigateur).
 const Lesson = (function () {
-  const MODEL = 'llama-3.2-3b-preview';
+  const MODEL = 'llama-3.1-8b-instant';
   const ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
   const POLLINATIONS_ENDPOINT = 'https://image.pollinations.ai/prompt/';
   // Clé Groq par défaut pré-remplie dans les réglages (l'utilisateur peut la remplacer).
