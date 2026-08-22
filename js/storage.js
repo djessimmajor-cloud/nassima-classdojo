@@ -1,10 +1,9 @@
 // storage.js — petite couche d'accès à localStorage, tout le stockage passe par ici.
+// Comptes / classes / élèves / points vivent maintenant sur Supabase (voir supabase-client.js,
+// auth.js, classes.js, dojo.js). Il ne reste ici que ce qui n'a pas besoin d'être synchronisé
+// entre appareils : réglages purement locaux à ce navigateur.
 const DB_KEYS = {
-  users: 'cdp_users',              // tableau de comptes profs
-  session: 'cdp_session',          // email du prof connecté
-  classes: 'cdp_classes',          // tableau de classes (toutes, filtrées par ownerEmail)
-  points: 'cdp_points_',           // + classId -> historique des points
-  picker: 'cdp_picker_',           // + classId -> état du tirage au sort
+  picker: 'cdp_picker_',           // + classId -> état du tirage au sort (pool sans-remise, local)
   quizHistory: 'cdp_quizhist_',    // + classId -> historique des scores de quiz
   notes: 'cdp_notes_',             // + classId -> notes rapides par élève
   badges: 'cdp_badges_',           // + classId -> badges débloqués par élève

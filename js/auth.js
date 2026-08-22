@@ -1,69 +1,90 @@
-// auth.js — comptes profs (inscription/connexion) + paramètres du compte (clé API, thème...)
+// auth.js — comptes profs (inscription/connexion via Supabase Auth) + paramètres du compte
+// (clé API, thème...) stockés dans la table profiles. Le SDK Supabase persiste la session
+// automatiquement (reconnecté au rechargement) : c'est voulu, seul le choix de "classe du
+// jour" doit être redemandé à chaque entrée (géré séparément dans main.js).
 const Auth = (function () {
-  function getUsers() { return Storage.readJSON(Storage.DB_KEYS.users, []); }
-  function saveUsers(u) { return Storage.writeJSON(Storage.DB_KEYS.users, u); }
+  let currentProfile = null; // cache en mémoire du profil (nom + settings) du prof connecté
 
-  function getSessionEmail() { return localStorage.getItem(Storage.DB_KEYS.session); }
-  function setSessionEmail(email) {
-    if (email) localStorage.setItem(Storage.DB_KEYS.session, email);
-    else localStorage.removeItem(Storage.DB_KEYS.session);
+  async function init() {
+    const { data, error } = await sb.auth.getSession();
+    if (error || !data.session) { currentProfile = null; return null; }
+    await loadProfile(data.session.user.id, data.session.user.email);
+    return currentProfile;
   }
 
-  function getCurrentUser() {
-    const email = getSessionEmail();
-    if (!email) return null;
-    return getUsers().find(u => u.email === email) || null;
+  async function loadProfile(userId, email) {
+    let { data, error } = await sb.from('profiles').select('*').eq('id', userId).maybeSingle();
+    if (error) throw new Error(friendlyError(error));
+    if (!data) {
+      // Filet de sécurité si le trigger de création automatique n'a pas encore tourné.
+      const ins = await sb.from('profiles').insert({ id: userId, nom: email }).select().maybeSingle();
+      data = ins.data;
+    }
+    currentProfile = {
+      id: userId,
+      email,
+      nom: (data && data.nom) || email,
+      settings: Object.assign({ theme: 'normal', darkMode: false, groqApiKey: '' }, (data && data.settings) || {}),
+    };
+    return currentProfile;
   }
+
+  function getCurrentUser() { return currentProfile; }
+  function getSessionEmail() { return currentProfile ? currentProfile.email : null; }
+  function getUserId() { return currentProfile ? currentProfile.id : null; }
 
   async function register(nom, email, motdepasse) {
-    email = email.trim().toLowerCase();
-    if (!nom.trim() || !email || !motdepasse) throw new Error('Tous les champs sont obligatoires.');
-    if (motdepasse.length < 4) throw new Error('Le mot de passe doit contenir au moins 4 caractères.');
-    const users = getUsers();
-    if (users.some(u => u.email === email)) throw new Error('Un compte existe déjà avec cet email.');
-    const hash = await sha256(motdepasse);
-    const user = {
-      nom: nom.trim(), email, hash,
-      createdAt: Date.now(),
-      settings: { theme: 'normal', darkMode: false, groqApiKey: '' }
-    };
-    users.push(user);
-    saveUsers(users);
-    setSessionEmail(email);
-    return user;
+    nom = (nom || '').trim();
+    email = (email || '').trim().toLowerCase();
+    if (!nom || !email || !motdepasse) throw new Error('Tous les champs sont obligatoires.');
+    if (motdepasse.length < 6) throw new Error('Le mot de passe doit contenir au moins 6 caractères.');
+    const { data, error } = await sb.auth.signUp({
+      email, password: motdepasse, options: { data: { nom } }
+    });
+    if (error) throw new Error(friendlyError(error));
+    if (!data.session) {
+      // Confirmation email activée côté projet : pas de session immédiate.
+      throw new Error("Compte créé. Vérifiez votre boîte mail pour confirmer votre adresse avant de vous connecter.");
+    }
+    await loadProfile(data.user.id, data.user.email);
+    // Le nom saisi peut ne pas encore être dans profiles si le trigger vient de tourner sans lire raw_user_meta_data à temps.
+    if (currentProfile.nom !== nom) {
+      await sb.from('profiles').update({ nom }).eq('id', data.user.id);
+      currentProfile.nom = nom;
+    }
+    return currentProfile;
   }
 
   async function login(email, motdepasse) {
-    email = email.trim().toLowerCase();
-    const users = getUsers();
-    const user = users.find(u => u.email === email);
-    if (!user) throw new Error('Aucun compte trouvé avec cet email.');
-    const hash = await sha256(motdepasse);
-    if (hash !== user.hash) throw new Error('Mot de passe incorrect.');
-    setSessionEmail(email);
-    return user;
-  }
-
-  function logout() { setSessionEmail(null); }
-
-  function updateSettings(patch) {
-    const email = getSessionEmail();
-    const users = getUsers();
-    const idx = users.findIndex(u => u.email === email);
-    if (idx === -1) return null;
-    users[idx].settings = Object.assign({}, users[idx].settings, patch);
-    saveUsers(users);
-    return users[idx];
-  }
-
-  // Supprime un compte (et son éventuelle session active) — utilisé par la page Admin.
-  // Ne touche pas aux classes/données liées : c'est à l'appelant de les nettoyer via Classes.
-  function deleteUser(email) {
     email = (email || '').trim().toLowerCase();
-    const users = getUsers().filter(u => u.email !== email);
-    saveUsers(users);
-    if (getSessionEmail() === email) setSessionEmail(null);
+    const { data, error } = await sb.auth.signInWithPassword({ email, password: motdepasse });
+    if (error) throw new Error(friendlyError(error));
+    await loadProfile(data.user.id, data.user.email);
+    return currentProfile;
   }
 
-  return { register, login, logout, getCurrentUser, getSessionEmail, updateSettings, getUsers, deleteUser };
+  async function logout() {
+    await sb.auth.signOut();
+    currentProfile = null;
+  }
+
+  async function updateSettings(patch) {
+    if (!currentProfile) return null;
+    currentProfile.settings = Object.assign({}, currentProfile.settings, patch);
+    const { error } = await sb.from('profiles').update({ settings: currentProfile.settings }).eq('id', currentProfile.id);
+    if (error) throw new Error(friendlyError(error));
+    return currentProfile;
+  }
+
+  // Supprime définitivement le compte connecté (auth + toutes ses classes/élèves/points,
+  // supprimés en cascade côté base de données) via la fonction RPC delete_own_account.
+  async function deleteMyAccount() {
+    if (!currentProfile) return;
+    const { error } = await sb.rpc('delete_own_account');
+    if (error) throw new Error(friendlyError(error));
+    currentProfile = null;
+    await sb.auth.signOut();
+  }
+
+  return { init, register, login, logout, getCurrentUser, getSessionEmail, getUserId, updateSettings, deleteMyAccount };
 })();

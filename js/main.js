@@ -4,15 +4,23 @@
 
   document.addEventListener('DOMContentLoaded', init);
 
-  function init() {
+  async function init() {
     wireAuthScreen();
     wireSidebar();
     wireModalClose();
 
     wireDailyClassScreen();
 
-    const user = Auth.getCurrentUser();
-    if (user) enterAppFlow(); else showAuth();
+    const netMsg = document.getElementById('authNetworkMsg');
+    if (netMsg) { netMsg.style.display = 'block'; netMsg.textContent = 'Connexion au serveur…'; }
+    try {
+      const user = await Auth.init();
+      if (netMsg) netMsg.style.display = 'none';
+      if (user) { await enterAppFlow(); } else { showAuth(); }
+    } catch (ex) {
+      if (netMsg) { netMsg.style.display = 'block'; netMsg.textContent = friendlyError(ex); netMsg.style.color = 'var(--danger)'; }
+      showAuth();
+    }
   }
 
   // ================= AUTH =================
@@ -34,21 +42,23 @@
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const err = document.getElementById('loginError');
-      err.textContent = '';
+      const btn = loginForm.querySelector('button[type="submit"]');
+      err.textContent = ''; btn.disabled = true;
       try {
         await Auth.login(document.getElementById('loginEmail').value, document.getElementById('loginPass').value);
-        enterAppFlow();
-      } catch (ex) { err.textContent = ex.message; }
+        await enterAppFlow();
+      } catch (ex) { err.textContent = ex.message; } finally { btn.disabled = false; }
     });
 
     registerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const err = document.getElementById('registerError');
-      err.textContent = '';
+      const btn = registerForm.querySelector('button[type="submit"]');
+      err.textContent = ''; btn.disabled = true;
       try {
         await Auth.register(document.getElementById('regNom').value, document.getElementById('regEmail').value, document.getElementById('regPass').value);
-        enterAppFlow();
-      } catch (ex) { err.textContent = ex.message; }
+        await enterAppFlow();
+      } catch (ex) { err.textContent = ex.message; } finally { btn.disabled = false; }
     });
   }
 
@@ -77,10 +87,6 @@
     renderClasses();
   }
 
-  document.getElementById('logoutBtn') && document.getElementById('logoutBtn').addEventListener('click', () => {
-    Auth.logout(); currentClassId = null; showAuth();
-  });
-
   // ================= CLASSE DU JOUR =================
   // Ecran affiché juste après connexion : le prof choisit sa classe active du jour.
   // Ce choix n'est volontairement PAS persisté d'un jour à l'autre (variable en mémoire
@@ -94,7 +100,19 @@
     label.textContent = c ? c.nom : 'Aucune';
   }
 
-  function enterAppFlow() {
+  async function enterAppFlow() {
+    document.getElementById('authScreen').style.display = 'none';
+    document.getElementById('appScreen').style.display = 'none';
+    document.getElementById('dailyClassScreen').style.display = 'flex';
+    Theme.applyFromUser();
+    document.getElementById('dailyClassHint').textContent = 'Chargement de vos classes…';
+    document.getElementById('dailyClassGrid').innerHTML = '';
+    try {
+      await Classes.refresh();
+    } catch (ex) {
+      document.getElementById('dailyClassHint').textContent = friendlyError(ex);
+      return;
+    }
     const list = Classes.forCurrentUser();
     if (list.length === 0) {
       showDailyClassScreen({ forceEmpty: true });
@@ -146,14 +164,14 @@
   function wireDailyClassScreen() {
     const createBtn = document.getElementById('dailyCreateClassBtn');
     if (createBtn) {
-      createBtn.addEventListener('click', () => {
+      createBtn.addEventListener('click', async () => {
         const err = document.getElementById('dailyClassError');
-        err.textContent = '';
+        err.textContent = ''; createBtn.disabled = true;
         try {
-          const c = Classes.create(document.getElementById('dailyNewClassName').value);
+          const c = await Classes.create(document.getElementById('dailyNewClassName').value);
           currentClassId = c.id;
           showApp();
-        } catch (ex) { err.textContent = ex.message; }
+        } catch (ex) { err.textContent = ex.message; } finally { createBtn.disabled = false; }
       });
     }
     const changeBtn = document.getElementById('btnChangeDailyClass');
@@ -169,7 +187,7 @@
         switchView(item.dataset.view);
       });
     });
-    document.getElementById('logoutBtn').addEventListener('click', () => { Auth.logout(); currentClassId = null; showAuth(); });
+    document.getElementById('logoutBtn').addEventListener('click', async () => { await Auth.logout(); currentClassId = null; showAuth(); });
   }
 
   function switchView(viewId) {
@@ -192,53 +210,26 @@
     if (viewId === 'viewQuiz') renderQuizList();
     if (viewId === 'viewVerbs') renderVerbs('list');
     if (viewId === 'viewTwisters') renderTwisters('list');
-    if (viewId === 'viewSettings') renderAdmin();
   }
 
-  // ================= ADMIN (comptes locaux à cet appareil) =================
-  function renderAdmin() {
-    const box = document.getElementById('adminUsersList');
-    if (!box) return;
-    const users = Auth.getUsers();
-    const currentEmail = Auth.getSessionEmail();
-    if (users.length === 0) {
-      box.innerHTML = '<p class="hint">Aucun compte enregistré dans ce navigateur.</p>';
-      return;
-    }
-    const allClasses = Classes.all();
-    box.innerHTML = users.map(u => {
-      const nbClasses = allClasses.filter(c => c.owner === u.email).length;
-      const created = u.createdAt ? new Date(u.createdAt).toLocaleDateString('fr-FR') : 'inconnue';
-      const isCurrent = u.email === currentEmail;
-      return `
-        <div class="card" style="margin-bottom:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-          <div>
-            <div style="font-weight:700;">${escapeHtml(u.nom)} ${isCurrent ? '<span class="pill">Connecté</span>' : ''}</div>
-            <div class="hint" style="margin-top:4px;">${escapeHtml(u.email)} · Créé le ${created} · ${nbClasses} classe(s)</div>
-          </div>
-          <button class="btn btn-sm btn-danger" data-del-user="${escapeHtml(u.email)}" title="Supprimer ce compte">${Icons.svg('trash')} Supprimer</button>
-        </div>`;
-    }).join('');
-
-    box.querySelectorAll('[data-del-user]').forEach(b => b.addEventListener('click', () => {
-      const email = b.dataset.delUser;
-      const u = users.find(x => x.email === email);
-      const label = u ? u.nom : email;
-      if (!confirm(`Supprimer définitivement le compte "${label}" (${email}) et toutes ses classes/données associées ? Cette action est irréversible.`)) return;
-
-      // Supprime d'abord les classes de ce compte (et leurs données liées : points, quiz, notes...)
-      Classes.all().filter(c => c.owner === email).forEach(c => Classes.remove(c.id));
-      const wasCurrent = Auth.getSessionEmail() === email;
-      Auth.deleteUser(email);
-
-      if (wasCurrent) {
-        // Le prof supprime son propre compte pendant qu'il est connecté : on le déconnecte proprement.
+  // ================= SUPPRESSION DE COMPTE =================
+  const btnDeleteAccount = document.getElementById('btnDeleteAccount');
+  if (btnDeleteAccount) {
+    btnDeleteAccount.addEventListener('click', async () => {
+      const msg = document.getElementById('deleteAccountMsg');
+      msg.textContent = '';
+      if (!confirm('Supprimer définitivement votre compte, vos classes, élèves et points ? Cette action est irréversible.')) return;
+      btnDeleteAccount.disabled = true;
+      try {
+        await Auth.deleteMyAccount();
         currentClassId = null;
         showAuth();
-        return;
+      } catch (ex) {
+        msg.textContent = ex.message;
+      } finally {
+        btnDeleteAccount.disabled = false;
       }
-      renderAdmin();
-    }));
+    });
   }
 
   function requireClass() {
@@ -287,11 +278,13 @@
       updateDailyClassLabel();
       renderClasses();
     }));
-    grid.querySelectorAll('.deleteClassBtn').forEach(b => b.addEventListener('click', () => {
+    grid.querySelectorAll('.deleteClassBtn').forEach(b => b.addEventListener('click', async () => {
       if (confirm('Supprimer définitivement cette classe et toutes ses données ?')) {
-        Classes.remove(b.dataset.id);
-        if (currentClassId === b.dataset.id) currentClassId = null;
-        renderClasses();
+        try {
+          await Classes.remove(b.dataset.id);
+          if (currentClassId === b.dataset.id) currentClassId = null;
+          renderClasses();
+        } catch (ex) { alert(ex.message); }
       }
     }));
 
@@ -343,8 +336,10 @@
     grid.querySelectorAll('[data-points]').forEach(b => b.addEventListener('click', () => {
       openPointsModal(c.id, b.dataset.points);
     }));
-    grid.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', () => {
-      if (confirm('Retirer cet élève de la classe ?')) { Classes.removeStudent(c.id, b.dataset.remove); renderClassDetail(); }
+    grid.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', async () => {
+      if (confirm('Retirer cet élève de la classe ?')) {
+        try { await Classes.removeStudent(c.id, b.dataset.remove); renderClassDetail(); } catch (ex) { alert(ex.message); }
+      }
     }));
   }
 
@@ -354,9 +349,9 @@
       <label>Nom de la classe <input type="text" id="newClassName" placeholder="ex: 5eB"></label>
       <button class="btn btn-primary" id="confirmNewClass" style="margin-top:12px;">Créer</button>
     `);
-    document.getElementById('confirmNewClass').addEventListener('click', () => {
+    document.getElementById('confirmNewClass').addEventListener('click', async () => {
       try {
-        const c = Classes.create(document.getElementById('newClassName').value);
+        const c = await Classes.create(document.getElementById('newClassName').value);
         currentClassId = c.id;
         updateDailyClassLabel();
         closeModal();
@@ -375,9 +370,9 @@
       </label>
       <button class="btn btn-primary" id="confirmAddStudent" style="margin-top:12px;">Ajouter</button>
     `);
-    document.getElementById('confirmAddStudent').addEventListener('click', () => {
+    document.getElementById('confirmAddStudent').addEventListener('click', async () => {
       try {
-        Classes.addStudent(c.id, document.getElementById('newStudentName').value, document.getElementById('newStudentSexe').value);
+        await Classes.addStudent(c.id, document.getElementById('newStudentName').value, document.getElementById('newStudentSexe').value);
         closeModal(); renderClassDetail();
       } catch (ex) { alert(ex.message); }
     });
@@ -400,13 +395,12 @@
       <label>Points (positif ou négatif) <input type="number" id="newCatPts" value="1"></label>
       <button class="btn btn-primary" id="confirmAddCat" style="margin-top:10px;">Ajouter</button>
     `);
-    document.querySelectorAll('[data-catdel]').forEach(b => b.addEventListener('click', () => {
-      Classes.removeCategory(c.id, b.dataset.catdel);
-      renderCatsModal(Classes.get(c.id));
+    document.querySelectorAll('[data-catdel]').forEach(b => b.addEventListener('click', async () => {
+      try { await Classes.removeCategory(c.id, b.dataset.catdel); renderCatsModal(Classes.get(c.id)); } catch (ex) { alert(ex.message); }
     }));
-    document.getElementById('confirmAddCat').addEventListener('click', () => {
+    document.getElementById('confirmAddCat').addEventListener('click', async () => {
       try {
-        Classes.addCategory(c.id, document.getElementById('newCatName').value, document.getElementById('newCatPts').value);
+        await Classes.addCategory(c.id, document.getElementById('newCatName').value, document.getElementById('newCatPts').value);
         renderCatsModal(Classes.get(c.id));
       } catch (ex) { alert(ex.message); }
     });
@@ -455,39 +449,45 @@
       document.getElementById('pmTotal').textContent = fresh ? (fresh.points || 0) : 0;
     }
     function wireCatButtons() {
-      document.querySelectorAll('#pmCatList .pm-plus').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('#pmCatList .pm-plus').forEach(b => b.addEventListener('click', async () => {
         const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
         if (!cat) return;
-        Dojo.addPoints(classId, eleveId, cat.nom, Math.abs(cat.points));
-        refreshTotal(); renderClassDetail();
+        b.disabled = true;
+        try { await Dojo.addPoints(classId, eleveId, cat.nom, Math.abs(cat.points)); refreshTotal(); renderClassDetail(); }
+        catch (ex) { alert(ex.message); } finally { b.disabled = false; }
       }));
-      document.querySelectorAll('#pmCatList .pm-minus').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('#pmCatList .pm-minus').forEach(b => b.addEventListener('click', async () => {
         const cat = Classes.get(classId).categories.find(x => x.id === b.dataset.cat);
         if (!cat) return;
-        Dojo.addPoints(classId, eleveId, cat.nom, -Math.abs(cat.points));
-        refreshTotal(); renderClassDetail();
+        b.disabled = true;
+        try { await Dojo.addPoints(classId, eleveId, cat.nom, -Math.abs(cat.points)); refreshTotal(); renderClassDetail(); }
+        catch (ex) { alert(ex.message); } finally { b.disabled = false; }
       }));
     }
     wireCatButtons();
 
     document.getElementById('pmClose').addEventListener('click', closeModal);
-    document.getElementById('pmAddCat').addEventListener('click', () => {
+    document.getElementById('pmAddCat').addEventListener('click', async () => {
       try {
-        Classes.addCategory(classId, document.getElementById('pmNewCatName').value, document.getElementById('pmNewCatPts').value);
+        await Classes.addCategory(classId, document.getElementById('pmNewCatName').value, document.getElementById('pmNewCatPts').value);
         openPointsModal(classId, eleveId); // ré-ouvre la modale rafraîchie avec la nouvelle catégorie
       } catch (ex) { alert(ex.message); }
     });
   }
 
-  document.getElementById('btnResetPoints').addEventListener('click', () => {
+  document.getElementById('btnResetPoints').addEventListener('click', async () => {
     const c = requireClass(); if (!c) return;
-    if (confirm('Remettre tous les points à zéro pour cette classe ?')) { Dojo.resetPoints(c.id); renderClassDetail(); }
+    if (confirm('Remettre tous les points à zéro pour cette classe ?')) {
+      try { await Dojo.resetPoints(c.id); renderClassDetail(); } catch (ex) { alert(ex.message); }
+    }
   });
 
-  document.getElementById('btnExportCsv').addEventListener('click', () => {
+  document.getElementById('btnExportCsv').addEventListener('click', async () => {
     const c = requireClass(); if (!c) return;
-    const csv = Dojo.exportCSV(c.id);
-    downloadFile(`points_${c.nom}.csv`, csv, 'text/csv;charset=utf-8;');
+    try {
+      const csv = await Dojo.exportCSV(c.id);
+      downloadFile(`points_${c.nom}.csv`, csv, 'text/csv;charset=utf-8;');
+    } catch (ex) { alert(ex.message); }
   });
 
   // ================= CONSIGNE (affichage diaporama) =================
@@ -1102,8 +1102,8 @@
       `;
       cont.querySelectorAll('[data-choice]').forEach(b => b.addEventListener('click', () => {
         const fb = document.getElementById('verbFeedback');
-        if (b.dataset.choice === item.bonne) { fb.textContent = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
-        else { fb.textContent = `${Icons.svg('close')} Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
+        if (b.dataset.choice === item.bonne) { fb.innerHTML = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
+        else { fb.innerHTML = `${Icons.svg('close')} Faux. La bonne réponse était : ${escapeHtml(item.bonne)}`; fb.style.color = 'var(--danger)'; }
         setTimeout(() => nextVerbQuestion(mode, cont), 1400);
       }));
     } else {
@@ -1116,8 +1116,8 @@
       const submit = () => {
         const val = document.getElementById('verbInput').value.trim().toLowerCase();
         const fb = document.getElementById('verbFeedback');
-        if (val === item.bonne.toLowerCase()) { fb.textContent = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
-        else { fb.textContent = `${Icons.svg('close')} Faux. La bonne réponse était : ${item.bonne}`; fb.style.color = 'var(--danger)'; }
+        if (val === item.bonne.toLowerCase()) { fb.innerHTML = '<svg viewBox="0 0 24 24" style="width:1em;height:1em;vertical-align:-0.15em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;"><path d="M20 6 9 17l-5-5"/></svg> Correct !'; fb.style.color = 'var(--success)'; }
+        else { fb.innerHTML = `${Icons.svg('close')} Faux. La bonne réponse était : ${escapeHtml(item.bonne)}`; fb.style.color = 'var(--danger)'; }
         setTimeout(() => nextVerbQuestion(mode, cont), 1400);
       };
       document.getElementById('verbSubmit').addEventListener('click', submit);
@@ -1155,15 +1155,23 @@
   }
 
   // ================= RÉGLAGES =================
-  document.getElementById('btnSaveSettings').addEventListener('click', () => {
+  document.getElementById('btnSaveSettings').addEventListener('click', async () => {
     const theme = document.getElementById('themeSelect').value;
     const darkMode = document.getElementById('darkModeToggle').checked;
     const groqApiKey = document.getElementById('groqKeyInput').value.trim();
-    Auth.updateSettings({ theme, darkMode, groqApiKey });
-    Theme.applyFromUser();
+    const btn = document.getElementById('btnSaveSettings');
     const msg = document.getElementById('settingsMsg');
-    msg.textContent = 'Réglages enregistrés !';
-    setTimeout(() => msg.textContent = '', 2000);
+    btn.disabled = true;
+    try {
+      await Auth.updateSettings({ theme, darkMode, groqApiKey });
+      Theme.applyFromUser();
+      msg.textContent = 'Réglages enregistrés !';
+      setTimeout(() => msg.textContent = '', 2000);
+    } catch (ex) {
+      msg.textContent = ex.message;
+    } finally {
+      btn.disabled = false;
+    }
   });
 
   // ================= UTILITAIRES =================
