@@ -147,14 +147,21 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. So
 
   // ================= GÉNÉRATION PDF D'EXERCICES (via Groq + jsPDF) =================
   // Types d'exercices attendus dans le JSON retourné par Groq (mélange volontaire) :
-  // qcm, texte_a_trous, correction_erreurs, remise_en_ordre, association, redaction
+  // qcm, texte_a_trous, correction_erreurs, remise_en_ordre, association, redaction, relier
+  // La feuille doit tenir sur 1 page A4 (exercices) + 1 page A4 (corrigé) : on demande donc
+  // un nombre limité d'exercices — 6 courts + 3 "gros" (plus longs/substantiels) — plutôt
+  // que d'entasser trop de contenu illisible.
   async function generateExercises(sujet) {
     if (!sujet || !sujet.trim()) throw new Error('Veuillez saisir un sujet de cours.');
     const s = sujet.trim();
 
-    const prompt = `Tu es un professeur d'anglais en collège. Génère un jeu de 8 exercices d'anglais VARIÉS liés au sujet suivant : "${s}".
-Mélange réellement les types d'exercices parmi cette liste : "qcm" (choix multiple), "texte_a_trous" (fill in the blanks), "correction_erreurs" (repérer et corriger une erreur dans une phrase), "remise_en_ordre" (remettre des mots ou une phrase dans l'ordre), "association" (associer des éléments deux à deux), "redaction" (courte production écrite en 2-4 phrases).
-Utilise au moins 4 types différents parmi cette liste sur les 8 exercices.
+    const prompt = `Tu es un professeur d'anglais en collège. Génère un jeu de 9 exercices d'anglais VARIÉS liés au sujet suivant : "${s}", conçu pour tenir sur UNE SEULE page A4 (donc reste concis).
+Le jeu doit contenir EXACTEMENT :
+- 6 exercices COURTS (taille "court") : rapides, 1 à 2 lignes de contenu maximum chacun.
+- 3 GROS exercices SUBSTANTIELS (taille "grand") : plus longs/complexes, par exemple une rédaction plus développée (3-5 phrases), un exercice "à relier" avec 4-5 paires, ou une remise en ordre de plusieurs phrases (2-3 phrases à remettre en ordre).
+
+Mélange réellement les types parmi cette liste : "qcm" (choix multiple), "texte_a_trous" (fill in the blanks), "correction_erreurs" (repérer et corriger une erreur dans une phrase), "remise_en_ordre" (remettre des mots ou des phrases dans l'ordre), "association" (associer des éléments deux à deux en une ligne de texte), "redaction" (courte production écrite), "relier" (exercice à relier : deux colonnes d'éléments à associer par des traits, ex. mots anglais à gauche / traductions ou définitions à droite, dans le désordre).
+Utilise au moins 4 types différents sur les 9 exercices. Utilise le type "relier" pour au moins un des 3 "gros" exercices.
 
 Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans balises markdown, au format suivant exactement :
 {
@@ -162,15 +169,26 @@ Réponds UNIQUEMENT avec un JSON valide, sans aucun texte avant ou après, sans 
   "exercices": [
     {
       "type": "qcm",
+      "taille": "court",
       "consigne": "consigne en francais expliquant quoi faire",
       "contenu": "le texte de la question ou de la phrase en anglais, avec pour qcm les choix listes sous forme 'A) ... B) ... C) ...' inclus dans ce champ",
       "reponse": "la reponse correcte, courte"
+    },
+    {
+      "type": "relier",
+      "taille": "grand",
+      "consigne": "consigne en francais expliquant quoi faire (relier chaque element de gauche a celui qui correspond a droite)",
+      "contenu": "",
+      "gauche": ["mot ou expression 1 en anglais", "mot ou expression 2 en anglais"],
+      "droite": ["traduction ou definition A (dans le desordre par rapport a gauche)", "traduction ou definition B"],
+      "reponse": "1-B, 2-A (indique la bonne correspondance numero-lettre pour chaque paire)"
     }
   ]
 }
+Pour le type "relier" uniquement, remplis "gauche" et "droite" (4-5 éléments chacun, même longueur), laisse "contenu" vide, et donne la correspondance dans "reponse" au format "1-B, 2-A, ...". Pour tous les autres types, n'utilise pas les champs "gauche"/"droite".
 Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Les consignes sont en français, le contenu des exercices est en anglais. N'ajoute aucun commentaire, uniquement le JSON.`;
 
-    const raw = await callGroq(prompt, 2200);
+    const raw = await callGroq(prompt, 2600);
     return parseExercisesResponse(raw, s);
   }
 
@@ -190,16 +208,38 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
     } catch (e) {
       throw new Error("Impossible d'analyser la réponse de Groq (JSON invalide).");
     }
-    const exercices = Array.isArray(data.exercices) ? data.exercices.filter(x => x && x.consigne && x.contenu) : [];
+    const exercices = Array.isArray(data.exercices)
+      ? data.exercices.filter(x => x && x.consigne && (x.contenu || (Array.isArray(x.gauche) && Array.isArray(x.droite))))
+      : [];
     if (!exercices.length) throw new Error('Aucun exercice exploitable dans la réponse de Groq.');
+
+    let parsed = exercices.map(x => ({
+      type: String(x.type || 'exercice').trim(),
+      taille: /^grand/i.test(String(x.taille || '')) ? 'grand' : 'court',
+      consigne: String(x.consigne || '').trim(),
+      contenu: String(x.contenu || '').trim(),
+      reponse: String(x.reponse || '').trim(),
+      gauche: Array.isArray(x.gauche) ? x.gauche.map(v => String(v).trim()).filter(Boolean) : null,
+      droite: Array.isArray(x.droite) ? x.droite.map(v => String(v).trim()).filter(Boolean) : null,
+    }));
+
+    // Garantit exactement 3 "gros" exercices : si Groq n'en a pas mis assez/trop,
+    // on reclasse par ordre (les plus longs/relier en priorité) pour respecter la mise en page.
+    const isBigCandidate = ex => ex.type === 'relier' || ex.type === 'redaction' || ex.type === 'remise_en_ordre';
+    let big = parsed.filter(x => x.taille === 'grand');
+    let small = parsed.filter(x => x.taille !== 'grand');
+    if (big.length !== 3) {
+      const all = parsed.slice().sort((a, b) => (isBigCandidate(b) ? 1 : 0) - (isBigCandidate(a) ? 1 : 0));
+      big = all.slice(0, Math.min(3, all.length)).map(x => Object.assign({}, x, { taille: 'grand' }));
+      small = all.slice(Math.min(3, all.length)).map(x => Object.assign({}, x, { taille: 'court' }));
+    }
+    // Limite à 6 exercices courts + 3 gros pour tenir sur une page.
+    small = small.slice(0, 6);
+    parsed = small.concat(big);
+
     return {
       titre: (data.titre && String(data.titre).trim()) || fallbackTitle,
-      exercices: exercices.map(x => ({
-        type: String(x.type || 'exercice').trim(),
-        consigne: String(x.consigne || '').trim(),
-        contenu: String(x.contenu || '').trim(),
-        reponse: String(x.reponse || '').trim(),
-      })),
+      exercices: parsed,
     };
   }
 
@@ -210,91 +250,163 @@ Adapte le niveau à des élèves de collège (11-15 ans) apprenant l'anglais. Le
     remise_en_ordre: 'Remise en ordre',
     association: 'Association',
     redaction: 'Rédaction courte',
+    relier: 'À relier',
   };
 
-  // Construit un vrai PDF (jsPDF) : page de garde/en-tête, consignes numérotées avec
-  // espace pour répondre, et une page de corrigé à la fin. Retourne l'objet jsPDF (doc),
-  // à qui l'appelant peut faire doc.save(filename) ou doc.output('blob').
+  // Construit un vrai PDF (jsPDF) COMPACT tenant sur 1 page A4 pour les exercices +
+  // 1 page A4 pour le corrigé (2 pages au total). La mise en page est volontairement
+  // resserrée (petites polices, marges réduites, peu d'espace de réponse) et le nombre
+  // d'exercices est limité (6 courts + 3 gros, cf. parseExercisesResponse) pour que tout
+  // reste lisible sans texte coupé. Retourne l'objet jsPDF (doc), à qui l'appelant peut
+  // faire doc.save(filename) ou doc.output('blob').
   function buildExercisesPdf(headerTitle, data) {
     if (!window.jspdf || !window.jspdf.jsPDF) throw new Error('jsPDF n\'est pas chargé.');
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit: 'mm', format: 'a4' });
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
-    const marginX = 18;
+    const marginX = 13;
     const maxWidth = pageWidth - marginX * 2;
-    let y = 20;
+    const bottomLimit = pageHeight - 9;
+    let y = 16;
 
+    // Filet de sécurité : si malgré le réglage compact le contenu déborde quand même
+    // (sujet très long, etc.), on ajoute une page plutôt que de couper le texte —
+    // mais avec les tailles/nombres d'exercices fixés ici, ça ne devrait normalement
+    // pas arriver.
     function ensureSpace(needed) {
-      if (y + needed > pageHeight - 18) { doc.addPage(); y = 20; }
+      if (y + needed > bottomLimit) { doc.addPage(); y = 14; }
     }
-    function writeParagraph(text, opts) {
+    function writeLines(text, opts) {
       opts = opts || {};
       doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
-      doc.setFontSize(opts.size || 11);
-      const lines = doc.splitTextToSize(text, maxWidth);
+      doc.setFontSize(opts.size || 8.5);
+      const lh = opts.lh || (opts.size ? opts.size * 0.52 : 4.4);
+      const lines = doc.splitTextToSize(text, opts.width || maxWidth);
       lines.forEach(line => {
-        ensureSpace(6);
-        doc.text(line, marginX, y);
-        y += 6;
+        ensureSpace(lh);
+        doc.text(line, opts.x || marginX, y);
+        y += lh;
       });
+      return lines.length * lh;
     }
 
-    // En-tête
+    // ---- En-tête compact ----
     doc.setFillColor(79, 142, 247);
-    doc.rect(0, 0, pageWidth, 30, 'F');
+    doc.rect(0, 0, pageWidth, 16, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(18);
-    doc.text('EnglishDojo — Feuille d\'exercices', marginX, 14);
-    doc.setFontSize(12);
+    doc.setFontSize(11);
+    doc.text("EnglishDojo — Feuille d'exercices", marginX, 7.5);
+    doc.setFontSize(8.5);
     doc.setFont('helvetica', 'normal');
-    doc.text(headerTitle, marginX, 23);
+    doc.text(String(headerTitle).slice(0, 70), marginX, 12.8);
     doc.setTextColor(0, 0, 0);
-    y = 40;
+    y = 21;
 
-    writeParagraph(data.titre, { bold: true, size: 15 });
-    y += 2;
-    writeParagraph(`Date : ________________     Nom : ____________________________`, { size: 10 });
-    y += 4;
+    writeLines(data.titre, { bold: true, size: 12.5, lh: 5.4 });
+    writeLines('Date : ______________     Nom : ________________________________', { size: 8, lh: 4.2 });
+    y += 1.5;
 
+    // ---- Exercices ----
     data.exercices.forEach((ex, i) => {
-      ensureSpace(16);
       const label = TYPE_LABELS[ex.type] || ex.type;
-      writeParagraph(`${i + 1}. [${label}] ${ex.consigne}`, { bold: true, size: 11.5 });
-      writeParagraph(ex.contenu, { size: 11 });
-      // Lignes pour répondre (espace pour l'élève)
-      const linesToDraw = /redaction|association|remise_en_ordre/.test(ex.type) ? 3 : 2;
-      for (let l = 0; l < linesToDraw; l++) {
-        ensureSpace(8);
-        doc.setDrawColor(180, 180, 180);
-        doc.line(marginX, y, pageWidth - marginX, y);
-        y += 7;
+      const isBig = ex.taille === 'grand';
+      const consigneSize = isBig ? 8.7 : 8.2;
+      writeLines(`${i + 1}. [${label}${isBig ? ' — gros exercice' : ''}] ${ex.consigne}`, { bold: true, size: consigneSize, lh: 3.9 });
+
+      if (ex.type === 'relier' && ex.gauche && ex.droite && ex.gauche.length) {
+        drawRelierColumns(doc, ex, marginX, maxWidth, () => y, (v) => { y = v; }, ensureSpace);
+      } else if (ex.contenu) {
+        writeLines(ex.contenu, { size: isBig ? 8.3 : 8, lh: 3.8 });
       }
-      y += 3;
+
+      // Espace pour répondre (réduit pour tenir sur 1 page).
+      if (ex.type !== 'relier') {
+        const nLines = isBig ? 2 : 1;
+        for (let l = 0; l < nLines; l++) {
+          ensureSpace(5.2);
+          doc.setDrawColor(180, 180, 180);
+          doc.line(marginX, y, pageWidth - marginX, y);
+          y += 4.6;
+        }
+      }
+      y += isBig ? 2 : 1.2;
     });
 
-    // Page de corrigé
+    // ---- Page de corrigé (compacte, 1 page) ----
     doc.addPage();
-    y = 20;
+    y = 16;
     doc.setFillColor(87, 199, 133);
-    doc.rect(0, 0, pageWidth, 22, 'F');
+    doc.rect(0, 0, pageWidth, 14, 'F');
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(16);
-    doc.text('Corrigé', marginX, 14);
+    doc.setFontSize(12);
+    doc.text('Corrigé — ' + String(data.titre || '').slice(0, 55), marginX, 9.5);
     doc.setTextColor(0, 0, 0);
-    y = 34;
+    y = 20;
 
     data.exercices.forEach((ex, i) => {
-      ensureSpace(14);
       const label = TYPE_LABELS[ex.type] || ex.type;
-      writeParagraph(`${i + 1}. [${label}]`, { bold: true, size: 11 });
-      writeParagraph(ex.reponse || 'Réponse libre / à apprécier selon la production de l\'élève.', { size: 10.5 });
-      y += 2;
+      writeLines(`${i + 1}. [${label}]`, { bold: true, size: 8.5, lh: 4 });
+      if (ex.type === 'relier' && ex.gauche && ex.droite && ex.gauche.length) {
+        const pairs = describeRelierAnswer(ex);
+        writeLines(pairs, { size: 8, lh: 3.8 });
+      } else {
+        writeLines(ex.reponse || "Réponse libre / à apprécier selon la production de l'élève.", { size: 8, lh: 3.8 });
+      }
+      y += 1.3;
     });
 
     return doc;
+  }
+
+  // Dessine un exercice "à relier" : deux colonnes (gauche / droite dans le désordre)
+  // avec un espace central pour que l'élève trace les traits de liaison au stylo.
+  // Ne dessine pas les traits lui-même — seulement l'espace et les repères numérotés/lettrés.
+  function drawRelierColumns(doc, ex, marginX, maxWidth, getY, setY, ensureSpace) {
+    const n = Math.max(ex.gauche.length, ex.droite.length);
+    const rowH = 5.4;
+    ensureSpace(n * rowH + 2);
+    let y = getY();
+    const colGap = 26; // espace central réservé pour tracer les traits
+    const colWidth = (maxWidth - colGap) / 2;
+    const leftX = marginX + 2;
+    const rightX = marginX + colWidth + colGap;
+    const startY = y;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    for (let r = 0; r < n; r++) {
+      const rowY = startY + r * rowH;
+      if (ex.gauche[r] != null) {
+        const t = doc.splitTextToSize(`${r + 1}. ${ex.gauche[r]}`, colWidth - 4)[0] || '';
+        doc.text(t, leftX, rowY);
+        // Petit repère (point) côté droit de la colonne gauche pour ancrer le trait.
+        doc.setFillColor(90, 90, 90);
+        doc.circle(marginX + colWidth, rowY - 1.2, 0.5, 'F');
+      }
+      if (ex.droite[r] != null) {
+        const letter = String.fromCharCode(65 + r);
+        const t = doc.splitTextToSize(`${letter}. ${ex.droite[r]}`, colWidth - 4)[0] || '';
+        doc.setFillColor(90, 90, 90);
+        doc.circle(rightX - 3, rowY - 1.2, 0.5, 'F');
+        doc.text(t, rightX, rowY);
+      }
+    }
+    // Ligne pointillée verticale légère au centre pour suggérer l'espace de traçage.
+    doc.setDrawColor(210, 210, 210);
+    doc.setLineDashPattern([1, 1], 0);
+    doc.line(marginX + colWidth + colGap / 2, startY - 3, marginX + colWidth + colGap / 2, startY + n * rowH - 2);
+    doc.setLineDashPattern([], 0);
+
+    setY(startY + n * rowH + 1);
+  }
+
+  function describeRelierAnswer(ex) {
+    if (ex.reponse && ex.reponse.trim()) return ex.reponse.trim();
+    // Repli : associe par ordre si aucune réponse fournie.
+    return ex.gauche.map((g, idx) => `${idx + 1}-${String.fromCharCode(65 + idx)}`).join(', ');
   }
 
   function pollinationsUrl(prompt) {

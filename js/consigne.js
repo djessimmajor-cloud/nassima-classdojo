@@ -85,5 +85,88 @@ const Consigne = (function () {
     return { close };
   }
 
-  return { getSettings, saveSettings, buildContentHTML, renderPreview, showFullscreen, DEFAULTS };
+  // ================= BRUIT "CRAIE QUI CRISSE" (Web Audio API, 100% procédural) =================
+  // Aucun fichier audio : on génère le son à la volée avec un AudioContext — un oscillateur
+  // en dents de scie dont la fréquence varie de façon rapide/erratique dans les aigus (effet
+  // "crissement"), additionné d'un peu de bruit blanc filtré passe-haut pour la dissonance,
+  // le tout enveloppé sur ~1.4s avec un volume raisonnable pour ne pas abîmer les oreilles.
+  let sharedAudioCtx = null;
+  function getAudioCtx() {
+    if (!sharedAudioCtx) {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) throw new Error("L'API Web Audio n'est pas disponible sur ce navigateur.");
+      sharedAudioCtx = new Ctx();
+    }
+    if (sharedAudioCtx.state === 'suspended') sharedAudioCtx.resume().catch(() => {});
+    return sharedAudioCtx;
+  }
+
+  function playChalkScreech() {
+    const ctx = getAudioCtx();
+    const now = ctx.currentTime;
+    const duration = 1.4;
+    const masterGain = ctx.createGain();
+    masterGain.gain.setValueAtTime(0, now);
+    masterGain.gain.linearRampToValueAtTime(0.22, now + 0.03);
+    masterGain.gain.setValueAtTime(0.22, now + duration - 0.15);
+    masterGain.gain.linearRampToValueAtTime(0, now + duration);
+    masterGain.connect(ctx.destination);
+
+    // Oscillateur principal : forme d'onde en dents de scie, riche en harmoniques aigües,
+    // dont la fréquence "zigzague" de façon erratique entre ~1800 et ~4200 Hz pour imiter
+    // le crissement irrégulier d'une craie sur un tableau.
+    const osc = ctx.createOscillator();
+    osc.type = 'sawtooth';
+    const steps = 40;
+    for (let i = 0; i <= steps; i++) {
+      const t = now + (i / steps) * duration;
+      const freq = 1800 + Math.random() * 2400;
+      osc.frequency.setValueAtTime(freq, t);
+    }
+    // Léger filtre passe-bande pour concentrer l'énergie dans les aigus stridents.
+    const bandpass = ctx.createBiquadFilter();
+    bandpass.type = 'bandpass';
+    bandpass.frequency.value = 2800;
+    bandpass.Q.value = 1.1;
+    osc.connect(bandpass);
+    bandpass.connect(masterGain);
+
+    // Un second oscillateur légèrement désaccordé pour ajouter de la dissonance ("battements").
+    const osc2 = ctx.createOscillator();
+    osc2.type = 'sawtooth';
+    for (let i = 0; i <= steps; i++) {
+      const t = now + (i / steps) * duration;
+      const freq = 1900 + Math.random() * 2500;
+      osc2.frequency.setValueAtTime(freq, t);
+    }
+    const gain2 = ctx.createGain();
+    gain2.gain.value = 0.6;
+    osc2.connect(gain2);
+    gain2.connect(bandpass);
+
+    // Bruit blanc filtré passe-haut, en fond, pour la texture "rêche" de la craie.
+    const bufferSize = Math.floor(ctx.sampleRate * duration);
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const data = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+    const noiseSource = ctx.createBufferSource();
+    noiseSource.buffer = noiseBuffer;
+    const highpass = ctx.createBiquadFilter();
+    highpass.type = 'highpass';
+    highpass.frequency.value = 3500;
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.value = 0.12;
+    noiseSource.connect(highpass);
+    highpass.connect(noiseGain);
+    noiseGain.connect(masterGain);
+
+    osc.start(now);
+    osc.stop(now + duration);
+    osc2.start(now);
+    osc2.stop(now + duration);
+    noiseSource.start(now);
+    noiseSource.stop(now + duration);
+  }
+
+  return { getSettings, saveSettings, buildContentHTML, renderPreview, showFullscreen, playChalkScreech, DEFAULTS };
 })();

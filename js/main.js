@@ -554,6 +554,9 @@
     };
     document.getElementById('cgImageRemove').onclick = () => { Consigne.saveSettings({ image: null }); renderConsigne(); };
     document.getElementById('cgShowBtn').onclick = () => { Consigne.showFullscreen(Consigne.getSettings()); };
+    document.getElementById('cgNoiseBtn').onclick = () => {
+      try { Consigne.playChalkScreech(); } catch (ex) { alert(ex.message); }
+    };
   }
 
   // ================= OUTILS =================
