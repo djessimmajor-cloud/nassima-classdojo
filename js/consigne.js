@@ -5,7 +5,7 @@ const Consigne = (function () {
 
   const DEFAULTS = {
     text: '',
-    font: "'Sora', sans-serif",
+    font: "'Instrument Serif', Georgia, serif",
     size: 56,
     color: '#ffffff',
     bgColor: '#000000',
