@@ -23,7 +23,23 @@ const Classes = (function () {
     };
   }
   function mapStudentRow(row) {
-    return { id: row.id, nom: row.nom, sexe: row.sexe, couleur: row.couleur, points: row.points || 0 };
+    return {
+      id: row.id, nom: row.nom, sexe: row.sexe, couleur: row.couleur, points: row.points || 0,
+      avatarChar: row.avatar_char, avatarCharCol: row.avatar_char_col,
+      avatarAcc: (row.avatar_acc === null || row.avatar_acc === undefined) ? null : row.avatar_acc,
+      avatarAccCol: (row.avatar_acc_col === null || row.avatar_acc_col === undefined) ? null : row.avatar_acc_col,
+    };
+  }
+
+  // Tire un avatar aléatoire : un personnage (6x6) obligatoire + un accessoire (6x6) optionnel.
+  function randomAvatar() {
+    const hasAcc = Math.random() < 0.6; // un peu plus d'élèves avec accessoire, pour un rendu vivant
+    return {
+      avatar_char: Math.floor(Math.random() * 6),
+      avatar_char_col: Math.floor(Math.random() * 6),
+      avatar_acc: hasAcc ? Math.floor(Math.random() * 6) : null,
+      avatar_acc_col: hasAcc ? Math.floor(Math.random() * 6) : null,
+    };
   }
   function mapCategoryRow(row) {
     return { id: row.id, nom: row.nom, points: row.points };
@@ -100,10 +116,24 @@ const Classes = (function () {
     if (!nom || !nom.trim()) throw new Error("Le nom de l'élève est obligatoire.");
     if (sexe !== 'F' && sexe !== 'M') throw new Error('Sexe invalide.');
     const couleur = AVATAR_COLORS[c.eleves.length % AVATAR_COLORS.length];
-    const { data, error } = await sb.from('students').insert({ class_id: classId, nom: nom.trim(), sexe, couleur, points: 0 }).select().single();
+    const avatar = randomAvatar();
+    const { data, error } = await sb.from('students').insert({ class_id: classId, nom: nom.trim(), sexe, couleur, points: 0, ...avatar }).select().single();
     if (error) throw new Error(friendlyError(error));
     await refresh();
     return mapStudentRow(data);
+  }
+
+  // Met à jour l'avatar (personnage + accessoire) d'un élève existant, choisi manuellement.
+  async function setAvatar(classId, eleveId, avatarChar, avatarCharCol, avatarAcc, avatarAccCol) {
+    const patch = {
+      avatar_char: avatarChar, avatar_char_col: avatarCharCol,
+      avatar_acc: (avatarAcc === null || avatarAcc === undefined) ? null : avatarAcc,
+      avatar_acc_col: (avatarAccCol === null || avatarAccCol === undefined) ? null : avatarAccCol,
+    };
+    const { error } = await sb.from('students').update(patch).eq('id', eleveId);
+    if (error) throw new Error(friendlyError(error));
+    await refresh();
+    return get(classId).eleves.find(e => e.id === eleveId);
   }
 
   async function removeStudent(classId, eleveId) {
@@ -125,5 +155,31 @@ const Classes = (function () {
     await refresh();
   }
 
-  return { all, forCurrentUser, get, refresh, create, remove, update, addStudent, removeStudent, addCategory, removeCategory, AVATAR_COLORS };
+  // Construit le HTML d'un avatar (personnage + accessoire superposé) pour un élève donné.
+  // `size` en px (CSS), utilisé pour les différents contextes (carte élève, modale de points...).
+  function avatarHtml(e, size) {
+    const sz = size || 60;
+    const hasChar = e && e.avatarChar !== null && e.avatarChar !== undefined
+      && e.avatarCharCol !== null && e.avatarCharCol !== undefined;
+    if (!hasChar) {
+      // Repli sur l'ancien rendu (couleur + initiale) si l'élève n'a pas encore d'avatar assigné.
+      const initiale = e && e.nom ? e.nom.slice(0, 1).toUpperCase() : '?';
+      return `<div class="avatar-fallback" style="width:${sz}px;height:${sz}px;background:${e ? e.couleur : '#4f8ef7'}">${initiale}</div>`;
+    }
+    const charSrc = `assets/avatars/characters/char_${e.avatarCharCol}_${e.avatarChar}.png`;
+    const hasAcc = e.avatarAcc !== null && e.avatarAcc !== undefined && e.avatarAccCol !== null && e.avatarAccCol !== undefined;
+    const accSrc = hasAcc ? `assets/avatars/accessories/acc_${e.avatarAccCol}_${e.avatarAcc}.png` : '';
+    return `
+      <div class="avatar-combo" style="width:${sz}px;height:${sz}px;">
+        <img class="avatar-layer avatar-layer-char" src="${charSrc}" alt="" draggable="false">
+        ${hasAcc ? `<img class="avatar-layer avatar-layer-acc" src="${accSrc}" alt="" draggable="false">` : ''}
+      </div>
+    `;
+  }
+
+  return {
+    all, forCurrentUser, get, refresh, create, remove, update, addStudent, removeStudent,
+    addCategory, removeCategory, setAvatar, randomAvatar, avatarHtml, AVATAR_COLORS,
+    AVATAR_GRID_SIZE: 6,
+  };
 })();

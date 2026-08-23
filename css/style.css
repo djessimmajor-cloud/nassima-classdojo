@@ -223,6 +223,23 @@ button{ font-family:var(--font); cursor:pointer; letter-spacing:var(--tracking);
 .student-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px 16px; text-align:center; box-shadow:var(--shadow); transition:transform .18s var(--ease), box-shadow .18s var(--ease); display:flex; flex-direction:column; align-items:center; }
 .student-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); }
 .avatar{ width:60px; height:60px; border-radius:100%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:1.35rem; box-shadow:var(--shadow); }
+
+/* ============ AVATARS PERSONNAGE + ACCESSOIRE ============ */
+.avatar-combo{ position:relative; margin:0 auto 10px; }
+.avatar-layer{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; pointer-events:none; user-select:none; }
+.avatar-layer-char{ z-index:1; }
+.avatar-layer-acc{ z-index:2; }
+.avatar-fallback{ border-radius:100%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:1.35rem; box-shadow:var(--shadow); }
+
+.avatar-pick-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; max-height:260px; overflow-y:auto; padding:4px; }
+.avatar-pick-cell{ background:var(--surface-2, var(--bg)); border:2px solid var(--border); border-radius:12px; padding:4px; cursor:pointer; transition:border-color .15s var(--ease), transform .15s var(--ease); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1; }
+.avatar-pick-cell img{ width:100%; height:100%; object-fit:contain; }
+.avatar-pick-cell:hover{ transform:translateY(-2px); }
+.avatar-pick-cell.selected{ border-color:var(--violet); box-shadow:0 0 0 2px var(--violet); }
+.avatar-pick-none{ color:var(--muted, #888); }
+.avatar-picker-preview{ display:flex; flex-direction:column; align-items:center; gap:6px; margin-bottom:6px; }
+.avatar-picker-preview-box{ width:96px; height:96px; position:relative; background:var(--bg); border-radius:100%; box-shadow:var(--shadow); }
+.avatar-picker-preview-box .avatar-combo{ margin:0; width:96px !important; height:96px !important; }
 .student-name{ font-weight:700; font-size:1.02rem; }
 .student-points{ font-size:1.9rem; font-weight:800; font-style:normal; margin:6px 0 4px; font-family:var(--font-display); color:var(--violet); }
 .student-card-actions{ display:flex; gap:8px; margin-top:14px; width:100%; }
@@ -234,6 +251,11 @@ button{ font-family:var(--font); cursor:pointer; letter-spacing:var(--tracking);
 .points-modal-box{ max-width:460px; padding:0; overflow:hidden; border-radius:28px; }
 .points-modal-head{ background:linear-gradient(135deg, var(--violet), var(--violet-dark)); color:var(--on-violet); padding:26px 26px 22px; text-align:center; position:relative; }
 .points-modal-head .pm-avatar{ width:64px; height:64px; border-radius:100%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.18); color:var(--on-violet); font-weight:800; font-size:1.5rem; border:2px solid rgba(255,255,255,.35); }
+.pm-avatar-wrap{ position:relative; width:64px; margin:0 auto 10px; }
+.pm-avatar-wrap .avatar-combo{ margin:0; }
+.pm-avatar-edit{ position:absolute; bottom:-4px; right:-4px; width:26px; height:26px; border-radius:100%; border:2px solid var(--violet-dark); background:#fff; color:var(--violet); display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); transition:transform .15s var(--ease); }
+.pm-avatar-edit:hover{ transform:scale(1.08); }
+.pm-avatar-edit svg{ width:14px; height:14px; }
 .points-modal-head .pm-name{ font-family:var(--font-display); font-style:normal; font-size:1.4rem; font-weight:700; }
 .points-modal-head .pm-total{ font-size:2.6rem; font-weight:800; font-style:normal; font-family:var(--font-display); margin-top:4px; }
 .points-modal-close{ position:absolute; top:14px; right:14px; width:32px; height:32px; border-radius:100%; border:none; background:rgba(255,255,255,.2); color:var(--on-violet); display:flex; align-items:center; justify-content:center; transition:background .15s var(--ease); }

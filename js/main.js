@@ -323,7 +323,7 @@
 
     grid.innerHTML = c.eleves.map(e => `
       <div class="student-card">
-        <div class="avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
+        ${Classes.avatarHtml(e, 60)}
         <div class="student-name">${escapeHtml(e.nom)} <span class="pill ${e.sexe === 'F' ? 'pill-f' : 'pill-m'}">${e.sexe === 'F' ? 'F' : 'G'}</span></div>
         <div class="student-points">${e.points || 0}</div>
         <div class="student-card-actions">
@@ -417,7 +417,10 @@
       <div class="points-modal-box">
         <div class="points-modal-head">
           <button class="points-modal-close" id="pmClose" aria-label="Fermer">${Icons.svg('close')}</button>
-          <div class="pm-avatar" style="background:${e.couleur}">${escapeHtml(e.nom.slice(0, 1).toUpperCase())}</div>
+          <div class="pm-avatar-wrap">
+            ${Classes.avatarHtml(e, 64)}
+            <button class="pm-avatar-edit" id="pmAvatarEdit" title="Changer d'avatar">${Icons.svg('pencil')}</button>
+          </div>
           <div class="pm-name">${escapeHtml(e.nom)}</div>
           <div class="pm-total" id="pmTotal">${e.points || 0}</div>
           <div class="hint" style="color:rgba(255,255,255,.85); justify-content:center;">points au total</div>
@@ -473,6 +476,102 @@
         openPointsModal(classId, eleveId); // ré-ouvre la modale rafraîchie avec la nouvelle catégorie
       } catch (ex) { alert(ex.message); }
     });
+    document.getElementById('pmAvatarEdit').addEventListener('click', () => {
+      openAvatarPickerModal(classId, eleveId, () => openPointsModal(classId, eleveId));
+    });
+  }
+
+  // ---- Sélecteur d'avatar (personnage + accessoire) ----
+  // Grille de 36 personnages, puis grille de 36 accessoires (+ "aucun"), avec aperçu en direct.
+  function openAvatarPickerModal(classId, eleveId, onDone) {
+    const c = Classes.get(classId);
+    if (!c) return;
+    const e = c.eleves.find(x => x.id === eleveId);
+    if (!e) return;
+
+    const state = {
+      char: (e.avatarChar !== null && e.avatarChar !== undefined) ? e.avatarChar : Math.floor(Math.random() * 6),
+      charCol: (e.avatarCharCol !== null && e.avatarCharCol !== undefined) ? e.avatarCharCol : Math.floor(Math.random() * 6),
+      acc: (e.avatarAcc !== null && e.avatarAcc !== undefined) ? e.avatarAcc : null,
+      accCol: (e.avatarAccCol !== null && e.avatarAccCol !== undefined) ? e.avatarAccCol : null,
+    };
+
+    function charCell(r, col) {
+      return `<button type="button" class="avatar-pick-cell" data-r="${r}" data-c="${col}">
+        <img src="assets/avatars/characters/char_${r}_${col}.png" alt="" draggable="false">
+      </button>`;
+    }
+    function accCell(r, col) {
+      return `<button type="button" class="avatar-pick-cell" data-r="${r}" data-c="${col}">
+        <img src="assets/avatars/accessories/acc_${r}_${col}.png" alt="" draggable="false">
+      </button>`;
+    }
+    let charGridHtml = '';
+    let accGridHtml = '';
+    for (let r = 0; r < 6; r++) for (let col = 0; col < 6; col++) {
+      charGridHtml += charCell(r, col);
+      accGridHtml += accCell(r, col);
+    }
+
+    openModal(`
+      <h3>${Icons.svg('user')} Choisir un avatar</h3>
+      <div class="avatar-picker-preview">
+        <div class="avatar-picker-preview-box" id="avpPreview"></div>
+        <div class="hint">Aperçu — ${escapeHtml(e.nom)}</div>
+      </div>
+      <h4 style="margin-top:14px;">Personnage</h4>
+      <div class="avatar-pick-grid" id="avpCharGrid">${charGridHtml}</div>
+      <h4 style="margin-top:14px;">Accessoire (optionnel)</h4>
+      <div class="avatar-pick-grid" id="avpAccGrid">
+        <button type="button" class="avatar-pick-cell avatar-pick-none" data-none="1" title="Aucun accessoire">${Icons.svg('close')}</button>
+        ${accGridHtml}
+      </div>
+      <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:16px;">
+        <button class="btn btn-sm" id="avpCancel">Annuler</button>
+        <button class="btn btn-primary" id="avpSave">${Icons.svg('check')} Enregistrer</button>
+      </div>
+    `);
+
+    function updatePreview() {
+      const fake = { nom: e.nom, couleur: e.couleur, avatarChar: state.char, avatarCharCol: state.charCol, avatarAcc: state.acc, avatarAccCol: state.accCol };
+      document.getElementById('avpPreview').innerHTML = Classes.avatarHtml(fake, 96);
+      document.querySelectorAll('#avpCharGrid .avatar-pick-cell').forEach(b => {
+        b.classList.toggle('selected', Number(b.dataset.r) === state.charCol && Number(b.dataset.c) === state.char);
+      });
+      document.querySelectorAll('#avpAccGrid .avatar-pick-cell:not(.avatar-pick-none)').forEach(b => {
+        b.classList.toggle('selected', state.acc !== null && Number(b.dataset.r) === state.accCol && Number(b.dataset.c) === state.acc);
+      });
+      const noneBtn = document.querySelector('#avpAccGrid .avatar-pick-none');
+      if (noneBtn) noneBtn.classList.toggle('selected', state.acc === null);
+    }
+
+    document.getElementById('avpCharGrid').addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.avatar-pick-cell');
+      if (!btn) return;
+      state.charCol = Number(btn.dataset.r);
+      state.char = Number(btn.dataset.c);
+      updatePreview();
+    });
+    document.getElementById('avpAccGrid').addEventListener('click', (ev) => {
+      const btn = ev.target.closest('.avatar-pick-cell');
+      if (!btn) return;
+      if (btn.dataset.none) { state.acc = null; state.accCol = null; }
+      else { state.accCol = Number(btn.dataset.r); state.acc = Number(btn.dataset.c); }
+      updatePreview();
+    });
+
+    document.getElementById('avpCancel').addEventListener('click', () => onDone ? onDone() : closeModal());
+    document.getElementById('avpSave').addEventListener('click', async () => {
+      const saveBtn = document.getElementById('avpSave');
+      saveBtn.disabled = true;
+      try {
+        await Classes.setAvatar(classId, eleveId, state.char, state.charCol, state.acc, state.accCol);
+        renderClassDetail();
+        if (onDone) onDone(); else closeModal();
+      } catch (ex) { alert(ex.message); saveBtn.disabled = false; }
+    });
+
+    updatePreview();
   }
 
   document.getElementById('btnResetPoints').addEventListener('click', async () => {
