@@ -590,6 +590,40 @@
     });
   }
 
+  // ---- Sons du sélecteur aléatoire ----
+  // Fichiers réels (pas de bips Web Audio synthétiques), sous licence Mixkit (gratuite,
+  // usage commercial/personnel autorisé, aucune attribution requise) :
+  //  - sounds/drumroll.mp3 : "Tension and suspense drum roll" — mixkit.co/free-sound-effects/drum/
+  //    https://assets.mixkit.co/active_storage/sfx/577/577-preview.mp3
+  //  - sounds/tada.mp3     : "Completion of a level" — mixkit.co/free-sound-effects/game/
+  //    https://assets.mixkit.co/active_storage/sfx/2063/2063-preview.mp3
+  // Chargement défensif : si le fichier est absent/bloqué, on échoue silencieusement (pas de crash).
+  const pickerSounds = (function () {
+    function makeAudio(src) {
+      try {
+        const a = new Audio(src);
+        a.preload = 'auto';
+        a.addEventListener('error', () => { /* silencieux : pas de son dispo */ });
+        return a;
+      } catch (e) { return null; }
+    }
+    const drumroll = makeAudio('sounds/drumroll.mp3');
+    const tada = makeAudio('sounds/tada.mp3');
+    function safePlay(audio) {
+      if (!audio) return;
+      try {
+        audio.currentTime = 0;
+        const p = audio.play();
+        if (p && p.catch) p.catch(() => {});
+      } catch (e) { /* silencieux */ }
+    }
+    function safeStop(audio) {
+      if (!audio) return;
+      try { audio.pause(); audio.currentTime = 0; } catch (e) { /* silencieux */ }
+    }
+    return { drumroll, tada, safePlay, safeStop };
+  })();
+
   function renderTools(tool) {
     const cont = document.getElementById('toolContent');
     if (tool === 'timer') return renderTimer(cont);
@@ -650,15 +684,24 @@
       const firstItem = reel.querySelector('.picker-reel-item');
       const itemH = firstItem ? firstItem.getBoundingClientRect().height : 84;
       const finalOffset = (REEL_LEN - 1) * itemH;
+      const ANIM_DURATION = 3.2; // secondes, doit rester synchro avec la transition CSS ci-dessous
       reel.style.transition = 'none';
       reel.style.transform = 'translateY(0)';
       // force reflow puis lance la transition d'easing qui ralentit progressivement.
       void reel.offsetHeight;
-      reel.style.transition = 'transform 3.2s cubic-bezier(.12,.72,.14,1)';
+      reel.style.transition = `transform ${ANIM_DURATION}s cubic-bezier(.12,.72,.14,1)`;
       reel.style.transform = `translateY(-${finalOffset}px)`;
+
+      // Roulement de tambour pendant tout le défilement, coupé pile à l'arrêt.
+      pickerSounds.safeStop(pickerSounds.tada);
+      pickerSounds.safePlay(pickerSounds.drumroll);
+      const drumrollStopTimer = setTimeout(() => pickerSounds.safeStop(pickerSounds.drumroll), ANIM_DURATION * 1000);
 
       const onEnd = () => {
         reel.removeEventListener('transitionend', onEnd);
+        clearTimeout(drumrollStopTimer);
+        pickerSounds.safeStop(pickerSounds.drumroll);
+        pickerSounds.safePlay(pickerSounds.tada);
         drawBtn.disabled = false;
         document.getElementById('pickerMeta').textContent = res.poolWasReset
           ? 'Nouveau cycle démarré pour ce sexe.'
@@ -696,18 +739,93 @@
 
   function renderGroups(cont, c) {
     cont.innerHTML = `
-      <h3>${Icons.svg('users')} Groupes aléatoires équilibrés</h3>
-      <label>Nombre de groupes <input type="number" id="nbGroupes" value="4" min="1"></label>
-      <button class="btn btn-primary" id="btnMakeGroups" style="margin-top:10px;">Générer</button>
+      <h3>${Icons.svg('users')} Groupes</h3>
+      <p class="hint">Génère des groupes d'élèves à partir de la classe sélectionnée ci-dessus.</p>
+      <div class="tabs-row">
+        <button class="groupsModeTab active" data-mode="mixte" type="button">Groupes mixtes</button>
+        <button class="groupsModeTab" data-mode="non-mixte" type="button">Groupes non-mixtes</button>
+      </div>
+      <p class="hint" id="groupsModeHint" style="margin-top:8px;"></p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:10px;">
+        <label style="min-width:220px;">Répartir par
+          <select id="groupsByMode">
+            <option value="nombre">Nombre de groupes</option>
+            <option value="taille">Taille des groupes</option>
+          </select>
+        </label>
+        <label id="groupsCountLabel" style="min-width:160px;">Nombre de groupes <input type="number" id="groupsCount" value="4" min="1"></label>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+        <button class="btn btn-primary" id="btnMakeGroups">${Icons.svg('users')} Générer les groupes</button>
+        <button class="btn btn-sm" id="btnRegenGroups" style="display:none;">Régénérer un nouveau tirage</button>
+      </div>
+      <p id="groupsError" class="error-msg"></p>
       <div id="groupsResult" style="margin-top:16px;"></div>
     `;
-    document.getElementById('btnMakeGroups').addEventListener('click', () => {
-      if (c.eleves.length === 0) { alert('Cette classe n’a pas d’élèves.'); return; }
-      const n = parseInt(document.getElementById('nbGroupes').value, 10) || 1;
-      const groups = Tools.makeGroups(c.eleves, n);
-      document.getElementById('groupsResult').innerHTML = `<div class="grid-cards">${groups.map((g, i) => `
-        <div class="card"><h4>Groupe ${i + 1}</h4>${g.map(e => `<p>${escapeHtml(e.nom)}</p>`).join('') || '<p class="hint">Vide</p>'}</div>`).join('')}</div>`;
+
+    let currentMode = 'mixte';
+    const modeHints = {
+      'mixte': 'Mélange filles et garçons dans chaque groupe, avec une répartition équilibrée si possible.',
+      'non-mixte': 'Groupes 100% filles et groupes 100% garçons générés séparément à partir des listes de la classe.',
+    };
+    document.getElementById('groupsModeHint').textContent = modeHints[currentMode];
+    document.querySelectorAll('.groupsModeTab').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.groupsModeTab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMode = btn.dataset.mode;
+      document.getElementById('groupsModeHint').textContent = modeHints[currentMode];
+      document.getElementById('groupsCountLabel').firstChild.textContent =
+        (document.getElementById('groupsByMode').value === 'taille'
+          ? (currentMode === 'non-mixte' ? 'Taille souhaitée (par sexe) ' : 'Taille souhaitée par groupe ')
+          : (currentMode === 'non-mixte' ? 'Nombre de groupes (par sexe) ' : 'Nombre de groupes '));
+    }));
+    document.getElementById('groupsByMode').addEventListener('change', (ev) => {
+      const label = document.getElementById('groupsCountLabel');
+      label.firstChild.textContent = ev.target.value === 'taille'
+        ? (currentMode === 'non-mixte' ? 'Taille souhaitée (par sexe) ' : 'Taille souhaitée par groupe ')
+        : (currentMode === 'non-mixte' ? 'Nombre de groupes (par sexe) ' : 'Nombre de groupes ');
     });
+
+    function renderResult(result) {
+      const resDiv = document.getElementById('groupsResult');
+      if (currentMode === 'mixte') {
+        resDiv.innerHTML = `<div class="grid-cards">${result.groupesMixtes.map((g, i) => `
+          <div class="card"><h4>Groupe ${i + 1}</h4>${g.map(e => `<p>${escapeHtml(e.nom)}</p>`).join('') || '<p class="hint">Vide</p>'}</div>`).join('')}</div>`;
+      } else {
+        let html = '';
+        if (result.groupesFilles.length) {
+          html += `<h4 style="margin-top:0;">Groupes filles</h4><div class="grid-cards">${result.groupesFilles.map((g, i) => `
+            <div class="card"><h4>Groupe filles ${i + 1}</h4>${g.map(e => `<p>${escapeHtml(e.nom)}</p>`).join('') || '<p class="hint">Vide</p>'}</div>`).join('')}</div>`;
+        }
+        if (result.groupesGarcons.length) {
+          html += `<h4 style="margin-top:18px;">Groupes garçons</h4><div class="grid-cards">${result.groupesGarcons.map((g, i) => `
+            <div class="card"><h4>Groupe garçons ${i + 1}</h4>${g.map(e => `<p>${escapeHtml(e.nom)}</p>`).join('') || '<p class="hint">Vide</p>'}</div>`).join('')}</div>`;
+        }
+        if (!result.groupesFilles.length && !result.groupesGarcons.length) {
+          html = '<p class="hint">Aucun groupe à afficher.</p>';
+        }
+        resDiv.innerHTML = html;
+      }
+    }
+
+    function generate() {
+      const errEl = document.getElementById('groupsError');
+      errEl.textContent = '';
+      document.getElementById('groupsResult').innerHTML = '';
+      if (c.eleves.length === 0) { errEl.textContent = 'Cette classe n’a aucun élève.'; return; }
+
+      const byMode = document.getElementById('groupsByMode').value;
+      const countInput = document.getElementById('groupsCount').value;
+      const calc = Tools.computeNbGroupes(countInput, byMode, c.eleves, currentMode);
+      if (calc.error) { errEl.textContent = calc.error; return; }
+
+      const result = Tools.makeGroups(c.eleves, calc.nbGroupes, currentMode);
+      renderResult(result);
+      document.getElementById('btnRegenGroups').style.display = '';
+    }
+
+    document.getElementById('btnMakeGroups').addEventListener('click', generate);
+    document.getElementById('btnRegenGroups').addEventListener('click', generate);
   }
 
   function renderSeating(cont, c) {

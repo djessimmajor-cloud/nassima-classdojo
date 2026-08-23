@@ -15,23 +15,81 @@ const Tools = (function () {
   }
   function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
 
-  // ---- Groupes aléatoires équilibrés (mixité filles/garçons si possible) ----
-  function makeGroups(eleves, nbGroupes) {
-    nbGroupes = Math.max(1, Math.min(nbGroupes, eleves.length || 1));
-    const filles = shuffle(eleves.filter(e => e.sexe === 'F'));
-    const garcons = shuffle(eleves.filter(e => e.sexe === 'M'));
+  // ---- Groupes aléatoires ----
+  // Répartit une liste d'élèves en `nbGroupes` groupes, en tournant (round-robin) sur une
+  // liste mélangée aléatoirement.
+  function distribute(list, nbGroupes) {
+    const shuffled = shuffle(list);
     const groups = Array.from({ length: nbGroupes }, () => []);
-    let gi = 0;
-    filles.concat(garcons).forEach(() => {}); // no-op keep structure clear
-    let mixed = [];
-    // alterne F/M pour répartir équitablement
-    let fi = 0, mi = 0;
-    while (fi < filles.length || mi < garcons.length) {
-      if (fi < filles.length) mixed.push(filles[fi++]);
-      if (mi < garcons.length) mixed.push(garcons[mi++]);
-    }
-    mixed.forEach((e) => { groups[gi % nbGroupes].push(e); gi++; });
+    shuffled.forEach((e, i) => { groups[i % nbGroupes].push(e); });
     return groups;
+  }
+
+  // mode: 'mixte' (filles + garçons mélangés dans chaque groupe, réparti équitablement)
+  //    ou 'non-mixte' (groupes 100% filles séparés des groupes 100% garçons)
+  // nbGroupes est utilisé tel quel pour le mode mixte ; pour le mode non-mixte, nbGroupes
+  // représente le nombre de groupes PAR SEXE (ex: 2 filles + 2 garçons si les deux sexes sont
+  // présents).
+  function makeGroups(eleves, nbGroupes, mode) {
+    mode = mode === 'non-mixte' ? 'non-mixte' : 'mixte';
+    nbGroupes = Math.max(1, Math.floor(nbGroupes) || 1);
+    const filles = eleves.filter(e => e.sexe === 'F');
+    const garcons = eleves.filter(e => e.sexe === 'M');
+
+    if (mode === 'mixte') {
+      const n = Math.max(1, Math.min(nbGroupes, eleves.length || 1));
+      const groups = Array.from({ length: n }, () => []);
+      const shuffledF = shuffle(filles);
+      const shuffledM = shuffle(garcons);
+      let mixed = [];
+      let fi = 0, mi = 0;
+      while (fi < shuffledF.length || mi < shuffledM.length) {
+        if (fi < shuffledF.length) mixed.push(shuffledF[fi++]);
+        if (mi < shuffledM.length) mixed.push(shuffledM[mi++]);
+      }
+      mixed.forEach((e, i) => { groups[i % n].push(e); });
+      return { groupesFilles: [], groupesGarcons: [], groupesMixtes: groups };
+    }
+
+    // mode non-mixte : un lot de groupes pour les filles, un lot pour les garçons
+    const groupesFilles = filles.length ? distribute(filles, Math.max(1, Math.min(nbGroupes, filles.length))) : [];
+    const groupesGarcons = garcons.length ? distribute(garcons, Math.max(1, Math.min(nbGroupes, garcons.length))) : [];
+    return { groupesFilles, groupesGarcons, groupesMixtes: [] };
+  }
+
+  // Calcule le nombre de groupes à partir soit d'un nombre de groupes souhaité, soit d'une
+  // taille de groupe souhaitée. Retourne { nbGroupes, error } — error est un message lisible
+  // si la configuration est impossible (classe vide, pas assez d'élèves, etc.).
+  function computeNbGroupes(count, byMode, eleves, mode) {
+    count = parseInt(count, 10);
+    if (!count || count < 1) return { error: 'Merci d’indiquer un nombre valide (au moins 1).' };
+    if (mode === 'non-mixte') {
+      const filles = eleves.filter(e => e.sexe === 'F').length;
+      const garcons = eleves.filter(e => e.sexe === 'M').length;
+      if (filles === 0 && garcons === 0) return { error: 'Cette classe n’a aucun élève.' };
+      let nbGroupes;
+      if (byMode === 'taille') {
+        // taille souhaitée par groupe : on prend le sexe le plus nombreux pour dimensionner
+        const maxSexe = Math.max(filles, garcons);
+        nbGroupes = Math.max(1, Math.ceil(maxSexe / count));
+      } else {
+        nbGroupes = count;
+        if (filles > 0 && filles < nbGroupes) return { error: `Il n’y a que ${filles} fille(s) pour ${nbGroupes} groupes non-mixtes demandés côté filles.` };
+        if (garcons > 0 && garcons < nbGroupes) return { error: `Il n’y a que ${garcons} garçon(s) pour ${nbGroupes} groupes non-mixtes demandés côté garçons.` };
+      }
+      return { nbGroupes };
+    } else {
+      const total = eleves.length;
+      if (total === 0) return { error: 'Cette classe n’a aucun élève.' };
+      let nbGroupes;
+      if (byMode === 'taille') {
+        nbGroupes = Math.max(1, Math.ceil(total / count));
+      } else {
+        nbGroupes = count;
+        if (total < nbGroupes) return { error: `Il n’y a que ${total} élève(s) dans la classe pour ${nbGroupes} groupes demandés.` };
+      }
+      return { nbGroupes };
+    }
   }
   function shuffle(arr) {
     const a = arr.slice();
@@ -108,7 +166,7 @@ const Tools = (function () {
   }
 
   return {
-    startTimer, stopTimer, makeGroups, shuffle,
+    startTimer, stopTimer, makeGroups, computeNbGroupes, shuffle,
     getNotes, addNote, deleteNote,
     BADGE_DEFS, getBadges, computeBadges,
     getEvents, addEvent, removeEvent,
