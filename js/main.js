@@ -656,6 +656,13 @@
     document.getElementById('cgNoiseBtn').onclick = () => {
       try { Consigne.playChalkScreech(); } catch (ex) { alert(ex.message); }
     };
+    document.getElementById('cgNoiseBtn2').onclick = () => {
+      try {
+        const a = new Audio('sounds/squeak-metal.mp3');
+        a.volume = 0.8;
+        a.play().catch(() => {});
+      } catch (ex) {}
+    };
   }
 
   // ================= OUTILS =================
